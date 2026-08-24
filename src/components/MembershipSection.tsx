@@ -52,7 +52,7 @@ export const MembershipSection: React.FC = () => {
             <div className="lg:col-span-8 space-y-5 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#2DD4BF] text-xs font-bold uppercase tracking-wider border border-white/10">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>PET PARENT VIP PERKS</span>
+                <span>PET PARENT VIP PERKS • ₹599 / YEAR</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-['Outfit'] tracking-tight">
@@ -60,7 +60,7 @@ export const MembershipSection: React.FC = () => {
               </h2>
 
               <p className="text-slate-200 text-xs sm:text-sm max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                Enjoy <strong className="text-[#2DD4BF]">15% OFF</strong> your first grooming appointment or boutique order, plus monthly seasonal coat-care guides, birthday treats, and priority slot reservations in Mangaluru.
+                Enjoy <strong className="text-[#2DD4BF]">15% OFF</strong> grooming & boutique orders, birthday surprise boxes, and priority slot reservations in Mangaluru for just ₹599/year.
               </p>
 
               {/* Form matching the reference screenshot */}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import {
   MapPin,
@@ -11,7 +11,7 @@ import {
   Scissors,
   ShoppingBag,
   ShieldCheck,
-  X,
+  MessageCircle,
 } from 'lucide-react';
 import { ActivePage } from '../types';
 import { useCart } from '../context/CartContext';
@@ -29,7 +29,6 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
   const { openGroomingEnquiry } = useCart();
-  const [activePolicyModal, setActivePolicyModal] = useState<string | null>(null);
 
   const handleNav = (page: ActivePage) => {
     setActivePage(page);
@@ -268,98 +267,85 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
           </div>
         </div>
 
-        {/* Bottom Legal & Copyright Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© 2024–2026 Coastal Tails Grooming Studio & Pet Spa. All Rights Reserved. Mangaluru, Karnataka.</p>
-
-          <div className="flex flex-wrap items-center gap-4 text-slate-400">
+        {/* Legal & Policy Quick Navigation Bar */}
+        <div className="py-6 border-b border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300">
+          <div className="flex items-center gap-2 text-[#2DD4BF] font-bold">
+            <ShieldCheck className="w-4 h-4" />
+            <span>Customer Trust & Policies:</span>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <button
-              onClick={() => setActivePolicyModal('privacy')}
-              className="hover:text-white transition-colors"
+              onClick={() => handleNav('privacy')}
+              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
             >
               Privacy Policy
             </button>
-            <span>•</span>
+            <span className="text-white/20">•</span>
             <button
-              onClick={() => setActivePolicyModal('terms')}
-              className="hover:text-white transition-colors"
+              onClick={() => handleNav('terms')}
+              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
             >
               Terms & Conditions
             </button>
-            <span>•</span>
+            <span className="text-white/20">•</span>
             <button
-              onClick={() => setActivePolicyModal('grooming')}
-              className="hover:text-white transition-colors"
+              onClick={() => handleNav('grooming-policy')}
+              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
             >
-              Grooming Protocols & Safety
+              Grooming Policy
+            </button>
+            <span className="text-white/20">•</span>
+            <button
+              onClick={() => handleNav('cancellation-policy')}
+              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
+            >
+              Cancellation & Rescheduling
+            </button>
+            <span className="text-white/20">•</span>
+            <button
+              onClick={() => handleNav('refund-policy')}
+              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
+            >
+              Refund & Exchange
+            </button>
+            <span className="text-white/20">•</span>
+            <button
+              onClick={() => handleNav('shipping-policy')}
+              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
+            >
+              Shipping & Delivery
+            </button>
+            <span className="text-white/20">•</span>
+            <button
+              onClick={() => handleNav('membership-terms')}
+              className="hover:text-[#2DD4BF] font-bold text-amber-300 transition-colors cursor-pointer"
+            >
+              Membership Terms (₹599/yr)
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom Legal & Copyright Bar */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p>© 2026 Coastal Tails Grooming Studio & Pet Spa. All rights reserved. Mangaluru, Karnataka.</p>
+
+          <div className="flex items-center gap-4 text-slate-400">
+            <button
+              onClick={() => handleNav('policies')}
+              className="text-[#2DD4BF] hover:underline font-semibold cursor-pointer"
+            >
+              View Full Policy Document →
+            </button>
+            <span className="text-white/20">•</span>
+            <button
+              onClick={() => handleNav('admin')}
+              className="text-slate-400 hover:text-[#2DD4BF] transition-colors cursor-pointer flex items-center gap-1 font-semibold"
+            >
+              <span>🔐 Staff Admin Portal</span>
             </button>
           </div>
         </div>
       </div>
-
-      {/* Policy Modals */}
-      {activePolicyModal && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white text-slate-900 rounded-3xl p-6 max-w-lg w-full shadow-2xl relative">
-            <button
-              onClick={() => setActivePolicyModal(null)}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-700"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <h3 className="text-xl font-bold font-['Outfit'] text-[#08383B] mb-3">
-              {activePolicyModal === 'privacy' && 'Privacy Policy & WhatsApp Data'}
-              {activePolicyModal === 'terms' && 'Terms of Service & Order Delivery'}
-              {activePolicyModal === 'grooming' && 'Coastal Tails Grooming Safety Terms'}
-            </h3>
-
-            <div className="text-xs text-slate-600 space-y-2.5 max-h-80 overflow-y-auto pr-1 leading-relaxed">
-              {activePolicyModal === 'privacy' && (
-                <>
-                  <p>
-                    Coastal Tails values your privacy. We collect your pet information, contact number, and Mangaluru delivery address solely for the purpose of communicating grooming appointment details and coordinating retail product delivery via WhatsApp.
-                  </p>
-                  <p>
-                    We never sell or share your personal data with third-party advertising networks. You can request data removal at any time by messaging us directly.
-                  </p>
-                </>
-              )}
-
-              {activePolicyModal === 'terms' && (
-                <>
-                  <p>
-                    Retail pet food and accessories are delivered across Mangaluru city. Final order confirmation and payment details (UPI, cash on delivery, or card) are confirmed directly with our staff on WhatsApp before dispatch.
-                  </p>
-                  <p>
-                    Unopened food packs and undamaged accessories in original packaging can be returned or exchanged within 48 hours of delivery in Mangaluru.
-                  </p>
-                </>
-              )}
-
-              {activePolicyModal === 'grooming' && (
-                <>
-                  <p>
-                    Every pet is inspected prior to grooming. If severe matting, fleas, ticks, or underlying skin dermatitis is discovered, our groomer will discuss appropriate therapeutic baths and humane de-matting approaches with the pet parent.
-                  </p>
-                  <p>
-                    All equipment and grooming tables are thoroughly sanitized using veterinary-safe hospital-grade solutions between every single pet session.
-                  </p>
-                </>
-              )}
-            </div>
-
-            <div className="mt-5 pt-3 border-t border-slate-100 text-right">
-              <button
-                onClick={() => setActivePolicyModal(null)}
-                className="px-4 py-2 bg-[#0D6E6E] text-white rounded-xl text-xs font-bold"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </footer>
   );
 };

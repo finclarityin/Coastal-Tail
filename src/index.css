@@ -41,80 +41,187 @@
   background-repeat: no-repeat;
 }
 
-/* Moving Paw Print Watermark Animations */
-@keyframes float-paw-1 {
+/* Serene Organic Paw Print Background Animations */
+@keyframes paw-drift-slow {
   0%, 100% {
-    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    transform: translateY(0px) rotate(var(--paw-rot, 0deg)) scale(1);
+    opacity: var(--paw-base-op, 0.08);
   }
   50% {
-    transform: translateY(-18px) translateX(12px) rotate(8deg) scale(1.06);
+    transform: translateY(-12px) rotate(calc(var(--paw-rot, 0deg) + 4deg)) scale(1.04);
+    opacity: calc(var(--paw-base-op, 0.08) * 1.35);
   }
 }
 
-@keyframes float-paw-2 {
+@keyframes paw-sway-soft {
   0%, 100% {
-    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translateY(-24px) translateX(-14px) rotate(-10deg) scale(1.08);
-  }
-}
-
-@keyframes float-paw-3 {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) rotate(0deg);
+    transform: translateX(0px) translateY(0px) rotate(var(--paw-rot, 0deg));
   }
   33% {
-    transform: translateY(-14px) translateX(10px) rotate(6deg);
+    transform: translateX(8px) translateY(-8px) rotate(calc(var(--paw-rot, 0deg) + 3deg));
   }
   66% {
-    transform: translateY(-8px) translateX(-8px) rotate(-4deg);
+    transform: translateX(-6px) translateY(-4px) rotate(calc(var(--paw-rot, 0deg) - 3deg));
   }
 }
 
-@keyframes drift-paw-track {
-  0% {
-    transform: translateY(0) translateX(0) rotate(15deg);
-    opacity: 0.15;
+@keyframes paw-gentle-breathe {
+  0%, 100% {
+    transform: scale(0.96) rotate(var(--paw-rot, 0deg));
+    opacity: var(--paw-base-op, 0.06);
   }
   50% {
-    transform: translateY(-16px) translateX(14px) rotate(22deg);
-    opacity: 0.3;
+    transform: scale(1.06) rotate(var(--paw-rot, 0deg));
+    opacity: calc(var(--paw-base-op, 0.06) * 1.5);
+  }
+}
+
+@keyframes paw-trail-walk {
+  0% {
+    opacity: 0.04;
+    transform: translateY(0) scale(0.95);
+  }
+  50% {
+    opacity: 0.14;
+    transform: translateY(-10px) scale(1.03);
   }
   100% {
-    transform: translateY(0) translateX(0) rotate(15deg);
-    opacity: 0.15;
+    opacity: 0.04;
+    transform: translateY(0) scale(0.95);
   }
 }
 
-@keyframes pulse-paw-watermark {
-  0%, 100% {
-    opacity: 0.18;
-    transform: scale(1) rotate(0deg);
+.animate-paw-drift {
+  animation: paw-drift-slow 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-paw-sway {
+  animation: paw-sway-soft 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-paw-breathe {
+  animation: paw-gentle-breathe 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-paw-trail {
+  animation: paw-trail-walk 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Dynamic Floating Paw Wander Paths across whole viewport */
+@keyframes paw-wander-1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(30px, -45px) rotate(15deg) scale(1.08);
   }
   50% {
-    opacity: 0.35;
-    transform: scale(1.12) rotate(12deg);
+    transform: translate(-20px, -90px) rotate(-10deg) scale(0.95);
+  }
+  75% {
+    transform: translate(40px, -50px) rotate(20deg) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
   }
 }
 
-.animate-float-paw-1 {
-  animation: float-paw-1 7s ease-in-out infinite;
+@keyframes paw-wander-2 {
+  0% {
+    transform: translate(0, 0) rotate(-12deg) scale(1);
+  }
+  30% {
+    transform: translate(-35px, 50px) rotate(8deg) scale(1.1);
+  }
+  60% {
+    transform: translate(25px, 90px) rotate(-18deg) scale(0.92);
+  }
+  85% {
+    transform: translate(-15px, 30px) rotate(12deg) scale(1.04);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-12deg) scale(1);
+  }
 }
 
-.animate-float-paw-2 {
-  animation: float-paw-2 9s ease-in-out infinite;
+@keyframes paw-wander-3 {
+  0% {
+    transform: translate(0, 0) rotate(15deg) scale(0.95);
+  }
+  35% {
+    transform: translate(45px, 35px) rotate(-15deg) scale(1.05);
+  }
+  70% {
+    transform: translate(-30px, -40px) rotate(25deg) scale(1.12);
+  }
+  100% {
+    transform: translate(0, 0) rotate(15deg) scale(0.95);
+  }
 }
 
-.animate-float-paw-3 {
-  animation: float-paw-3 11s ease-in-out infinite;
+@keyframes paw-pop-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 0px), var(--ty, -50px)) scale(1.3) rotate(var(--trot, 20deg));
+  }
 }
 
-.animate-drift-paw-track {
-  animation: drift-paw-track 8s ease-in-out infinite;
+@keyframes float-reaction-text {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.05);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-24px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.9);
+  }
 }
 
-.animate-pulse-paw {
-  animation: pulse-paw-watermark 6s ease-in-out infinite;
+.animate-paw-wander-1 {
+  animation: paw-wander-1 18s ease-in-out infinite;
 }
 
+.animate-paw-wander-2 {
+  animation: paw-wander-2 22s ease-in-out infinite;
+}
+
+.animate-paw-wander-3 {
+  animation: paw-wander-3 20s ease-in-out infinite;
+}
+
+.animate-particle-burst {
+  animation: paw-pop-burst 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-reaction-badge {
+  animation: float-reaction-text 1.2s ease-out forwards;
+}
+
+@keyframes slideUpDrawer {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUpDrawer 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

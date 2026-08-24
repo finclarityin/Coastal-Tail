@@ -12,8 +12,10 @@ import {
   Sparkles,
   Award,
   ShieldCheck,
+  Lock,
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useStore } from '../context/StoreContext';
 import { ActivePage } from '../types';
 import { COASTAL_TAILS_PHONE, buildWhatsAppLink } from '../utils/whatsapp';
 
@@ -25,7 +27,10 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpenSearch }) => {
   const { totalItems, openCart, wishlist, openGroomingEnquiry } = useCart();
+  const { topBarOffers } = useStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const activeTopBar = topBarOffers.find((t) => t.active);
 
   const handleNavClick = (page: ActivePage) => {
     setActivePage(page);
@@ -40,9 +45,20 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2 font-medium tracking-wide">
             <span className="inline-block w-2 h-2 rounded-full bg-[#2DD4BF] animate-pulse"></span>
-            <span>Mangaluru’s Premier Pet Grooming Studio & Spa</span>
-            <span className="hidden md:inline text-[#2DD4BF]/60">•</span>
-            <span className="hidden md:inline text-slate-200">Plot 14, Behind Hotel New Bharath, Kankanady</span>
+            {activeTopBar ? (
+              <span
+                onClick={() => handleNavClick(activeTopBar.ctaDestination as ActivePage)}
+                className="cursor-pointer hover:underline"
+              >
+                {activeTopBar.desktopMessage}
+              </span>
+            ) : (
+              <>
+                <span>Mangaluru’s Premier Pet Grooming Studio & Spa</span>
+                <span className="hidden md:inline text-[#2DD4BF]/60">•</span>
+                <span className="hidden md:inline text-slate-200">Plot 14, Behind Hotel New Bharath, Kankanady</span>
+              </>
+            )}
           </div>
           <div className="flex items-center gap-4 text-slate-300">
             <div className="flex items-center gap-1.5">
@@ -60,6 +76,14 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
               <Phone className="w-3 h-3" />
               <span>+91 {COASTAL_TAILS_PHONE}</span>
             </a>
+            <button
+              onClick={() => handleNavClick('admin')}
+              className="flex items-center gap-1 text-[11px] bg-teal-900/70 hover:bg-teal-800 text-teal-200 px-2 py-0.5 rounded-md border border-teal-700/60 transition-colors cursor-pointer"
+              title="Staff Management Dashboard"
+            >
+              <Lock className="w-3 h-3" />
+              <span>Staff Login</span>
+            </button>
           </div>
         </div>
       </div>
@@ -199,7 +223,7 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
               onClick={() => openGroomingEnquiry()}
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0D6E6E] hover:bg-[#08383B] text-white text-sm font-semibold shadow-md shadow-[#0D6E6E]/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <WhatsAppIcon className="w-4 h-4 text-[#2DD4BF]" />
+              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
               <span>Book on WhatsApp</span>
             </button>
 
@@ -301,7 +325,7 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
               }}
               className="w-full flex items-center justify-center gap-2 py-3 bg-[#0D6E6E] text-white rounded-xl text-sm font-bold shadow-md cursor-pointer"
             >
-              <WhatsAppIcon className="w-4 h-4 text-[#2DD4BF]" />
+              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
               <span>Book Appointment on WhatsApp</span>
             </button>
           </div>

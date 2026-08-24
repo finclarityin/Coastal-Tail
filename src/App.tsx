@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CartProvider } from './context/CartContext';
+import { StoreProvider } from './context/StoreContext';
+import { AdminAuthProvider } from './context/AdminAuthContext';
 import { ActivePage } from './types';
+import { updateDocumentSEO } from './utils/seo';
 import { PawWatermarkBackground } from './components/PawWatermarkBackground';
 import { Header } from './components/Header';
+import { MobileBottomNav } from './components/MobileBottomNav';
 import { Hero } from './components/Hero';
 import { GroomingSection } from './components/GroomingSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
@@ -25,15 +29,27 @@ import { ServicesView } from './views/ServicesView';
 import { ShopView } from './views/ShopView';
 import { MembershipView } from './views/MembershipView';
 import { ContactView } from './views/ContactView';
+import { PoliciesView } from './views/PoliciesView';
+import { AdminPanel } from './admin/AdminPanel';
 
 function AppContent() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  // Dynamic SEO Meta Update on Page Change
+  useEffect(() => {
+    updateDocumentSEO(activePage);
+  }, [activePage]);
+
   const handlePageChange = (page: ActivePage) => {
     setActivePage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Dedicated Admin Screen View
+  if (activePage === 'admin') {
+    return <AdminPanel onExitToStore={() => handlePageChange('home')} />;
+  }
 
   const handleExploreGrooming = () => {
     const el = document.getElementById('grooming-packages');
@@ -107,12 +123,36 @@ function AppContent() {
         )}
 
         {(activePage === 'shop' || activePage === 'food' || activePage === 'accessories') && (
-          <ShopView />
+          <ShopView
+            key={activePage}
+            initialTab={
+              activePage === 'food'
+                ? 'food'
+                : activePage === 'accessories'
+                ? 'accessories'
+                : 'all'
+            }
+          />
         )}
 
         {activePage === 'membership' && <MembershipView />}
 
         {activePage === 'contact' && <ContactView />}
+
+        {(activePage === 'policies' ||
+          activePage === 'privacy' ||
+          activePage === 'terms' ||
+          activePage === 'grooming-policy' ||
+          activePage === 'cancellation-policy' ||
+          activePage === 'refund-policy' ||
+          activePage === 'shipping-policy' ||
+          activePage === 'membership-terms') && (
+          <PoliciesView
+            key={activePage}
+            initialSection={activePage}
+            onNavigate={handlePageChange}
+          />
+        )}
       </main>
 
       {/* Ocean Teal Footer */}
@@ -120,6 +160,13 @@ function AppContent() {
 
       {/* Floating Action Button */}
       <FloatingWhatsApp />
+
+      {/* Mobile Ergonomic Bottom Navigation Bar & Drawer */}
+      <MobileBottomNav
+        activePage={activePage}
+        onNavigate={handlePageChange}
+        onOpenSearch={() => setIsSearchOpen(true)}
+      />
 
       {/* Global Modals & Drawers */}
       <GroomingEnquiryModal />
@@ -137,8 +184,13 @@ function AppContent() {
 
 export default function App() {
   return (
-    <CartProvider>
-      <AppContent />
-    </CartProvider>
+    <StoreProvider>
+      <AdminAuthProvider>
+        <CartProvider>
+          <AppContent />
+        </CartProvider>
+      </AdminAuthProvider>
+    </StoreProvider>
   );
 }
+

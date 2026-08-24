@@ -92,7 +92,7 @@ export const ServicesView: React.FC<ServicesViewProps> = () => {
             onClick={() => openGroomingEnquiry()}
             className="mt-4 px-6 py-2.5 rounded-xl bg-[#0D6E6E] hover:bg-[#08383B] text-white text-xs font-bold shadow-md transition-colors inline-flex items-center gap-2 cursor-pointer"
           >
-            <WhatsAppIcon className="w-4 h-4 text-[#2DD4BF]" />
+            <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
             <span>Chat with Head Groomer on WhatsApp</span>
           </button>
         </div>

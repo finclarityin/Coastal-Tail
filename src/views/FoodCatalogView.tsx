@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContext';
 import { FOOD_PRODUCTS } from '../data/productsData';
 import { Product } from '../types';
 import { formatINR } from '../utils/whatsapp';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 
 export const FoodCatalogView: React.FC = () => {
   const { addToCart, setSelectedProductForDetail, isInWishlist, toggleWishlist } = useCart();
@@ -195,9 +196,10 @@ export const FoodCatalogView: React.FC = () => {
                     onClick={() => setSelectedProductForDetail(product)}
                     className="aspect-square rounded-2xl bg-[#F8FAFA] p-3 flex items-center justify-center overflow-hidden cursor-pointer group-hover:bg-[#E6F7F6]/40 transition-colors"
                   >
-                    <img
+                    <ImageWithFallback
                       src={product.image}
                       alt={product.name}
+                      categoryLabel={product.categoryLabel}
                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

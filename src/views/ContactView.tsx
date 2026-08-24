@@ -105,22 +105,32 @@ Looking forward to your guidance!`;
             </div>
           </div>
 
-          {/* Studio Phone */}
+          {/* Studio Phone & Email */}
           <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm space-y-3">
             <div className="w-12 h-12 rounded-2xl bg-[#E6F7F6] text-[#0D6E6E] flex items-center justify-center font-bold">
               <Phone className="w-6 h-6" />
             </div>
-            <h3 className="text-base font-bold text-[#08383B]">Studio Desk Call</h3>
+            <h3 className="text-base font-bold text-[#08383B]">Phone & Email</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Speak directly with our front desk team during working hours.
+              Speak directly with our studio team or send us an email enquiry.
             </p>
-            <div className="pt-2">
-              <a
-                href={`tel:${COASTAL_TAILS_PHONE}`}
-                className="text-xs font-bold text-[#0D6E6E] hover:underline"
-              >
-                +91 {COASTAL_TAILS_PHONE}
-              </a>
+            <div className="pt-2 space-y-1">
+              <div>
+                <a
+                  href={`tel:${COASTAL_TAILS_PHONE}`}
+                  className="text-xs font-bold text-[#0D6E6E] hover:underline"
+                >
+                  +91 {COASTAL_TAILS_PHONE}
+                </a>
+              </div>
+              <div>
+                <a
+                  href={`mailto:${COASTAL_TAILS_EMAIL}`}
+                  className="text-xs font-medium text-slate-600 hover:text-[#0D6E6E] transition-colors"
+                >
+                  {COASTAL_TAILS_EMAIL}
+                </a>
+              </div>
             </div>
           </div>
 
@@ -233,7 +243,7 @@ Looking forward to your guidance!`;
                 type="submit"
                 className="w-full py-3.5 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-bold text-sm shadow-md flex items-center justify-center gap-2.5 cursor-pointer transition-all active:scale-98"
               >
-                <WhatsAppIcon className="w-4 h-4 text-[#2DD4BF]" />
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                 <span>Send Enquiry on WhatsApp</span>
               </button>
             </form>

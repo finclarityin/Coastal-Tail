@@ -23,8 +23,13 @@ import { useCart } from '../context/CartContext';
 import { FOOD_PRODUCTS, ACCESSORY_PRODUCTS } from '../data/productsData';
 import { Product } from '../types';
 import { formatINR, buildWhatsAppLink } from '../utils/whatsapp';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 
-export const ShopView: React.FC = () => {
+interface ShopViewProps {
+  initialTab?: 'all' | 'food' | 'accessories';
+}
+
+export const ShopView: React.FC<ShopViewProps> = ({ initialTab = 'all' }) => {
   const {
     addToCart,
     items,
@@ -40,7 +45,7 @@ export const ShopView: React.FC = () => {
   const [petFilter, setPetFilter] = useState<'all' | 'dog' | 'cat'>('all');
   const [selectedBrand, setSelectedBrand] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc' | 'rating'>('featured');
-  const [activeSectionTab, setActiveSectionTab] = useState<'all' | 'food' | 'accessories'>('all');
+  const [activeSectionTab, setActiveSectionTab] = useState<'all' | 'food' | 'accessories'>(initialTab);
 
   // Food Sub-category Filter
   const [foodCategory, setFoodCategory] = useState<string>('all');
@@ -451,12 +456,13 @@ export const ShopView: React.FC = () => {
                       {/* Product Image Box */}
                       <div
                         onClick={() => setSelectedProductForDetail(product)}
-                        className="relative h-52 bg-slate-100 overflow-hidden cursor-pointer"
+                        className="relative h-52 bg-[#F8FAFA] overflow-hidden cursor-pointer"
                       >
-                        <img
+                        <ImageWithFallback
                           src={product.image}
                           alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          categoryLabel={product.categoryLabel}
+                          className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                         />
 
                         {/* Top Badges */}
@@ -645,12 +651,13 @@ export const ShopView: React.FC = () => {
                       {/* Product Image Box */}
                       <div
                         onClick={() => setSelectedProductForDetail(product)}
-                        className="relative h-52 bg-slate-100 overflow-hidden cursor-pointer"
+                        className="relative h-52 bg-[#FAF7F2] overflow-hidden cursor-pointer"
                       >
-                        <img
+                        <ImageWithFallback
                           src={product.image}
                           alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          categoryLabel={product.categoryLabel}
+                          className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                         />
 
                         {/* Top Badges */}

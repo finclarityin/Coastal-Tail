@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
-import { X, Star, ShoppingBag, Truck, ShieldCheck, Heart, CheckCircle, Package } from 'lucide-react';
+import { X, Star, ShoppingBag, Truck, ShieldCheck, Heart, CheckCircle, Package, Sparkles } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { formatINR, COASTAL_TAILS_PHONE, buildWhatsAppLink } from '../utils/whatsapp';
+import { ImageWithFallback } from './ImageWithFallback';
 
 export const ProductDetailModal: React.FC = () => {
   const { selectedProductForDetail, setSelectedProductForDetail, addToCart, isInWishlist, toggleWishlist } = useCart();
@@ -39,10 +40,11 @@ export const ProductDetailModal: React.FC = () => {
           {/* Left: Product Images */}
           <div className="p-6 bg-gradient-to-b from-[#F0FDFB] to-[#F8FAFA] flex flex-col justify-between">
             <div className="relative aspect-square rounded-2xl overflow-hidden bg-white shadow-xs border border-slate-100 flex items-center justify-center">
-              <img
+              <ImageWithFallback
                 src={currentImage}
                 alt={product.name}
-                className="w-full h-full object-contain p-4 transition-all duration-300"
+                categoryLabel={product.categoryLabel}
+                className="w-full h-full object-contain p-3 transition-all duration-300"
               />
               {product.discountPercentage && (
                 <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[#FF6B6B] text-white text-xs font-black shadow-xs">
@@ -68,10 +70,10 @@ export const ProductDetailModal: React.FC = () => {
                     key={idx}
                     onClick={() => setSelectedImage(img)}
                     className={`w-14 h-14 rounded-xl overflow-hidden border-2 transition-all shrink-0 bg-white cursor-pointer ${
-                      currentImage === img ? 'border-[#0D6E6E] scale-105' : 'border-slate-200 opacity-70'
+                      currentImage === img ? 'border-[#0D6E6E] scale-105 shadow-xs' : 'border-slate-200 opacity-70 hover:opacity-100'
                     }`}
                   >
-                    <img src={img} alt="thumb" className="w-full h-full object-cover" />
+                    <ImageWithFallback src={img} alt={`${product.name} gallery ${idx + 1}`} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>

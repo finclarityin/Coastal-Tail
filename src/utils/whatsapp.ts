@@ -2,8 +2,9 @@ import { GroomingEnquiry, ProductOrder, CartItem } from '../types';
 
 export const COASTAL_TAILS_PHONE = '7996989956';
 export const COASTAL_TAILS_INTERNATIONAL_PHONE = '917996989956';
-export const COASTAL_TAILS_EMAIL = 'hello@coastaltails.com';
-export const COASTAL_TAILS_ADDRESS = 'Plot 14, Behind Hotel New Bharath, Kankanady, Mangaluru, Karnataka 575002';
+export const COASTAL_TAILS_EMAIL = 'coastaltails@gmail.com';
+export const COASTAL_TAILS_WEBSITE = 'coastaltails.in';
+export const COASTAL_TAILS_ADDRESS = 'Behind Hotel New Bharath, Kankanady, Mangaluru, Karnataka 575002';
 export const COASTAL_TAILS_HOURS = 'Mon - Sun : 9:00 AM - 8:00 PM';
 
 /**

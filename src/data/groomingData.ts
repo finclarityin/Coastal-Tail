@@ -281,3 +281,6 @@ export const MOBILE_GROOMING_INFO = {
     'Hospital-Grade UV Sterilization Between Every Pet',
   ],
 };
+
+export const GROOMING_ADD_ONS = SPA_ADDONS;
+

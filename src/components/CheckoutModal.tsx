@@ -263,7 +263,7 @@ export const CheckoutModal: React.FC = () => {
               type="submit"
               className="w-full py-4 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-base shadow-lg shadow-[#0D6E6E]/25 transition-all flex items-center justify-center gap-2.5 cursor-pointer active:scale-98"
             >
-              <WhatsAppIcon className="w-5 h-5 text-[#2DD4BF]" />
+              <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
               <span>Confirm Order on WhatsApp ({formatINR(grandTotal)})</span>
             </button>
             <p className="text-[11px] text-center text-slate-500 mt-2">

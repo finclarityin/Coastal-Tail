@@ -2,6 +2,7 @@ import React from 'react';
 import { X, Trash2, ShoppingBag, ArrowRight, Truck, CheckCircle2 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { formatINR } from '../utils/whatsapp';
+import { ImageWithFallback } from './ImageWithFallback';
 
 export const CartDrawer: React.FC = () => {
   const { isCartOpen, closeCart, items, updateQuantity, removeFromCart, clearCart, subtotal, setIsCheckoutModalOpen } = useCart();
@@ -77,9 +78,10 @@ export const CartDrawer: React.FC = () => {
                   key={item.product.id}
                   className="flex gap-3 p-3 rounded-2xl border border-slate-100 bg-[#F8FAFA] hover:bg-white transition-colors"
                 >
-                  <img
+                  <ImageWithFallback
                     src={item.product.image}
                     alt={item.product.name}
+                    categoryLabel={item.product.categoryLabel}
                     className="w-18 h-18 rounded-xl object-contain bg-white p-1 border border-slate-100 shrink-0"
                   />
                   <div className="flex-1 min-w-0 flex flex-col justify-between">

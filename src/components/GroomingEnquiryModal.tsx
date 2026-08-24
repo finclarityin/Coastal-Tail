@@ -355,6 +355,7 @@ export const GroomingEnquiryModal: React.FC = () => {
               </label>
               <input
                 type="date"
+                min={new Date().toISOString().split('T')[0]}
                 value={preferredDate}
                 onChange={(e) => setPreferredDate(e.target.value)}
                 className="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#0D6E6E] text-xs bg-slate-50"
@@ -376,6 +377,13 @@ export const GroomingEnquiryModal: React.FC = () => {
               </select>
             </div>
           </div>
+
+          {serviceMode === 'doorstep' && (
+            <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start gap-2">
+              <span className="font-bold shrink-0">🚐 Mobile Van Policy:</span>
+              <span>A ₹300 booking advance is required for mobile van visits. You can cancel or reschedule up to 90 minutes before the scheduled slot.</span>
+            </div>
+          )}
 
           {/* Customer Contact Details */}
           <div className="pt-2 border-t border-slate-100">
@@ -424,7 +432,7 @@ export const GroomingEnquiryModal: React.FC = () => {
               type="submit"
               className="w-full py-4 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-base shadow-lg shadow-[#0D6E6E]/25 transition-all flex items-center justify-center gap-2.5 cursor-pointer active:scale-98"
             >
-              <WhatsAppIcon className="w-5 h-5 text-[#2DD4BF]" />
+              <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
               <span>Send Grooming Enquiry on WhatsApp</span>
             </button>
             <p className="text-[11px] text-center text-slate-500 mt-2">

@@ -185,7 +185,7 @@ export const GroomingSection: React.FC = () => {
                           : 'bg-white hover:bg-[#E6F7F6] text-[#08383B] border-2 border-[#0D6E6E]'
                       }`}
                     >
-                      <WhatsAppIcon className="w-4 h-4 text-[#2DD4BF]" />
+                      <WhatsAppIcon className={`w-4 h-4 ${pkg.isPopular ? 'text-[#25D366]' : 'text-[#25D366]'}`} />
                       <span>Ask for Price</span>
                     </button>
                   </div>
@@ -291,7 +291,7 @@ export const GroomingSection: React.FC = () => {
                           : 'bg-white hover:bg-[#E6F7F6] text-[#08383B] border-2 border-[#0D6E6E]'
                       }`}
                     >
-                      <WhatsAppIcon className="w-4 h-4 text-[#2DD4BF]" />
+                      <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                       <span>Ask for Price</span>
                     </button>
                   </div>
@@ -393,7 +393,7 @@ export const GroomingSection: React.FC = () => {
                     onClick={() => openGroomingEnquiry()}
                     className="px-6 py-3.5 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-sm shadow-md flex items-center justify-center gap-2.5"
                   >
-                    <WhatsAppIcon className="w-4 h-4 text-[#2DD4BF]" />
+                    <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                     <span>Check Mobile Van Availability (Ask for Price)</span>
                   </button>
                 </div>

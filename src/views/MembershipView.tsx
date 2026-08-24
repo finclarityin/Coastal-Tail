@@ -69,13 +69,13 @@ export const MembershipView: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E6F7F6] text-[#0D6E6E] text-xs font-bold uppercase tracking-wider">
             <Crown className="w-4 h-4 text-amber-500" />
-            <span>COASTAL TAILS PET PARENT VIP CLUB</span>
+            <span>COASTAL TAILS PET PARENT VIP CLUB • ₹599 / YEAR</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-[#08383B] font-['Outfit']">
             Exclusive Perks for Dedicated Pet Parents
           </h1>
           <p className="text-sm sm:text-base text-slate-600">
-            Join 1,200+ Mangaluru pet lovers who enjoy premium savings, birthday surprises, and VIP grooming access. 100% Free to join!
+            Join 1,200+ Mangaluru pet lovers who enjoy premium savings, birthday surprises, and VIP grooming access for just <strong className="text-[#08383B]">₹599/year</strong>.
           </p>
         </div>
 
@@ -108,14 +108,14 @@ export const MembershipView: React.FC = () => {
           <div className="max-w-3xl mx-auto space-y-6 text-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#2DD4BF] text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>INSTANT ENROLLMENT • 100% FREE</span>
+              <span>ANNUAL MEMBERSHIP • ₹599 / YEAR</span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl font-extrabold font-['Outfit']">
-              Sign Up Your Pet in 30 Seconds
+              Join the Coastal Tails Pet Parent Club
             </h2>
             <p className="text-xs sm:text-sm text-slate-200">
-              Receive your 15% VIP discount code instantly on WhatsApp and start enjoying exclusive Coastal Tails club benefits.
+              Enjoy 15% OFF grooming & orders, birthday gift boxes, and priority slot reservations for just ₹599/year.
             </p>
 
             {isJoined ? (
@@ -204,7 +204,7 @@ export const MembershipView: React.FC = () => {
                     type="submit"
                     className="w-full py-4 rounded-2xl bg-[#FF6B6B] hover:bg-[#F87171] text-white font-black text-sm uppercase tracking-wider shadow-xl shadow-[#FF6B6B]/30 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-102 active:scale-98"
                   >
-                    <span>Claim My VIP Membership (15% OFF)</span>
+                    <span>Join Pet Parent Club (₹599 / Year)</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
