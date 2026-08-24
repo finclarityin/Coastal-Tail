@@ -17,22 +17,22 @@ export const GroomingSection: React.FC = () => {
   return (
     <section id="grooming-packages" className="py-14 sm:py-20 bg-gradient-to-b from-[#F8FAFA] via-[#F0FDFB]/40 to-[#FDFBF7] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading matching the reference screenshot */}
+        {/* Section Heading matching the requested SEO and hierarchy structure */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E6F7F6] border border-[#2DD4BF]/40 text-[#0D6E6E] text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-[#2DD4BF]" />
-            <span>TRANSPARENT GROOMING RATES</span>
+            <span>PROFESSIONAL PET GROOMING IN MANGALORE</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#08383B] font-['Outfit'] tracking-tight">
-            Tailored Grooming Packages & Pricing
+            Dog & Cat Grooming Packages
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Zero hidden fees. Premium botanical treatments personalized to your pet’s breed, coat type, and weight.
+            Choose the grooming experience that best suits your pet. Services are tailored to breed, coat condition, size and individual grooming needs.
           </p>
 
-          {/* Category Switcher Tabs (Dogs, Cats, Add-on Spa, Mobile Doorstep) */}
+          {/* Category Switcher Tabs (Dogs, Cats, Grooming Add-ons, Mobile Grooming) */}
           <div className="pt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             <button
               onClick={() => setActiveTab('dogs')}
@@ -65,7 +65,7 @@ export const GroomingSection: React.FC = () => {
               }`}
             >
               <Sparkles className="w-4 h-4 text-amber-500" />
-              <span>Add-on Spa</span>
+              <span>Grooming Add-ons</span>
             </button>
 
             <button
@@ -77,7 +77,7 @@ export const GroomingSection: React.FC = () => {
               }`}
             >
               <Truck className="w-4 h-4 text-[#0D6E6E]" />
-              <span>Mobile Doorstep</span>
+              <span>Mobile Grooming</span>
             </button>
           </div>
         </div>
@@ -88,7 +88,7 @@ export const GroomingSection: React.FC = () => {
             {/* Dog Size Selector */}
             <div className="space-y-3">
               <div className="text-center text-xs font-bold uppercase tracking-wider text-slate-600">
-                SELECT YOUR DOG'S SIZE FOR ACCURATE PRICING:
+                SELECT YOUR PET'S SIZE:
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
                 {DOG_SIZES.map((size) => (
@@ -107,6 +107,9 @@ export const GroomingSection: React.FC = () => {
                   </button>
                 ))}
               </div>
+              <p className="text-center text-xs text-slate-500 max-w-xl mx-auto">
+                Select your pet’s size to help us recommend the right grooming service. Final grooming pricing depends on breed, coat condition, size and service requirements.
+              </p>
             </div>
 
             {/* 3 Packages Cards */}

@@ -139,24 +139,24 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2 sm:pt-4">
           {/* Left Column: Eyebrow + Main Title + Subtitle */}
           <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
-            {/* Eyebrow badge matching user reference with crisp orange play icon */}
+            {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-[#2DD4BF]/50 shadow-xs text-xs font-extrabold text-[#08383B] tracking-wider uppercase backdrop-blur-xs">
               <span className="w-4 h-4 rounded-full bg-gradient-to-tr from-[#FF7A29] to-[#FF944D] text-white flex items-center justify-center shadow-xs shrink-0 p-0.5">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-2.5 h-2.5 ml-0.5">
                   <path d="M7 4.5v15a1 1 0 001.55.83l12-7.5a1 1 0 000-1.66l-12-7.5A1 1 0 007 4.5z" />
                 </svg>
               </span>
-              <span className="text-[#0D6E6E] font-bold">TRANSPARENT GROOMING RATES</span>
+              <span className="text-[#0D6E6E] font-bold">PROFESSIONAL PET GROOMING IN MANGALORE</span>
             </div>
 
             {/* Bold Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-[#08383B] font-['Outfit'] tracking-tight leading-[1.12]">
-              Tailored Grooming Packages & Pricing
+              Premium Dog & Cat Grooming in Mangalore
             </h1>
 
             {/* Subtitle */}
             <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Zero hidden fees. Premium botanical treatments personalized to your pet's breed, coat type, and weight.
+              Professional grooming, gentle handling and spa care tailored to your pet’s breed, coat type, size, coat condition and individual grooming needs.
             </p>
 
             {/* Quick Actions & Mangaluru Trust Badges */}
@@ -169,7 +169,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
                 }}
                 className="px-6 py-3 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-[#0D6E6E]/20 transition-all flex items-center gap-2 cursor-pointer hover:scale-102 active:scale-98"
               >
-                <span>View All Package Rates</span>
+                <span>Explore Grooming Services</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
 
@@ -178,14 +178,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
                 className="px-5 py-3 rounded-2xl bg-white hover:bg-[#F0FDFB] text-[#08383B] font-bold text-xs sm:text-sm border border-slate-200 shadow-xs transition-all flex items-center gap-2.5 cursor-pointer hover:border-[#25D366] hover:text-[#0D6E6E] group"
               >
                 <WhatsAppIcon variant="badge" className="w-5 h-5 shadow-xs" />
-                <span className="font-bold">Ask for Price on WhatsApp</span>
+                <span className="font-bold">Ask for Grooming Price</span>
               </button>
             </div>
 
             {/* Studio Hours & Location Pill */}
             <div className="pt-1 text-xs text-slate-500 flex items-center justify-center lg:justify-start gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              <span>Studio Open Today in Kankanady, Mangaluru • 9:00 AM – 8:00 PM</span>
+              <span>Studio Open Today in Kankanady, Mangaluru • 9:30 AM – 8:00 PM</span>
             </div>
           </div>
 
@@ -215,8 +215,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-800">Hygienic & Safe</h4>
-                <p className="text-[10px] sm:text-[11px] text-slate-500">Sterilized tools every session</p>
+                <h4 className="text-xs sm:text-sm font-bold text-slate-800">Clean & Hygienic</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500">Grooming tools and work areas are cleaned and maintained between appointments.</p>
               </div>
             </div>
 
@@ -225,8 +225,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
                 <Scissors className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-800">Master Groomers</h4>
-                <p className="text-[10px] sm:text-[11px] text-slate-500">Certified low-stress handling</p>
+                <h4 className="text-xs sm:text-sm font-bold text-slate-800">Professional Grooming Team</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500">Patient, careful grooming focused on your pet’s comfort.</p>
               </div>
             </div>
 
@@ -235,8 +235,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
                 <Award className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-800">Organic Botanicals</h4>
-                <p className="text-[10px] sm:text-[11px] text-slate-500">Tearless, sulfate-free shampoos</p>
+                <h4 className="text-xs sm:text-sm font-bold text-slate-800">Quality Grooming Products</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500">Carefully selected grooming products for different coat and grooming needs.</p>
               </div>
             </div>
 
@@ -245,8 +245,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
                 <Heart className="w-5 h-5 text-[#FF6B6B]" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-800">Mangaluru Loved</h4>
-                <p className="text-[10px] sm:text-[11px] text-slate-500">Cage-free, calm sanctuary</p>
+                <h4 className="text-xs sm:text-sm font-bold text-slate-800">Pet-Friendly Experience</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-500">A comfortable grooming environment designed around your pet.</p>
               </div>
             </div>
           </div>
