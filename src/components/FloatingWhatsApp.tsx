@@ -337,7 +337,7 @@ export const FloatingWhatsApp: React.FC = () => {
               setIsOpen(true);
               setShowTooltip(false);
             }}
-            className="bg-white text-slate-800 text-xs font-bold px-3.5 py-2 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2 max-w-[230px] animate-bounce cursor-pointer hover:border-teal-400 transition-all"
+            className="hidden sm:flex bg-white text-slate-800 text-xs font-bold px-3.5 py-2 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 max-w-[230px] cursor-pointer hover:border-teal-400 transition-all"
           >
             <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
             <span>Need help? Chat with us 👋</span>

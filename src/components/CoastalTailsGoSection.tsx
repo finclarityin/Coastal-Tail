@@ -124,10 +124,10 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
 
               {onNavigate && (
                 <button
-                  onClick={() => onNavigate('locations')}
+                  onClick={() => onNavigate('mobile-pet-grooming-mangalore')}
                   className="px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Check 21+ Service Areas</span>
+                  <span>Explore Mobile Van & Coverage</span>
                   <ArrowRight className="w-4 h-4 text-[#2DD4BF]" />
                 </button>
               )}

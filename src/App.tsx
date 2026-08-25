@@ -10,7 +10,6 @@ import { MobileBottomNav } from './components/MobileBottomNav';
 import { Hero } from './components/Hero';
 import { GroomingSection } from './components/GroomingSection';
 import { CoastalTailsGoSection } from './components/CoastalTailsGoSection';
-import { ServiceAreaSection } from './components/ServiceAreaSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { TrustDifferenceSection } from './components/TrustDifferenceSection';
 import { FoodShopSection } from './components/FoodShopSection';
@@ -183,7 +182,7 @@ function AppContent() {
   ].includes(activePage);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FDFA] text-slate-900 selection:bg-[#2DD4BF]/30 font-['Plus_Jakarta_Sans',sans-serif] relative">
+    <div className="min-h-screen flex flex-col bg-[#F8FDFA] text-slate-900 selection:bg-[#2DD4BF]/30 font-['Plus_Jakarta_Sans',sans-serif] relative w-full max-w-full overflow-x-hidden">
       {/* Floating Paw Watermark Background across whole website */}
       <PawWatermarkBackground />
 
@@ -195,7 +194,7 @@ function AppContent() {
       />
 
       {/* Main Content Pages */}
-      <main className="flex-1 relative z-10">
+      <main className="flex-1 relative z-10 w-full max-w-full overflow-x-hidden">
         {activePage === 'home' && (
           <>
             <Hero
@@ -204,10 +203,6 @@ function AppContent() {
             />
             <GroomingSection />
             <CoastalTailsGoSection
-              onSelectLocation={handleSelectLocation}
-              onNavigate={handlePageChange}
-            />
-            <ServiceAreaSection
               onSelectLocation={handleSelectLocation}
               onNavigate={handlePageChange}
             />

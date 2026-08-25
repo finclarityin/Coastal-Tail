@@ -32,13 +32,14 @@ export const TestimonialsSection: React.FC = () => {
     return () => window.removeEventListener('resize', updateVisibleCount);
   }, []);
 
-  // Auto-advance continuously every 3.5 seconds
+  // Auto-advance reviews gently on desktop (disabled on mobile to prevent layout shifting)
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
     if (isPaused || displayReviews.length <= 1) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % displayReviews.length);
-    }, 3500);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [isPaused, displayReviews.length]);

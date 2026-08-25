@@ -177,10 +177,10 @@ export const PawWatermarkBackground: React.FC = () => {
 
   return (
     <>
-      {/* 1. Global Viewport Floating Interactive Paws (Fixed, wander smoothly across screen) */}
+      {/* 1. Viewport Floating Interactive Paws (Desktop Only, subtle & contained, disabled on mobile to prevent layout movement) */}
       <div
-        aria-hidden="false"
-        className="fixed inset-0 pointer-events-none z-20 overflow-hidden select-none"
+        aria-hidden="true"
+        className="hidden md:block fixed inset-0 pointer-events-none z-10 overflow-hidden select-none"
       >
         {FLOATING_PAWS.map((paw) => {
           const isClicked = clickedPawId === paw.id;
@@ -189,13 +189,12 @@ export const PawWatermarkBackground: React.FC = () => {
               key={paw.id}
               className={`absolute pointer-events-auto cursor-pointer touch-manipulation group ${paw.wanderClass}`}
               style={{
-                left: `${paw.baseX}vw`,
+                left: `${Math.min(paw.baseX, 86)}vw`,
                 top: `${paw.baseY}vh`,
                 animationDelay: paw.delay,
                 transform: `rotate(${paw.initialRotation}deg)`,
               }}
               onClick={(e) => handlePawTouch(e, paw.id)}
-              onTouchStart={(e) => handlePawTouch(e, paw.id)}
               title="Touch me! 🐾"
             >
               {/* Interactive SVG Paw Pad */}

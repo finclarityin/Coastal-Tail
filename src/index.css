@@ -10,6 +10,16 @@
     --coastal-sand-dark: #F3EBDD;
     --coastal-coral: #FF6B6B;
   }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Custom scrollbar */
@@ -203,6 +213,16 @@
 
 .animate-paw-wander-3 {
   animation: paw-wander-3 20s ease-in-out infinite;
+}
+
+/* Disable wandering and excessive transforms on mobile to ensure zero layout shifting */
+@media (max-width: 768px) {
+  .animate-paw-wander-1,
+  .animate-paw-wander-2,
+  .animate-paw-wander-3 {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 .animate-particle-burst {
