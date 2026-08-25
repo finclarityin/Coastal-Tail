@@ -117,6 +117,12 @@ export const SEO_MAP: Record<string, PageSeoConfig> = {
     keywords: 'coastal tails policies, grooming terms mangalore, pet safety policy',
     canonicalPath: '/policies',
   },
+  '404': {
+    title: '404: Page Not Found | Coastal Tails Pet Grooming & Spa Mangaluru',
+    description: 'Oops! This paw-print trail led nowhere. The pet grooming page or service you are looking for has moved or does not exist.',
+    keywords: 'page not found, 404 error, coastal tails mangalore',
+    canonicalPath: '/404',
+  },
 };
 
 export const updateDocumentSEO = (page: ActivePage, locationSlug?: string) => {

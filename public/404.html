@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found | Coastal Tails Pet Grooming & Spa</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #F8FDFA;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .blob {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(45, 212, 191, 0.18) 0%, rgba(13, 110, 110, 0.05) 50%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .card {
+      position: relative;
+      z-index: 10;
+      max-width: 580px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 32px;
+      padding: 40px 32px;
+      box-shadow: 0 10px 25px -5px rgba(13, 110, 110, 0.08), 0 8px 10px -6px rgba(13, 110, 110, 0.04);
+      backdrop-filter: blur(12px);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: rgba(13, 110, 110, 0.1);
+      border: 1px solid rgba(13, 110, 110, 0.2);
+      color: #0D6E6E;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .error-code {
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(13, 110, 110, 0.15);
+      margin-bottom: -15px;
+      letter-spacing: -2px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    p {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background-color: #0D6E6E;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(13, 110, 110, 0.25);
+    }
+    .btn-primary:hover {
+      background-color: #0a5858;
+      transform: translateY(-1px);
+    }
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: #ffffff;
+    }
+    .btn-whatsapp:hover {
+      background-color: #20bd5a;
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background-color: #ffffff;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-outline:hover {
+      border-color: #0D6E6E;
+      color: #0D6E6E;
+    }
+    .footer-note {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      font-weight: 800;
+      color: #0D6E6E;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="blob"></div>
+  <div class="card">
+    <div class="logo">
+      <span>🐾 Coastal Tails Mangaluru</span>
+    </div>
+    <div class="badge">
+      <span>📍 Error 404 • Lost Your Leash?</span>
+    </div>
+    <div class="error-code">404</div>
+    <h1>Paw-Print Trail Went Off-Course!</h1>
+    <p>
+      The page or service you are looking for has moved, been renamed, or is currently enjoying a sunny walk along Panambur beach.
+    </p>
+
+    <div class="btn-group">
+      <a href="/" class="btn btn-primary">
+        <span>🏠 Back to Home</span>
+      </a>
+      <a href="https://wa.me/917996989956?text=Hi%20Coastal%20Tails%2C%20I%20got%20lost%20on%20the%20website%20and%20need%20help%20with%20pet%20grooming%20in%20Mangaluru." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+        <span>💬 Chat on WhatsApp</span>
+      </a>
+    </div>
+
+    <div class="footer-note">
+      Coastal Tails Studio & Mobile Pet Grooming • Derebail, Mangaluru • +91 79969 89956
+    </div>
+  </div>
+</body>
+</html>

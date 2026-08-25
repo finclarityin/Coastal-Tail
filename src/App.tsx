@@ -34,30 +34,118 @@ import { ShopView } from './views/ShopView';
 import { MembershipView } from './views/MembershipView';
 import { ContactView } from './views/ContactView';
 import { PoliciesView } from './views/PoliciesView';
+import { NotFoundView } from './views/NotFoundView';
 import { AdminPanel } from './admin/AdminPanel';
 import { EducationHubView } from './components/EducationHubView';
 import { LocationDetailView } from './components/LocationDetailView';
 import { ServiceAreasOverview } from './components/ServiceAreasOverview';
 import { ServiceLandingPageView } from './components/ServiceLandingPageView';
+import { PRIORITY_LOCATIONS } from './data/serviceAreaData';
+
+const parseRouteFromUrl = (pathname: string): { page: ActivePage; locationSlug?: string } => {
+  const cleanPath = pathname.replace(/\/+$/, '').toLowerCase();
+  if (!cleanPath || cleanPath === '' || cleanPath === '/') return { page: 'home' };
+  if (cleanPath === '/about') return { page: 'about' };
+  if (cleanPath === '/services') return { page: 'services' };
+  if (cleanPath === '/dog-grooming') return { page: 'dog-grooming' };
+  if (cleanPath === '/cat-grooming') return { page: 'cat-grooming' };
+  if (cleanPath === '/spa-addons') return { page: 'spa-addons' };
+  if (cleanPath === '/mobile-grooming') return { page: 'mobile-grooming' };
+  if (cleanPath === '/shop') return { page: 'shop' };
+  if (cleanPath === '/food' || cleanPath === '/shop/food') return { page: 'food' };
+  if (cleanPath === '/accessories' || cleanPath === '/shop/accessories') return { page: 'accessories' };
+  if (cleanPath === '/membership') return { page: 'membership' };
+  if (cleanPath === '/contact') return { page: 'contact' };
+  if (cleanPath === '/education') return { page: 'education' };
+  if (cleanPath === '/locations') return { page: 'locations' };
+  if (cleanPath.startsWith('/locations/')) {
+    const slug = cleanPath.replace('/locations/', '');
+    const exists = PRIORITY_LOCATIONS.some((l) => l.slug === slug);
+    if (exists) {
+      return { page: 'location-detail', locationSlug: slug };
+    }
+    return { page: '404' };
+  }
+  if (cleanPath === '/pet-grooming-mangalore') return { page: 'pet-grooming-mangalore' };
+  if (cleanPath === '/dog-grooming-mangalore') return { page: 'dog-grooming-mangalore' };
+  if (cleanPath === '/cat-grooming-mangalore') return { page: 'cat-grooming-mangalore' };
+  if (cleanPath === '/pet-spa-mangalore') return { page: 'pet-spa-mangalore' };
+  if (cleanPath === '/mobile-pet-grooming-mangalore') return { page: 'mobile-pet-grooming-mangalore' };
+  if (cleanPath === '/home-pet-grooming-mangalore') return { page: 'home-pet-grooming-mangalore' };
+  if (cleanPath === '/dog-grooming-at-home-mangalore') return { page: 'dog-grooming-at-home-mangalore' };
+  if (cleanPath === '/policies') return { page: 'policies' };
+  if (cleanPath === '/privacy') return { page: 'privacy' };
+  if (cleanPath === '/terms') return { page: 'terms' };
+  if (cleanPath === '/grooming-policy') return { page: 'grooming-policy' };
+  if (cleanPath === '/cancellation-policy') return { page: 'cancellation-policy' };
+  if (cleanPath === '/refund-policy') return { page: 'refund-policy' };
+  if (cleanPath === '/shipping-policy') return { page: 'shipping-policy' };
+  if (cleanPath === '/membership-terms') return { page: 'membership-terms' };
+  if (cleanPath === '/admin') return { page: 'admin' };
+  if (cleanPath === '/404') return { page: '404' };
+
+  return { page: '404' };
+};
+
+const getPathForPage = (page: ActivePage, locationSlug?: string): string => {
+  if (page === 'home') return '/';
+  if (page === 'location-detail' && locationSlug) return `/locations/${locationSlug}`;
+  if (page === 'food') return '/shop/food';
+  if (page === 'accessories') return '/shop/accessories';
+  return `/${page}`;
+};
 
 function AppContent() {
-  const [activePage, setActivePage] = useState<ActivePage>('home');
-  const [selectedLocationSlug, setSelectedLocationSlug] = useState<string>('derebail');
+  const [activePage, setActivePage] = useState<ActivePage>(() => {
+    if (typeof window !== 'undefined') {
+      return parseRouteFromUrl(window.location.pathname).page;
+    }
+    return 'home';
+  });
+
+  const [selectedLocationSlug, setSelectedLocationSlug] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return parseRouteFromUrl(window.location.pathname).locationSlug || 'derebail';
+    }
+    return 'derebail';
+  });
+
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  // Sync browser popstate (Back/Forward buttons)
+  useEffect(() => {
+    const handlePopState = () => {
+      const route = parseRouteFromUrl(window.location.pathname);
+      setActivePage(route.page);
+      if (route.locationSlug) {
+        setSelectedLocationSlug(route.locationSlug);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Dynamic SEO Meta & JSON-LD Schema Update on Page Change
   useEffect(() => {
-    updateDocumentSEO(activePage);
-  }, [activePage]);
+    updateDocumentSEO(activePage, activePage === 'location-detail' ? selectedLocationSlug : undefined);
+  }, [activePage, selectedLocationSlug]);
 
   const handlePageChange = (page: ActivePage) => {
     setActivePage(page);
+    const targetPath = getPathForPage(page);
+    if (typeof window !== 'undefined' && window.location.pathname !== targetPath) {
+      window.history.pushState({ page }, '', targetPath);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectLocation = (slug: string) => {
     setSelectedLocationSlug(slug);
     setActivePage('location-detail');
+    const targetPath = `/locations/${slug}`;
+    if (typeof window !== 'undefined' && window.location.pathname !== targetPath) {
+      window.history.pushState({ page: 'location-detail', slug }, '', targetPath);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -229,6 +317,15 @@ function AppContent() {
             key={activePage}
             initialSection={activePage}
             onNavigate={handlePageChange}
+          />
+        )}
+
+        {/* Dedicated 404 Not Found Page */}
+        {activePage === '404' && (
+          <NotFoundView
+            onNavigate={handlePageChange}
+            onSelectLocation={handleSelectLocation}
+            onOpenSearch={() => setIsSearchOpen(true)}
           />
         )}
       </main>

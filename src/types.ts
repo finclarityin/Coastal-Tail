@@ -698,6 +698,7 @@ export type ActivePage =
   | 'refund-policy'
   | 'shipping-policy'
   | 'membership-terms'
+  | '404'
   | 'admin';
 
 export type AdminActiveTab =
