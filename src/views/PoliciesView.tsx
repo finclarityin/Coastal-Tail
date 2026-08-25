@@ -158,7 +158,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
             </a>
             <span className="hidden sm:inline text-white/30">•</span>
             <a
-              href={`tel:${COASTAL_TAILS_PHONE}`}
+              href="tel:+917996989956"
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-[#2DD4BF]" />

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
-import { Sparkles, Clock, Check, HelpCircle, Shield, Truck, Scissors, ArrowRight } from 'lucide-react';
+import { Sparkles, Clock, Check, HelpCircle, Shield, Truck, Scissors, ArrowRight, Heart } from 'lucide-react';
+import { ImageWithFallback } from './ImageWithFallback';
 import { useCart } from '../context/CartContext';
 import { PetCategory, DogSize, CatCoatType, GroomingPackage } from '../types';
 import { DOG_SIZES, CAT_COATS, DOG_GROOMING_PACKAGES, CAT_GROOMING_PACKAGES, SPA_ADDONS, MOBILE_GROOMING_INFO } from '../data/groomingData';
-import { createDirectWhatsAppChatUrl } from '../utils/whatsapp';
 
 export const GroomingSection: React.FC = () => {
   const { openGroomingEnquiry } = useCart();
@@ -25,61 +25,61 @@ export const GroomingSection: React.FC = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#08383B] font-['Outfit'] tracking-tight">
-            Dog & Cat Grooming Packages
+            Dog & Cat Grooming Services & Packages
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Choose the grooming experience that best suits your pet. Services are tailored to breed, coat condition, size and individual grooming needs.
+            Choose the grooming experience that best suits your pet. Services are tailored to breed, coat condition, size and individual grooming needs with both studio and doorstep mobile options.
           </p>
+        </div>
 
-          {/* Category Switcher Tabs (Dogs, Cats, Grooming Add-ons, Mobile Grooming) */}
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            <button
-              onClick={() => setActiveTab('dogs')}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
-                activeTab === 'dogs'
-                  ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
-                  : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
-              }`}
-            >
-              <span>🐶 Dogs</span>
-            </button>
+        {/* Category Switcher Tabs (Dogs, Cats, Grooming Add-ons, Mobile Grooming) */}
+        <div id="package-selector-tabs" className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
+          <button
+            onClick={() => setActiveTab('dogs')}
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
+              activeTab === 'dogs'
+                ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
+                : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
+            }`}
+          >
+            <span>🐶 Dogs</span>
+          </button>
 
-            <button
-              onClick={() => setActiveTab('cats')}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
-                activeTab === 'cats'
-                  ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
-                  : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
-              }`}
-            >
-              <span>🐱 Cats</span>
-            </button>
+          <button
+            onClick={() => setActiveTab('cats')}
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
+              activeTab === 'cats'
+                ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
+                : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
+            }`}
+          >
+            <span>🐱 Cats</span>
+          </button>
 
-            <button
-              onClick={() => setActiveTab('spa')}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
-                activeTab === 'spa'
-                  ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
-                  : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
-              }`}
-            >
-              <Sparkles className="w-4 h-4 text-amber-500" />
-              <span>Grooming Add-ons</span>
-            </button>
+          <button
+            onClick={() => setActiveTab('spa')}
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
+              activeTab === 'spa'
+                ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
+                : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            <span>Grooming Add-ons & Spa</span>
+          </button>
 
-            <button
-              onClick={() => setActiveTab('mobile')}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
-                activeTab === 'mobile'
-                  ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
-                  : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
-              }`}
-            >
-              <Truck className="w-4 h-4 text-[#0D6E6E]" />
-              <span>Mobile Grooming</span>
-            </button>
-          </div>
+          <button
+            onClick={() => setActiveTab('mobile')}
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
+              activeTab === 'mobile'
+                ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
+                : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
+            }`}
+          >
+            <Truck className="w-4 h-4 text-[#0D6E6E]" />
+            <span>Coastal Tails GO (Mobile)</span>
+          </button>
         </div>
 
         {/* View 1: Dog Grooming Packages */}
@@ -188,7 +188,7 @@ export const GroomingSection: React.FC = () => {
                           : 'bg-white hover:bg-[#E6F7F6] text-[#08383B] border-2 border-[#0D6E6E]'
                       }`}
                     >
-                      <WhatsAppIcon className={`w-4 h-4 ${pkg.isPopular ? 'text-[#25D366]' : 'text-[#25D366]'}`} />
+                      <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                       <span>Ask for Price</span>
                     </button>
                   </div>
@@ -339,7 +339,7 @@ export const GroomingSection: React.FC = () => {
                     <span className="text-xs font-extrabold text-[#08383B]">ASK FOR PRICE</span>
                     <button
                       onClick={() => openGroomingEnquiry()}
-                      className="px-3 py-1.5 rounded-xl bg-[#0D6E6E] hover:bg-[#08383B] text-white text-xs font-bold shadow-xs transition-colors flex items-center gap-1.5"
+                      className="px-3 py-1.5 rounded-xl bg-[#0D6E6E] hover:bg-[#08383B] text-white text-xs font-bold shadow-xs transition-colors flex items-center gap-1.5 cursor-pointer"
                     >
                       <WhatsAppIcon className="w-3.5 h-3.5" />
                       <span>Enquire</span>
@@ -393,8 +393,8 @@ export const GroomingSection: React.FC = () => {
 
                 <div className="pt-4 flex flex-col sm:flex-row gap-3">
                   <button
-                    onClick={() => openGroomingEnquiry()}
-                    className="px-6 py-3.5 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-sm shadow-md flex items-center justify-center gap-2.5"
+                    onClick={() => openGroomingEnquiry(undefined, 'doorstep')}
+                    className="px-6 py-3.5 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-sm shadow-md flex items-center justify-center gap-2.5 cursor-pointer"
                   >
                     <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                     <span>Check Mobile Van Availability (Ask for Price)</span>
@@ -404,10 +404,15 @@ export const GroomingSection: React.FC = () => {
 
               <div className="lg:col-span-5">
                 <div className="relative rounded-2xl overflow-hidden border border-slate-100 shadow-md">
-                  <img
-                    src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800&auto=format&fit=crop&q=80"
+                  <ImageWithFallback
+                    src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee"
                     alt="Coastal Tails Mobile Grooming Van"
                     className="w-full h-72 object-cover"
+                    optimizeWidth={800}
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="288"
                   />
                   <div className="p-4 bg-[#08383B] text-white text-xs space-y-1">
                     <div className="font-bold flex items-center gap-1.5">

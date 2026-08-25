@@ -1,5 +1,5 @@
 import React from 'react';
-import heroPetSpaImg from '../assets/images/hero_pets_spa_1787567015212.jpg';
+import heroPetsImg from '../assets/images/coastal_hero_pets_1787662084787.jpg';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import {
   Sparkles,
@@ -146,61 +146,86 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
                   <path d="M7 4.5v15a1 1 0 001.55.83l12-7.5a1 1 0 000-1.66l-12-7.5A1 1 0 007 4.5z" />
                 </svg>
               </span>
-              <span className="text-[#0D6E6E] font-bold">PROFESSIONAL PET GROOMING IN MANGALORE</span>
+              <span className="text-[#0D6E6E] font-bold">COASTAL TAILS • GROOMING STUDIO & PET SPA</span>
             </div>
 
-            {/* Bold Headline */}
+            {/* Main Primary H1 Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-[#08383B] font-['Outfit'] tracking-tight leading-[1.12]">
-              Premium Dog & Cat Grooming in Mangalore
+              Premium Pet Grooming. <span className="text-[#0D6E6E] block sm:inline">At Our Studio or At Your Doorstep.</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Professional grooming, gentle handling and spa care tailored to your pet’s breed, coat type, size, coat condition and individual grooming needs.
+              Coastal Tails Grooming Studio & Pet Spa brings professional grooming, spa and coat-care services to pets across Mangaluru — with both studio appointments and Coastal Tails GO mobile grooming.
             </p>
 
             {/* Quick Actions & Mangaluru Trust Badges */}
             <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <button
-                onClick={() => {
-                  const el = document.getElementById('grooming-packages');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  else onExploreGrooming();
-                }}
-                className="px-6 py-3 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-[#0D6E6E]/20 transition-all flex items-center gap-2 cursor-pointer hover:scale-102 active:scale-98"
+                onClick={() => openGroomingEnquiry(undefined, 'studio')}
+                className="px-5 sm:px-6 py-3 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-[#0D6E6E]/20 transition-all flex items-center gap-2 cursor-pointer hover:scale-102 active:scale-98"
               >
-                <span>Explore Grooming Services</span>
-                <ChevronRight className="w-4 h-4" />
+                <Scissors className="w-4 h-4" />
+                <span>Book Grooming</span>
+              </button>
+
+              <button
+                onClick={() => openGroomingEnquiry(undefined, 'doorstep')}
+                className="px-5 sm:px-6 py-3 rounded-2xl bg-[#FF7A29] hover:bg-[#E56515] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-[#FF7A29]/25 transition-all flex items-center gap-2 cursor-pointer hover:scale-102 active:scale-98"
+              >
+                <Truck className="w-4 h-4" />
+                <span>Book Mobile Grooming</span>
               </button>
 
               <button
                 onClick={() => openGroomingEnquiry()}
-                className="px-5 py-3 rounded-2xl bg-white hover:bg-[#F0FDFB] text-[#08383B] font-bold text-xs sm:text-sm border border-slate-200 shadow-xs transition-all flex items-center gap-2.5 cursor-pointer hover:border-[#25D366] hover:text-[#0D6E6E] group"
+                className="px-4 sm:px-5 py-3 rounded-2xl bg-white hover:bg-[#F0FDFB] text-[#08383B] font-bold text-xs sm:text-sm border border-slate-200 shadow-xs transition-all flex items-center gap-2 cursor-pointer hover:border-[#25D366] hover:text-[#0D6E6E] group"
               >
-                <WhatsAppIcon variant="badge" className="w-5 h-5 shadow-xs" />
-                <span className="font-bold">Ask for Grooming Price</span>
+                <WhatsAppIcon variant="badge" className="w-4 h-4 shadow-xs" />
+                <span>WhatsApp Us</span>
               </button>
             </div>
 
-            {/* Studio Hours & Location Pill */}
-            <div className="pt-1 text-xs text-slate-500 flex items-center justify-center lg:justify-start gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              <span>Studio Open Today in Kankanady, Mangaluru • 9:30 AM – 8:00 PM</span>
+            {/* Studio & Mobile Hours Pill */}
+            <div className="pt-1 text-xs text-slate-500 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                <span className="font-semibold text-slate-700">Studio & Mobile Van Active in Mangaluru</span>
+              </div>
+              <span className="text-slate-300 hidden sm:inline">•</span>
+              <span>Dwaraka Enclave, Derebail Hub • 9:30 AM – 9:30 PM</span>
             </div>
           </div>
 
-          {/* Right Column: Natural Dog and Cat Visual with Organic Wave Arch (Matching 3rd reference layout) */}
+          {/* Right Column: Coastal Tails Dog and Cat on Mangaluru Beach (Matching reference design) */}
           <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
             <div className="relative w-full max-w-lg">
-              {/* Organic Soft Teal Backdrop Curve matching reference */}
-              <div className="absolute -inset-4 sm:-inset-6 bg-[#CBEFEB]/60 rounded-[3rem] blur-xl pointer-events-none -z-10" />
+              {/* Organic Soft Teal Backdrop Glow */}
+              <div className="absolute -inset-4 sm:-inset-6 bg-[#2DD4BF]/20 rounded-[3.5rem] blur-2xl pointer-events-none -z-10" />
 
-              {/* Natural Organic Shaped Container for Pets Visual */}
-              <div className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] shadow-xl border-4 border-white/80 bg-[#CBEFEB]/40 transition-transform duration-700 hover:scale-[1.02]">
+              {/* Decorative Corner Paw Watermark Accents */}
+              <div className="absolute -top-3 -right-3 z-20 pointer-events-none opacity-40">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="#0D6E6E" className="transform rotate-12">
+                  <circle cx="5" cy="8" r="2" />
+                  <circle cx="10" cy="4" r="2" />
+                  <circle cx="15" cy="4" r="2" />
+                  <circle cx="20" cy="8" r="2" />
+                  <path d="M6 14 C6 11, 8 10, 12 10 C16 10, 18 11, 18 14 C18 17.5, 15 20, 12 20 C9 20, 6 17.5, 6 14 Z" />
+                </svg>
+              </div>
+
+              {/* Stadium / Rounded Rectangle Container with White Border matching reference */}
+              <div className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3.25rem] shadow-2xl border-4 sm:border-6 border-white bg-white transition-transform duration-500 hover:scale-[1.01]">
                 <img
-                  src={heroPetSpaImg}
-                  alt="Golden Retriever in teal grooming bandana and fluffy Ragdoll cat with teal bowtie"
+                  src={heroPetsImg}
+                  alt="Golden Retriever in teal Coastal Tails bandana and fluffy white Ragdoll cat with teal bowtie on Mangaluru beach"
                   className="w-full h-auto object-cover object-center max-h-[380px] sm:max-h-[440px]"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  width="540"
+                  height="360"
                 />
               </div>
             </div>

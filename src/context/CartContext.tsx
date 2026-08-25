@@ -20,7 +20,11 @@ interface CartContextType {
   isGroomingModalOpen: boolean;
   selectedGroomingPackage: GroomingPackage | null;
   groomingDefaultPetType: 'dog' | 'cat';
-  openGroomingEnquiry: (pkg?: GroomingPackage | null, defaultType?: 'dog' | 'cat') => void;
+  groomingDefaultMode: 'studio' | 'doorstep';
+  openGroomingEnquiry: (
+    pkg?: GroomingPackage | null,
+    defaultTypeOrMode?: 'dog' | 'cat' | 'doorstep' | 'studio'
+  ) => void;
   closeGroomingEnquiry: () => void;
   // Product Detail Modal state
   selectedProductForDetail: Product | null;
@@ -63,6 +67,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isGroomingModalOpen, setIsGroomingModalOpen] = useState(false);
   const [selectedGroomingPackage, setSelectedGroomingPackage] = useState<GroomingPackage | null>(null);
   const [groomingDefaultPetType, setGroomingDefaultPetType] = useState<'dog' | 'cat'>('dog');
+  const [groomingDefaultMode, setGroomingDefaultMode] = useState<'studio' | 'doorstep'>('studio');
   const [selectedProductForDetail, setSelectedProductForDetail] = useState<Product | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -128,9 +133,22 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
 
-  const openGroomingEnquiry = (pkg?: GroomingPackage | null, defaultType: 'dog' | 'cat' = 'dog') => {
+  const openGroomingEnquiry = (
+    pkg?: GroomingPackage | null,
+    defaultTypeOrMode?: 'dog' | 'cat' | 'doorstep' | 'studio'
+  ) => {
     setSelectedGroomingPackage(pkg || null);
-    setGroomingDefaultPetType(defaultType);
+    if (defaultTypeOrMode === 'dog' || defaultTypeOrMode === 'cat') {
+      setGroomingDefaultPetType(defaultTypeOrMode);
+    } else if (pkg?.petType) {
+      setPetTypeHelper: setGroomingDefaultPetType(pkg.petType);
+    }
+    
+    if (defaultTypeOrMode === 'doorstep' || defaultTypeOrMode === 'studio') {
+      setGroomingDefaultMode(defaultTypeOrMode);
+    } else {
+      setGroomingDefaultMode('studio');
+    }
     setIsGroomingModalOpen(true);
   };
 
@@ -177,6 +195,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isGroomingModalOpen,
         selectedGroomingPackage,
         groomingDefaultPetType,
+        groomingDefaultMode,
         openGroomingEnquiry,
         closeGroomingEnquiry,
         selectedProductForDetail,

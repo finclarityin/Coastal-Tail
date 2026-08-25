@@ -15,6 +15,8 @@ import {
   Heart,
   ChevronRight,
   Sparkles,
+  Truck,
+  BookOpen,
 } from 'lucide-react';
 import { ActivePage } from '../types';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
@@ -53,13 +55,13 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
       {/* Bottom Floating Navigation Dock Bar for Mobile Screens (lg:hidden) */}
       <nav
         aria-label="Mobile Bottom Navigation"
-        className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-slate-200/80 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] lg:hidden transition-transform duration-300"
+        className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-slate-200/90 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] lg:hidden transition-transform duration-300"
       >
-        <div className="max-w-md mx-auto px-2 py-1.5 flex items-center justify-around">
+        <div className="max-w-md mx-auto px-3 py-1.5 flex items-center justify-around">
           {/* 1. Home */}
           <button
             onClick={() => handleTabClick('home')}
-            className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all duration-200 cursor-pointer min-w-[56px] min-h-[48px] ${
+            className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all duration-200 cursor-pointer min-w-[54px] min-h-[48px] ${
               activePage === 'home'
                 ? 'text-[#0D6E6E] font-bold'
                 : 'text-slate-500 hover:text-slate-800'
@@ -72,29 +74,29 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                 <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#0D6E6E]" />
               )}
             </div>
-            <span className="text-[10px] tracking-tight mt-1">Home</span>
+            <span className="text-[10px] tracking-tight mt-1 font-semibold">Home</span>
           </button>
 
           {/* 2. Services */}
           <button
             onClick={() => handleTabClick('services')}
-            className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all duration-200 cursor-pointer min-w-[56px] min-h-[48px] ${
-              activePage === 'services'
+            className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all duration-200 cursor-pointer min-w-[54px] min-h-[48px] ${
+              activePage === 'services' || activePage === 'dog-grooming' || activePage === 'cat-grooming'
                 ? 'text-[#0D6E6E] font-bold'
                 : 'text-slate-500 hover:text-slate-800'
             }`}
             aria-label="Services"
           >
             <div className="relative">
-              <Scissors className={`w-5 h-5 transition-transform ${activePage === 'services' ? 'scale-110' : ''}`} />
-              {activePage === 'services' && (
+              <Scissors className={`w-5 h-5 transition-transform ${activePage === 'services' || activePage === 'dog-grooming' || activePage === 'cat-grooming' ? 'scale-110' : ''}`} />
+              {(activePage === 'services' || activePage === 'dog-grooming' || activePage === 'cat-grooming') && (
                 <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#0D6E6E]" />
               )}
             </div>
-            <span className="text-[10px] tracking-tight mt-1">Services</span>
+            <span className="text-[10px] tracking-tight mt-1 font-semibold">Services</span>
           </button>
 
-          {/* 3. Central Highlight: Quick Book WhatsApp or Store */}
+          {/* 3. Central Highlight: Quick Book WhatsApp */}
           <button
             onClick={() => {
               openGroomingEnquiry();
@@ -106,13 +108,13 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
             <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#08383B] to-[#0D6E6E] text-white flex items-center justify-center shadow-lg shadow-[#0D6E6E]/30 ring-4 ring-white group-hover:scale-105 group-active:scale-95 transition-transform">
               <WhatsAppIcon className="w-6 h-6 text-[#25D366]" />
             </div>
-            <span className="text-[10px] font-bold text-[#08383B] tracking-tight mt-0.5">Book</span>
+            <span className="text-[10px] font-extrabold text-[#08383B] tracking-tight mt-0.5">Book</span>
           </button>
 
           {/* 4. Pet Store */}
           <button
             onClick={() => handleTabClick('shop')}
-            className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all duration-200 cursor-pointer min-w-[56px] min-h-[48px] ${
+            className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all duration-200 cursor-pointer min-w-[54px] min-h-[48px] ${
               isStoreActive
                 ? 'text-[#0D6E6E] font-bold'
                 : 'text-slate-500 hover:text-slate-800'
@@ -122,7 +124,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
             <div className="relative">
               <ShoppingBag className={`w-5 h-5 transition-transform ${isStoreActive ? 'scale-110' : ''}`} />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-2 bg-[#FF6B6B] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1 -right-2 bg-[#FF6B6B] text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-2xs">
                   {totalItems}
                 </span>
               )}
@@ -130,13 +132,13 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                 <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#0D6E6E]" />
               )}
             </div>
-            <span className="text-[10px] tracking-tight mt-1">Shop</span>
+            <span className="text-[10px] tracking-tight mt-1 font-semibold">Store</span>
           </button>
 
           {/* 5. Menu / More Drawer Trigger */}
           <button
             onClick={() => setDrawerOpen(!drawerOpen)}
-            className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all duration-200 cursor-pointer min-w-[56px] min-h-[48px] ${
+            className={`flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all duration-200 cursor-pointer min-w-[54px] min-h-[48px] ${
               drawerOpen
                 ? 'text-[#0D6E6E] font-bold'
                 : 'text-slate-500 hover:text-slate-800'
@@ -150,7 +152,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                 <Menu className="w-5 h-5" />
               )}
             </div>
-            <span className="text-[10px] tracking-tight mt-1">Menu</span>
+            <span className="text-[10px] tracking-tight mt-1 font-semibold">Menu</span>
           </button>
         </div>
       </nav>
@@ -191,7 +193,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
             </div>
 
             {/* Scrollable Content inside Drawer */}
-            <div className="overflow-y-auto p-5 space-y-5 pb-24">
+            <div className="overflow-y-auto p-5 space-y-4 pb-24">
               {/* Quick Actions (Search & Cart) */}
               <div className="grid grid-cols-2 gap-2.5">
                 <button
@@ -226,24 +228,36 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                   </span>
                   <span className="text-[10px] text-slate-300">Fast Confirmation</span>
                 </div>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-3 gap-2">
                   <button
                     onClick={() => {
                       setDrawerOpen(false);
                       openGroomingEnquiry(null, 'dog');
                     }}
-                    className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/15 rounded-xl text-xs font-bold text-white flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/15 rounded-xl text-xs font-bold text-white flex flex-col items-center justify-center gap-1 cursor-pointer"
                   >
-                    <span>🐶 Dog Grooming</span>
+                    <span>🐶</span>
+                    <span>Dog Groom</span>
                   </button>
                   <button
                     onClick={() => {
                       setDrawerOpen(false);
                       openGroomingEnquiry(null, 'cat');
                     }}
-                    className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/15 rounded-xl text-xs font-bold text-white flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/15 rounded-xl text-xs font-bold text-white flex flex-col items-center justify-center gap-1 cursor-pointer"
                   >
-                    <span>🐱 Cat Grooming</span>
+                    <span>🐱</span>
+                    <span>Cat Spa</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setDrawerOpen(false);
+                      handleTabClick('mobile-pet-grooming-mangalore');
+                    }}
+                    className="p-2.5 bg-[#FF7A29] hover:bg-[#E5681E] border border-[#FF7A29] rounded-xl text-xs font-bold text-white flex flex-col items-center justify-center gap-1 cursor-pointer"
+                  >
+                    <span>🚐</span>
+                    <span>Doorstep Van</span>
                   </button>
                 </div>
               </div>
@@ -256,8 +270,8 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 
                 <button
                   onClick={() => handleTabClick('home')}
-                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all ${
-                    activePage === 'home' ? 'bg-[#E6F7F6] text-[#0D6E6E]' : 'hover:bg-slate-50 text-slate-700'
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
+                    activePage === 'home' ? 'bg-[#E6F7F6] text-[#0D6E6E] font-bold' : 'hover:bg-slate-50 text-slate-700'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -268,48 +282,74 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                 </button>
 
                 <button
-                  onClick={() => handleTabClick('about')}
-                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all ${
-                    activePage === 'about' ? 'bg-[#E6F7F6] text-[#0D6E6E]' : 'hover:bg-slate-50 text-slate-700'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <ShieldCheck className="w-4 h-4 text-[#0D6E6E]" />
-                    <span>About Us & Safety Standards</span>
-                  </div>
-                  <ChevronRight className="w-4 h-4 text-slate-400" />
-                </button>
-
-                <button
                   onClick={() => handleTabClick('services')}
-                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all ${
-                    activePage === 'services' ? 'bg-[#E6F7F6] text-[#0D6E6E]' : 'hover:bg-slate-50 text-slate-700'
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
+                    activePage === 'services' || activePage === 'dog-grooming' || activePage === 'cat-grooming' ? 'bg-[#E6F7F6] text-[#0D6E6E] font-bold' : 'hover:bg-slate-50 text-slate-700'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <Scissors className="w-4 h-4 text-[#0D6E6E]" />
-                    <span>Grooming Services & Van Booking</span>
+                    <span>Grooming Services & Spa</span>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-slate-400" />
+                  <span className="text-[10px] bg-teal-100 text-[#0D6E6E] px-2 py-0.5 rounded-full font-bold">12 Packages</span>
+                </button>
+
+                <button
+                  onClick={() => handleTabClick('mobile-pet-grooming-mangalore')}
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
+                    activePage === 'mobile-pet-grooming-mangalore' || activePage === 'mobile-grooming' ? 'bg-[#FF7A29] text-white font-bold' : 'hover:bg-amber-50 text-amber-900 bg-amber-50/50'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Truck className="w-4 h-4 text-[#FF7A29]" />
+                    <span>Coastal Tails GO (Mobile Pet Grooming)</span>
+                  </div>
+                  <span className="text-[10px] bg-[#FF7A29] text-white px-2 py-0.5 rounded-full font-bold">Doorstep</span>
+                </button>
+
+                <button
+                  onClick={() => handleTabClick('locations')}
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
+                    activePage === 'locations' || activePage === 'location-detail' ? 'bg-[#E6F7F6] text-[#0D6E6E] font-bold' : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <MapPin className="w-4 h-4 text-[#0D6E6E]" />
+                    <span>Service Areas & Pincodes</span>
+                  </div>
+                  <span className="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-bold">21+ Hubs</span>
                 </button>
 
                 <button
                   onClick={() => handleTabClick('shop')}
-                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all ${
-                    activePage === 'shop' ? 'bg-[#E6F7F6] text-[#0D6E6E]' : 'hover:bg-slate-50 text-slate-700'
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
+                    ['shop', 'food', 'accessories'].includes(activePage) ? 'bg-[#E6F7F6] text-[#0D6E6E] font-bold' : 'hover:bg-slate-50 text-slate-700'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <ShoppingBag className="w-4 h-4 text-[#0D6E6E]" />
+                    <ShoppingBag className="w-4 h-4 text-emerald-600" />
                     <span>Pet Store (Food & Accessories)</span>
                   </div>
-                  <span className="text-[10px] bg-[#0D6E6E] text-white px-2 py-0.5 rounded-full font-bold">2 Sections</span>
+                  <span className="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Store</span>
+                </button>
+
+                <button
+                  onClick={() => handleTabClick('education')}
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
+                    activePage === 'education' ? 'bg-[#E6F7F6] text-[#0D6E6E] font-bold' : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <BookOpen className="w-4 h-4 text-purple-600" />
+                    <span>Pet Care Guides & Articles</span>
+                  </div>
+                  <span className="text-[10px] bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full font-bold">Guides</span>
                 </button>
 
                 <button
                   onClick={() => handleTabClick('membership')}
-                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all ${
-                    activePage === 'membership' ? 'bg-[#E6F7F6] text-[#0D6E6E]' : 'hover:bg-slate-50 text-slate-700'
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
+                    activePage === 'membership' ? 'bg-[#E6F7F6] text-[#0D6E6E] font-bold' : 'hover:bg-slate-50 text-slate-700'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -320,8 +360,21 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                 </button>
 
                 <button
+                  onClick={() => handleTabClick('about')}
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
+                    activePage === 'about' ? 'bg-[#E6F7F6] text-[#0D6E6E] font-bold' : 'hover:bg-slate-50 text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <ShieldCheck className="w-4 h-4 text-[#0D6E6E]" />
+                    <span>About Us & Safety Standards</span>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-slate-400" />
+                </button>
+
+                <button
                   onClick={() => handleTabClick('contact')}
-                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all ${
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
                     activePage === 'contact' ? 'bg-[#E6F7F6] text-[#0D6E6E]' : 'hover:bg-slate-50 text-slate-700'
                   }`}
                 >
@@ -334,7 +387,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 
                 <button
                   onClick={() => handleTabClick('policies')}
-                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all ${
+                  className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
                     ['policies', 'privacy', 'terms', 'grooming-policy', 'cancellation-policy', 'refund-policy', 'shipping-policy', 'membership-terms'].includes(activePage)
                       ? 'bg-[#E6F7F6] text-[#0D6E6E]'
                       : 'hover:bg-slate-50 text-slate-700'
@@ -352,14 +405,14 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs space-y-2 text-slate-600">
                 <div className="flex items-center gap-2 font-bold text-[#08383B]">
                   <MapPin className="w-4 h-4 text-[#0D6E6E]" />
-                  <span>Kankanady, Mangaluru</span>
+                  <span>Derebail Hub, Mangaluru</span>
                 </div>
                 <p className="text-[11px] text-slate-500 leading-snug">
                   {COASTAL_TAILS_ADDRESS}
                 </p>
                 <div className="flex items-center gap-2 text-slate-500 pt-1 border-t border-slate-200/60">
                   <Clock className="w-3.5 h-3.5 text-[#0D6E6E]" />
-                  <span>Mon – Sun: 09:30 AM – 08:00 PM</span>
+                  <span>Mon – Sun: 09:30 AM – 09:30 PM</span>
                 </div>
               </div>
 

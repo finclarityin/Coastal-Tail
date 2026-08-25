@@ -9,9 +9,13 @@ import { Header } from './components/Header';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { Hero } from './components/Hero';
 import { GroomingSection } from './components/GroomingSection';
+import { CoastalTailsGoSection } from './components/CoastalTailsGoSection';
+import { ServiceAreaSection } from './components/ServiceAreaSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
+import { TrustDifferenceSection } from './components/TrustDifferenceSection';
 import { FoodShopSection } from './components/FoodShopSection';
 import { AccessoriesShopSection } from './components/AccessoriesShopSection';
+import { EducationHubSection } from './components/EducationHubSection';
 import { MembershipSection } from './components/MembershipSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { Footer } from './components/Footer';
@@ -31,18 +35,29 @@ import { MembershipView } from './views/MembershipView';
 import { ContactView } from './views/ContactView';
 import { PoliciesView } from './views/PoliciesView';
 import { AdminPanel } from './admin/AdminPanel';
+import { EducationHubView } from './components/EducationHubView';
+import { LocationDetailView } from './components/LocationDetailView';
+import { ServiceAreasOverview } from './components/ServiceAreasOverview';
+import { ServiceLandingPageView } from './components/ServiceLandingPageView';
 
 function AppContent() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
+  const [selectedLocationSlug, setSelectedLocationSlug] = useState<string>('derebail');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  // Dynamic SEO Meta Update on Page Change
+  // Dynamic SEO Meta & JSON-LD Schema Update on Page Change
   useEffect(() => {
     updateDocumentSEO(activePage);
   }, [activePage]);
 
   const handlePageChange = (page: ActivePage) => {
     setActivePage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectLocation = (slug: string) => {
+    setSelectedLocationSlug(slug);
+    setActivePage('location-detail');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -69,6 +84,16 @@ function AppContent() {
     }
   };
 
+  const isServiceLandingPage = [
+    'pet-grooming-mangalore',
+    'dog-grooming-mangalore',
+    'cat-grooming-mangalore',
+    'pet-spa-mangalore',
+    'mobile-pet-grooming-mangalore',
+    'home-pet-grooming-mangalore',
+    'dog-grooming-at-home-mangalore',
+  ].includes(activePage);
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FDFA] text-slate-900 selection:bg-[#2DD4BF]/30 font-['Plus_Jakarta_Sans',sans-serif] relative">
       {/* Floating Paw Watermark Background across whole website */}
@@ -90,16 +115,69 @@ function AppContent() {
               onShopEssentials={handleShopEssentials}
             />
             <GroomingSection />
+            <CoastalTailsGoSection
+              onSelectLocation={handleSelectLocation}
+              onNavigate={handlePageChange}
+            />
+            <ServiceAreaSection
+              onSelectLocation={handleSelectLocation}
+              onNavigate={handlePageChange}
+            />
             <HowItWorksSection />
+            <TrustDifferenceSection />
             <FoodShopSection
               onExploreFullStore={() => handlePageChange('shop')}
             />
             <AccessoriesShopSection
               onExploreFullStore={() => handlePageChange('shop')}
             />
+            <EducationHubSection
+              onNavigate={handlePageChange}
+              onExploreEducation={() => handlePageChange('education')}
+            />
             <MembershipSection />
             <TestimonialsSection />
           </>
+        )}
+
+        {/* Dedicated Service SEO Landing Pages */}
+        {isServiceLandingPage && (
+          <ServiceLandingPageView
+            pageType={
+              activePage as
+                | 'pet-grooming-mangalore'
+                | 'dog-grooming-mangalore'
+                | 'cat-grooming-mangalore'
+                | 'pet-spa-mangalore'
+                | 'mobile-pet-grooming-mangalore'
+                | 'home-pet-grooming-mangalore'
+                | 'dog-grooming-at-home-mangalore'
+            }
+            onNavigate={handlePageChange}
+            onSelectLocation={handleSelectLocation}
+          />
+        )}
+
+        {/* Dedicated Locations Directory */}
+        {activePage === 'locations' && (
+          <ServiceAreasOverview
+            onNavigate={handlePageChange}
+            onSelectLocation={handleSelectLocation}
+          />
+        )}
+
+        {/* Specific Locality Landing Page */}
+        {activePage === 'location-detail' && (
+          <LocationDetailView
+            locationSlug={selectedLocationSlug}
+            onNavigate={handlePageChange}
+            onSelectLocation={handleSelectLocation}
+          />
+        )}
+
+        {/* Pet Education & Grooming Guides */}
+        {activePage === 'education' && (
+          <EducationHubView onNavigate={handlePageChange} />
         )}
 
         {activePage === 'about' && <AboutView />}
@@ -156,7 +234,7 @@ function AppContent() {
       </main>
 
       {/* Ocean Teal Footer */}
-      <Footer setActivePage={handlePageChange} />
+      <Footer setActivePage={handlePageChange} onSelectLocation={handleSelectLocation} />
 
       {/* Floating Action Button */}
       <FloatingWhatsApp />
@@ -193,4 +271,3 @@ export default function App() {
     </StoreProvider>
   );
 }
-

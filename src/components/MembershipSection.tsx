@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, Gift, Check, ArrowRight, ShieldCheck, Heart } from 'lucide-react';
+import { ImageWithFallback } from './ImageWithFallback';
 import { useCart } from '../context/CartContext';
 import { createMembershipEnquiryUrl } from '../utils/whatsapp';
 
@@ -34,12 +35,17 @@ export const MembershipSection: React.FC = () => {
             {/* Left: Golden Retriever with bandana image */}
             <div className="lg:col-span-4 flex justify-center">
               <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=600&auto=format&fit=crop&q=80"
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1552053831-71594a27632d"
                   alt="Happy Golden Retriever in Coastal Tails Club"
                   className="w-full h-full object-cover"
+                  optimizeWidth={500}
+                  loading="lazy"
+                  decoding="async"
+                  width="256"
+                  height="256"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-3">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-3 pointer-events-none">
                   <div className="bg-white/90 backdrop-blur-md rounded-xl px-3 py-1 text-slate-900 text-xs font-bold flex items-center gap-1.5 shadow-sm">
                     <Gift className="w-3.5 h-3.5 text-[#0D6E6E]" />
                     <span>Birthday Gift Box</span>

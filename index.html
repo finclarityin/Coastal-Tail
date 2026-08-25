@@ -18,14 +18,14 @@
     <!-- Geo & Local SEO for Mangaluru, Karnataka -->
     <meta name="geo.region" content="IN-KA" />
     <meta name="geo.placename" content="Mangaluru, Karnataka, India" />
-    <meta name="geo.position" content="12.8683;74.8580" />
-    <meta name="ICBM" content="12.8683, 74.8580" />
+    <meta name="geo.position" content="12.9081;74.8488" />
+    <meta name="ICBM" content="12.9081, 74.8488" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://coastaltails.in/" />
     <meta property="og:title" content="COASTAL TAILS – Premier Pet Grooming Studio & Spa | Mangaluru" />
-    <meta property="og:description" content="Where Tails Wag & Pets Shine. Certified gentle dog & cat grooming, luxury ozone spa, deshedding, and curated pet nutrition in Kankanady, Mangaluru." />
+    <meta property="og:description" content="Where Tails Wag & Pets Shine. Certified gentle dog & cat grooming, luxury ozone spa, deshedding, and curated pet nutrition in Derebail, Mangaluru." />
     <meta property="og:image" content="https://coastaltails.in/og-image.jpg" />
     <meta property="og:site_name" content="Coastal Tails" />
     <meta property="og:locale" content="en_IN" />
@@ -34,7 +34,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://coastaltails.in/" />
     <meta name="twitter:title" content="COASTAL TAILS – Premier Pet Grooming Studio & Spa | Mangaluru" />
-    <meta name="twitter:description" content="Where Tails Wag & Pets Shine. Certified gentle dog & cat grooming, luxury spa, and curated pet store in Kankanady, Mangaluru." />
+    <meta name="twitter:description" content="Where Tails Wag & Pets Shine. Certified gentle dog & cat grooming, luxury spa, and curated pet store in Derebail, Mangaluru." />
     <meta name="twitter:image" content="https://coastaltails.in/og-image.jpg" />
 
     <!-- Mobile App Capabilities & Favicon -->
@@ -44,7 +44,9 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    <!-- Web Fonts -->
+    <!-- Performance: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://maps.google.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -53,68 +55,66 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "PetGroomingService", "Store"],
-      "name": "Coastal Tails Grooming Studio & Pet Spa",
-      "alternateName": "Coastal Tails Mangaluru",
-      "image": "https://coastaltails.in/logo.png",
-      "url": "https://coastaltails.in",
-      "telephone": "+91 99000 00000",
-      "priceRange": "₹₹",
-      "email": "hello@coastaltails.in",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Plot 14, Behind Hotel New Bharath, Kankanady",
-        "addressLocality": "Mangaluru",
-        "addressRegion": "Karnataka",
-        "postalCode": "575002",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 12.8683,
-        "longitude": 74.8580
-      },
-      "openingHoursSpecification": [
+      "@graph": [
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "09:30",
-          "closes": "20:00"
+          "@type": ["LocalBusiness", "PetGroomingService", "Store"],
+          "@id": "https://coastaltails.in/#business",
+          "name": "Coastal Tails Grooming Studio & Pet Spa",
+          "alternateName": "Coastal Tails GO Mobile Pet Grooming",
+          "image": "https://coastaltails.in/og-image.jpg",
+          "url": "https://coastaltails.in",
+          "telephone": "+917996989956",
+          "priceRange": "₹₹",
+          "email": "hello@coastaltails.in",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Dwaraka Enclave, Derebail",
+            "addressLocality": "Mangaluru",
+            "addressRegion": "Karnataka",
+            "postalCode": "575006",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 12.9081,
+            "longitude": 74.8488
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "280",
+            "bestRating": "5"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "09:30",
+              "closes": "21:30"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Where is Coastal Tails Grooming Studio located in Mangaluru?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Coastal Tails Grooming Studio & Pet Spa is located at Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006 with pet-friendly parking."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Coastal Tails offer mobile doorstep pet grooming in Mangalore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Coastal Tails GO is Mangaluru’s premier mobile pet grooming van service, bringing climate-controlled 1-on-1 grooming directly to your doorstep across Mangaluru within a 0–25 km radius."
+              }
+            }
+          ]
         }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Grooming & Spa Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Full Dog Grooming & Styling",
-              "description": "Complete head-to-paw luxury grooming, haircut, bath, ear hygiene & nail clipping."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Gentle Cat Spa & Deshedding",
-              "description": "Low-stress specialized feline grooming, coat condition bath, and hygiene styling."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Mobile Van Grooming at Doorstep",
-              "description": "State-of-the-art air-conditioned mobile grooming van visiting pet homes across Mangaluru."
-            }
-          }
-        ]
-      },
-      "sameAs": [
-        "https://www.instagram.com/coastaltails",
-        "https://www.facebook.com/coastaltails"
       ]
     }
     </script>

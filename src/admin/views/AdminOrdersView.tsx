@@ -433,10 +433,10 @@ export const AdminOrdersView: React.FC = () => {
                 Coastal Tails Grooming Studio & Pet Spa
               </h2>
               <p className="text-[11px] text-slate-500">
-                Lighthouse Hill Road, Mangaluru, Karnataka 575001
+                Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006
               </p>
               <p className="text-[10px] text-slate-400">
-                GSTIN: 29AAAAA0000A1Z5 • Helpline: +91 97410 12345
+                GSTIN: 29AAAAA0000A1Z5 • Helpline: +91 79969 89956
               </p>
             </div>
 

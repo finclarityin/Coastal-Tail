@@ -7,7 +7,13 @@ import { DOG_SIZES, CAT_COATS, SPA_ADDONS, DOG_GROOMING_PACKAGES, CAT_GROOMING_P
 import { createGroomingEnquiryUrl, COASTAL_TAILS_PHONE } from '../utils/whatsapp';
 
 export const GroomingEnquiryModal: React.FC = () => {
-  const { isGroomingModalOpen, closeGroomingEnquiry, selectedGroomingPackage, groomingDefaultPetType } = useCart();
+  const {
+    isGroomingModalOpen,
+    closeGroomingEnquiry,
+    selectedGroomingPackage,
+    groomingDefaultPetType,
+    groomingDefaultMode,
+  } = useCart();
 
   const [petType, setPetType] = useState<'dog' | 'cat'>(groomingDefaultPetType || 'dog');
   const [petName, setPetName] = useState('');
@@ -16,7 +22,7 @@ export const GroomingEnquiryModal: React.FC = () => {
   const [coatCondition, setCoatCondition] = useState<GroomingEnquiry['coatCondition']>('Healthy');
   const [requestedPackage, setRequestedPackage] = useState('');
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
-  const [serviceMode, setServiceMode] = useState<'studio' | 'doorstep'>('studio');
+  const [serviceMode, setServiceMode] = useState<'studio' | 'doorstep'>(groomingDefaultMode || 'studio');
   const [preferredDate, setPreferredDate] = useState('');
   const [preferredTimeSlot, setPreferredTimeSlot] = useState('Morning (10 AM - 1 PM)');
   const [customerName, setCustomerName] = useState('');
@@ -36,10 +42,11 @@ export const GroomingEnquiryModal: React.FC = () => {
           groomingDefaultPetType === 'dog' ? 'Signature Coastal Groom' : 'Signature Cat Groom'
         );
       }
+      setServiceMode(groomingDefaultMode || 'studio');
       setSizeOrCoat(groomingDefaultPetType === 'dog' ? 'Medium (10 - 18 kg)' : 'Short Hair / Kittens');
       setErrorMessage('');
     }
-  }, [isGroomingModalOpen, selectedGroomingPackage, groomingDefaultPetType]);
+  }, [isGroomingModalOpen, selectedGroomingPackage, groomingDefaultPetType, groomingDefaultMode]);
 
   if (!isGroomingModalOpen) return null;
 

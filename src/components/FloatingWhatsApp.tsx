@@ -178,9 +178,9 @@ export const FloatingWhatsApp: React.FC = () => {
           <div className="bg-[#128C7E] px-4 py-1.5 text-[11px] text-teal-50 flex items-center justify-between border-t border-teal-600/50">
             <span className="flex items-center gap-1">
               <Clock className="w-3 h-3 text-teal-200" />
-              <span>Studio: 9:00 AM – 8:00 PM</span>
+              <span>Studio: 9:30 AM – 9:30 PM</span>
             </span>
-            <span className="text-teal-200">Kankanady, Mangaluru</span>
+            <span className="text-teal-200">Derebail Hub, Mangaluru</span>
           </div>
 
           {/* Chat Content Body with WhatsApp style background */}

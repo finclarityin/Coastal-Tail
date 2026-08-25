@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Package, Sparkles } from 'lucide-react';
+import { getOptimizedImageUrl } from '../utils/imageOptimizer';
 
 interface ImageWithFallbackProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackSrc?: string;
   categoryLabel?: string;
   badge?: string;
+  optimizeWidth?: number;
 }
 
 export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
@@ -14,15 +16,22 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   fallbackSrc,
   categoryLabel,
   badge,
+  optimizeWidth = 600,
+  loading = 'lazy',
+  decoding = 'async',
   ...props
 }) => {
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Reliable backup image if external image fails
+  // Reliable backup image optimized with WebP compression
   const defaultFallback =
     fallbackSrc ||
-    'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&auto=format&fit=crop&q=80';
+    'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&auto=format&fit=crop&q=75&fm=webp';
+
+  const optimizedSrc = src
+    ? getOptimizedImageUrl(src, { width: optimizeWidth, format: 'webp', quality: 75 })
+    : defaultFallback;
 
   if (hasError && !fallbackSrc) {
     return (
@@ -52,7 +61,7 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
         </div>
       )}
       <img
-        src={hasError ? defaultFallback : src}
+        src={hasError ? defaultFallback : optimizedSrc}
         alt={alt || 'Product'}
         className={`${className} transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         onLoad={() => setIsLoaded(true)}
@@ -61,7 +70,8 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
             setHasError(true);
           }
         }}
-        loading="lazy"
+        loading={loading}
+        decoding={decoding}
         referrerPolicy="no-referrer"
         {...props}
       />

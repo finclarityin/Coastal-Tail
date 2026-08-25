@@ -1,11 +1,13 @@
 import { GroomingEnquiry, ProductOrder, CartItem } from '../types';
 
-export const COASTAL_TAILS_PHONE = '7996989956';
+export const COASTAL_TAILS_PHONE = '79969 89956';
+export const COASTAL_TAILS_PHONE_RAW = '7996989956';
 export const COASTAL_TAILS_INTERNATIONAL_PHONE = '917996989956';
-export const COASTAL_TAILS_EMAIL = 'coastaltails@gmail.com';
+export const COASTAL_TAILS_WHATSAPP_LINK = 'https://wa.me/917996989956';
+export const COASTAL_TAILS_EMAIL = 'care@coastaltails.in';
 export const COASTAL_TAILS_WEBSITE = 'coastaltails.in';
-export const COASTAL_TAILS_ADDRESS = 'Behind Hotel New Bharath, Kankanady, Mangaluru, Karnataka 575002';
-export const COASTAL_TAILS_HOURS = 'Mon - Sun : 9:00 AM - 8:00 PM';
+export const COASTAL_TAILS_ADDRESS = 'Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006';
+export const COASTAL_TAILS_HOURS = 'Mon - Sun : 9:30 AM - 9:30 PM';
 
 /**
  * Formats a number to Indian Rupee (INR) format (e.g. ₹1,250)

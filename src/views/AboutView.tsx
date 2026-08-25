@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Heart, Sparkles, Award, CheckCircle2, Scissors, Truck, MapPin } from 'lucide-react';
 import { WhatsAppIcon } from '../components/icons/WhatsAppIcon';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 import { useCart } from '../context/CartContext';
 import { COASTAL_TAILS_ADDRESS, COASTAL_TAILS_HOURS, COASTAL_TAILS_PHONE } from '../utils/whatsapp';
 
@@ -78,12 +79,17 @@ export const AboutView: React.FC = () => {
 
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#E6F7F6]">
-              <img
-                src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800&auto=format&fit=crop&q=80"
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7"
                 alt="Coastal Tails Grooming Studio Interior"
                 className="w-full h-96 object-cover"
+                optimizeWidth={800}
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="384"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#08383B]/80 via-transparent to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#08383B]/80 via-transparent to-transparent flex items-end p-6 pointer-events-none">
                 <div className="text-white space-y-1">
                   <div className="text-xs font-bold text-[#2DD4BF] uppercase tracking-wider">
                     Our Sanctuary

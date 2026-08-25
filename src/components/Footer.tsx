@@ -12,6 +12,8 @@ import {
   ShoppingBag,
   ShieldCheck,
   MessageCircle,
+  Truck,
+  BookOpen,
 } from 'lucide-react';
 import { ActivePage } from '../types';
 import { useCart } from '../context/CartContext';
@@ -22,12 +24,14 @@ import {
   COASTAL_TAILS_HOURS,
   buildWhatsAppLink,
 } from '../utils/whatsapp';
+import { PRIORITY_LOCATIONS } from '../data/serviceAreaData';
 
 interface FooterProps {
   setActivePage: (page: ActivePage) => void;
+  onSelectLocation?: (slug: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
+export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectLocation }) => {
   const { openGroomingEnquiry } = useCart();
 
   const handleNav = (page: ActivePage) => {
@@ -37,38 +41,57 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
 
   return (
     <footer className="bg-[#062528] text-white pt-16 pb-12 relative overflow-hidden border-t border-[#0D6E6E]/40">
-      {/* Decorative Wave at the top */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-white/10">
-          {/* Col 1: Brand & Bio (4 cols) */}
+          {/* Col 1: Brand & Contact Info (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0D6E6E] to-[#2DD4BF] flex items-center justify-center text-white shadow-md">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2 17c1.5-1 3-1 4.5 0s3 1 4.5 0 3-1 4.5 0 3 1 4.5 0" />
-                  <circle cx="8" cy="9" r="1.5" fill="currentColor" />
-                  <circle cx="16" cy="9" r="1.5" fill="currentColor" />
-                  <circle cx="10.5" cy="6" r="1.2" fill="currentColor" />
-                  <circle cx="13.5" cy="6" r="1.2" fill="currentColor" />
-                  <path d="M9 13c1.5 1.5 4.5 1.5 6 0" />
-                </svg>
+                <Scissors className="w-6 h-6 text-white" />
               </div>
               <div>
                 <div className="font-extrabold text-2xl tracking-tight text-white font-['Outfit']">
                   COASTAL TAILS
                 </div>
-                <p className="text-[10px] uppercase tracking-widest text-[#2DD4BF] font-semibold -mt-1">
+                <p className="text-[10px] uppercase tracking-widest text-[#2DD4BF] font-bold -mt-0.5">
                   Grooming Studio & Pet Spa
                 </p>
               </div>
             </div>
 
             <p className="text-xs text-slate-300 leading-relaxed max-w-sm font-normal">
-              Professional grooming. Gentle care. Happy pets. A boutique coastal pet studio dedicated to fur-friendly styling, marine botanical treatments, and clean pet nutrition in Mangaluru.
+              Professional grooming. Gentle care. At your doorstep or in our studio. Certified dog and cat styling, coastal humidity coat treatments, and premium pet care in Mangaluru.
             </p>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-2 pt-2">
+            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 space-y-1 text-xs">
+              <div className="font-bold text-[#2DD4BF] flex items-center gap-1.5">
+                <Truck className="w-3.5 h-3.5" />
+                <span>COASTAL TAILS GO</span>
+              </div>
+              <p className="text-[11px] text-slate-300">
+                Mobile Pet Grooming at Your Doorstep across Mangaluru (0–25 km radius).
+              </p>
+            </div>
+
+            {/* Social & Contact Icons */}
+            <div className="flex items-center gap-2 pt-1">
+              <a
+                href={`tel:${COASTAL_TAILS_PHONE}`}
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#0D6E6E] flex items-center justify-center text-slate-200 hover:text-white transition-colors"
+                aria-label="Phone"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+              <a
+                href={buildWhatsAppLink("Hello Coastal Tails! I would like to enquire about grooming.")}
+                target="_blank"
+                rel="noreferrer"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#25D366] flex items-center justify-center text-slate-200 hover:text-white transition-colors"
+                aria-label="WhatsApp"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white" />
+              </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -78,103 +101,95 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#0D6E6E] flex items-center justify-center text-slate-200 hover:text-white transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href={`tel:${COASTAL_TAILS_PHONE}`}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#0D6E6E] flex items-center justify-center text-slate-200 hover:text-white transition-colors"
-                aria-label="Phone"
-              >
-                <Phone className="w-4 h-4" />
-              </a>
-              <a
-                href={buildWhatsAppLink("Hello Coastal Tails! I would like to make an enquiry.")}
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#25D366] flex items-center justify-center text-slate-200 hover:text-white transition-colors"
-                aria-label="WhatsApp"
-              >
-                <WhatsAppIcon className="w-4 h-4 text-white" />
-              </a>
             </div>
           </div>
 
-          {/* Col 2: Studio & Spa Services (2.5 cols) */}
-          <div className="lg:col-span-2 space-y-3">
+          {/* Col 2: Grooming & SEO Services (3 cols) */}
+          <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#2DD4BF] font-['Outfit']">
-              STUDIO & SPA
+              SERVICES IN MANGALORE
             </h4>
             <ul className="space-y-2 text-xs text-slate-300">
               <li>
                 <button
-                  onClick={() => handleNav('dog-grooming')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left"
+                  onClick={() => handleNav('pet-grooming-mangalore')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left font-medium"
                 >
-                  Bath & Hygiene Care
+                  Pet Grooming in Mangalore
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('dog-grooming')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left"
+                  onClick={() => handleNav('dog-grooming-mangalore')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left font-medium"
                 >
-                  Haircut & Breed Styling
+                  Dog Grooming Mangalore
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('spa-addons')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left"
+                  onClick={() => handleNav('cat-grooming-mangalore')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left font-medium"
                 >
-                  Undercoat De-shedding
+                  Cat Grooming Mangalore
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('spa-addons')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left"
+                  onClick={() => handleNav('pet-spa-mangalore')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left font-medium"
                 >
-                  Coastal Mud Spa Pack
+                  Pet Spa & Mud Packs
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('cat-grooming')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left"
+                  onClick={() => handleNav('mobile-pet-grooming-mangalore')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left text-emerald-400 font-bold"
                 >
-                  Gentle Cat Grooming
+                  Mobile Pet Grooming (Van)
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('mobile-grooming')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left text-emerald-400 font-semibold"
+                  onClick={() => handleNav('home-pet-grooming-mangalore')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left font-medium"
                 >
-                  Mobile Doorstep Van
+                  Home Pet Grooming Mangalore
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('dog-grooming-at-home-mangalore')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left font-medium"
+                >
+                  Dog Grooming at Home
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Curated Shop (2.5 cols) */}
+          {/* Col 3: Service Areas & Education (2.5 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#2DD4BF] font-['Outfit']">
-              PET STORE
+              SERVICE AREAS & GUIDES
             </h4>
             <ul className="space-y-2 text-xs text-slate-300">
               <li>
                 <button
-                  onClick={() => handleNav('shop')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left"
+                  onClick={() => handleNav('locations')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left font-bold text-amber-300"
                 >
-                  Section 1: Pet Food & Treats
+                  📍 All Service Areas (21+)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('education')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left flex items-center gap-1 font-semibold text-emerald-300"
+                >
+                  <BookOpen className="w-3.5 h-3.5" />
+                  <span>Pet Care & Tips Hub</span>
                 </button>
               </li>
               <li>
@@ -182,75 +197,70 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
                   onClick={() => handleNav('shop')}
                   className="hover:text-[#2DD4BF] transition-colors text-left"
                 >
-                  Section 2: Harnesses & Beds
+                  Pet Food & Nutrition
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('shop')}
+                  onClick={() => handleNav('accessories')}
                   className="hover:text-[#2DD4BF] transition-colors text-left"
                 >
-                  Gourmet Dog & Cat Kibble
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNav('shop')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left"
-                >
-                  Orthopedic Calming Beds
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNav('shop')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left"
-                >
-                  No-Pull Coastal Harnesses
+                  Pet Gear & Harnesses
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => handleNav('membership')}
-                  className="hover:text-[#2DD4BF] transition-colors text-left text-amber-300 font-semibold"
+                  className="hover:text-[#2DD4BF] transition-colors text-left text-amber-200"
                 >
-                  Pet Parent Club (15% OFF)
+                  Pet Parent Club (₹599/yr)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('about')}
+                  className="hover:text-[#2DD4BF] transition-colors text-left"
+                >
+                  About Coastal Tails
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Visit Our Sanctuary / Contact (4 cols) */}
-          <div className="lg:col-span-4 space-y-3">
+          {/* Col 4: Studio Location & Book (2.5 cols) */}
+          <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#2DD4BF] font-['Outfit']">
-              VISIT OUR SANCTUARY
+              STUDIO & DISPATCH HUB
             </h4>
             <div className="space-y-2.5 text-xs text-slate-300">
-              <div className="flex items-start gap-2.5">
+              <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#2DD4BF] shrink-0 mt-0.5" />
-                <span>
-                  <strong>Coastal Tails Studio & Boutique</strong>
+                <div>
+                  <strong>Coastal Tails Studio & Spa</strong>
                   <br />
-                  {COASTAL_TAILS_ADDRESS}
-                </span>
+                  <span className="text-slate-300">Dwaraka Enclave, Derebail, Mangaluru 575006</span>
+                  <div className="mt-1">
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=12.9081,74.8488"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-[#2DD4BF] hover:underline font-bold inline-flex items-center gap-1"
+                    >
+                      <span>📍 Get Directions in Maps</span>
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-[#2DD4BF] shrink-0" />
                 <span>{COASTAL_TAILS_HOURS}</span>
               </div>
 
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#2DD4BF] shrink-0" />
-                <a href={`tel:${COASTAL_TAILS_PHONE}`} className="hover:text-white transition-colors">
-                  +91 {COASTAL_TAILS_PHONE}
-                </a>
-              </div>
-
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#2DD4BF] shrink-0" />
-                <a href={`mailto:${COASTAL_TAILS_EMAIL}`} className="hover:text-white transition-colors">
-                  {COASTAL_TAILS_EMAIL}
+                <a href="tel:+917996989956" className="hover:text-[#2DD4BF] transition-colors font-bold">
+                  +91 {COASTAL_TAILS_PHONE} (One-Tap Call)
                 </a>
               </div>
             </div>
@@ -261,9 +271,30 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
                 className="w-full py-2.5 rounded-xl bg-[#0D6E6E] hover:bg-[#2DD4BF] hover:text-[#08383B] text-white font-extrabold text-xs shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
-                <span>Book a Grooming Session</span>
+                <span>Ask for Grooming Price</span>
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Neighborhood Quick Links */}
+        <div className="py-6 border-b border-white/10 space-y-2">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-[#2DD4BF]">
+            Grooming & Mobile Van Available Across Mangaluru:
+          </div>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-slate-400">
+            {PRIORITY_LOCATIONS.map((loc) => (
+              <button
+                key={loc.slug}
+                onClick={() => {
+                  if (onSelectLocation) onSelectLocation(loc.slug);
+                  else handleNav('locations');
+                }}
+                className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
+              >
+                {loc.name}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -274,52 +305,31 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
             <span>Customer Trust & Policies:</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <button
-              onClick={() => handleNav('privacy')}
-              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
-            >
+            <button onClick={() => handleNav('privacy')} className="hover:text-[#2DD4BF] transition-colors cursor-pointer">
               Privacy Policy
             </button>
             <span className="text-white/20">•</span>
-            <button
-              onClick={() => handleNav('terms')}
-              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
-            >
+            <button onClick={() => handleNav('terms')} className="hover:text-[#2DD4BF] transition-colors cursor-pointer">
               Terms & Conditions
             </button>
             <span className="text-white/20">•</span>
-            <button
-              onClick={() => handleNav('grooming-policy')}
-              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
-            >
+            <button onClick={() => handleNav('grooming-policy')} className="hover:text-[#2DD4BF] transition-colors cursor-pointer">
               Grooming Policy
             </button>
             <span className="text-white/20">•</span>
-            <button
-              onClick={() => handleNav('cancellation-policy')}
-              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
-            >
+            <button onClick={() => handleNav('cancellation-policy')} className="hover:text-[#2DD4BF] transition-colors cursor-pointer">
               Cancellation & Rescheduling
             </button>
             <span className="text-white/20">•</span>
-            <button
-              onClick={() => handleNav('refund-policy')}
-              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
-            >
+            <button onClick={() => handleNav('refund-policy')} className="hover:text-[#2DD4BF] transition-colors cursor-pointer">
               Refund & Exchange
             </button>
             <span className="text-white/20">•</span>
-            <button
-              onClick={() => handleNav('shipping-policy')}
-              className="hover:text-[#2DD4BF] transition-colors cursor-pointer"
-            >
+            <button onClick={() => handleNav('shipping-policy')} className="hover:text-[#2DD4BF] transition-colors cursor-pointer">
               Shipping & Delivery
             </button>
             <span className="text-white/20">•</span>
-            <button
-              onClick={() => handleNav('membership-terms')}
-              className="hover:text-[#2DD4BF] font-bold text-amber-300 transition-colors cursor-pointer"
-            >
+            <button onClick={() => handleNav('membership-terms')} className="hover:text-[#2DD4BF] font-bold text-amber-300 transition-colors cursor-pointer">
               Membership Terms (₹599/yr)
             </button>
           </div>

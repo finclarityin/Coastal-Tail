@@ -26,10 +26,10 @@ export const AdminSettingsView: React.FC = () => {
 
   // Business state
   const [businessName, setBusinessName] = useState('Coastal Tails Grooming Studio & Pet Spa');
-  const [phone, setPhone] = useState('+91 97410 12345');
-  const [whatsapp, setWhatsapp] = useState('+91 97410 12345');
-  const [address, setAddress] = useState('Lighthouse Hill Road, Hampankatta, Mangaluru, Karnataka 575001');
-  const [hours, setHours] = useState('Mon - Sun: 9:00 AM - 8:30 PM');
+  const [phone, setPhone] = useState('+91 79969 89956');
+  const [whatsapp, setWhatsapp] = useState('+91 79969 89956');
+  const [address, setAddress] = useState('Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006');
+  const [hours, setHours] = useState('Mon - Sun: 9:30 AM - 9:30 PM');
   const [gstin, setGstin] = useState('29AAAAA0000A1Z5');
 
   // WhatsApp template state
