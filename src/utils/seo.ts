@@ -188,9 +188,9 @@ export const updateDocumentSEO = (page: ActivePage, locationSlug?: string) => {
 
 export const MANGALORE_GROOMING_FAQS = [
   {
-    question: 'Where is Coastal Tails Grooming Studio located in Mangaluru?',
+    question: 'Where is Coastal Tails - Pet Aura located in Mangaluru?',
     answer:
-      'Coastal Tails Grooming Studio & Pet Spa is conveniently located at Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006. We have dedicated parking and double-gated airlock pet safety entrances.',
+      'Coastal Tails - Pet Aura is conveniently located at Shop No:B2 , Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006. We have dedicated parking and double-gated airlock pet safety entrances.',
   },
   {
     question: 'Does Coastal Tails provide doorstep mobile pet grooming in Mangaluru?',
@@ -231,16 +231,17 @@ export const injectStructuredData = (page: ActivePage, locationSlug?: string) =>
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'PetGroomingService',
-    name: 'Coastal Tails Grooming Studio & Pet Spa',
-    alternateName: ['Coastal Tails', 'Coastal Tails GO Mobile Pet Grooming Mangaluru'],
+    name: 'Coastal Tails - Pet Aura',
+    alternateName: ['Coastal Tails', 'Coastal Tails - Pet Aura Grooming Studio', 'Coastal Tails GO Mobile Pet Grooming Mangaluru'],
     image: 'https://coastaltails.in/og-image.jpg',
     '@id': 'https://coastaltails.in/#business',
     url: 'https://coastaltails.in',
     telephone: '+917996989956',
     priceRange: '₹₹',
+    hasMap: 'https://share.google/Eh5iR7YSfNaqCIG1x',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Dwaraka Enclave, Derebail',
+      streetAddress: 'Shop No:B2 , Dwaraka Enclave, Derebail',
       addressLocality: 'Mangaluru',
       addressRegion: 'Karnataka',
       postalCode: '575006',

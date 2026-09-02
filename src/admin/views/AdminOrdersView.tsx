@@ -430,10 +430,10 @@ export const AdminOrdersView: React.FC = () => {
                 CT
               </div>
               <h2 className="text-base font-extrabold tracking-tight font-['Outfit',sans-serif]">
-                Coastal Tails Grooming Studio & Pet Spa
+                Coastal Tails - Pet Aura
               </h2>
               <p className="text-[11px] text-slate-500">
-                Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006
+                Shop No:B2 , Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006
               </p>
               <p className="text-[10px] text-slate-400">
                 GSTIN: 29AAAAA0000A1Z5 • Helpline: +91 79969 89956

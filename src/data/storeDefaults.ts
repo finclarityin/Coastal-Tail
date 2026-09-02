@@ -776,7 +776,7 @@ export const INITIAL_AUDIT_LOGS: AdminAuditLog[] = [
     action: 'Treatment Added',
     category: 'package',
     entityId: 'dog-signature',
-    entityName: 'Signature Coastal Groom (Dogs)',
+    entityName: 'Signature Full Groom (Dogs)',
     adminName: 'Kaushik',
     adminEmail: 'admin@coastaltails.in',
     timestamp: '2026-08-23 03:15 PM',
@@ -796,13 +796,13 @@ export const INITIAL_AUDIT_LOGS: AdminAuditLog[] = [
 ];
 
 export const INITIAL_STUDIO_SETTINGS: StudioSettings = {
-  businessName: 'Coastal Tails Grooming Studio & Pet Spa',
+  businessName: 'Coastal Tails - Pet Aura',
   tagline: 'Where Tails Wag & Pets Shine',
   logo: '/favicon.svg',
   phone: '+91 79969 89956',
   whatsapp: '+91 79969 89956',
   email: 'care@coastaltails.in',
-  address: 'Dwaraka Enclave, Derebail',
+  address: 'Shop No:B2 , Dwaraka Enclave, Derebail',
   area: 'Derebail',
   city: 'Mangaluru',
   pincode: '575006',

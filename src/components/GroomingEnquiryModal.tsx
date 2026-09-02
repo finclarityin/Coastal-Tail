@@ -38,9 +38,7 @@ export const GroomingEnquiryModal: React.FC = () => {
         setRequestedPackage(selectedGroomingPackage.title);
       } else {
         setPetType(groomingDefaultPetType);
-        setRequestedPackage(
-          groomingDefaultPetType === 'dog' ? 'Signature Coastal Groom' : 'Signature Cat Groom'
-        );
+        setRequestedPackage('Signature Full Groom');
       }
       setServiceMode(groomingDefaultMode || 'studio');
       setSizeOrCoat(groomingDefaultPetType === 'dog' ? 'Medium (10 - 18 kg)' : 'Short Hair / Kittens');
@@ -76,7 +74,7 @@ export const GroomingEnquiryModal: React.FC = () => {
       breed: breed.trim() || 'Not specified',
       sizeOrCoat: sizeOrCoat || 'Standard',
       coatCondition,
-      requestedPackage: requestedPackage || 'Signature Coastal Groom',
+      requestedPackage: requestedPackage || 'Signature Full Groom',
       selectedAddOns,
       preferredDate: preferredDate || 'Earliest available date',
       preferredTimeSlot,
@@ -351,7 +349,7 @@ export const GroomingEnquiryModal: React.FC = () => {
                 onChange={(e) => setServiceMode(e.target.value as 'studio' | 'doorstep')}
                 className="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#0D6E6E] text-xs bg-slate-50"
               >
-                <option value="studio">🏢 Studio at Kankanady</option>
+                <option value="studio">🏢 Studio at Derebail (Coastal Tails - Pet Aura)</option>
                 <option value="doorstep">🚐 Mobile Doorstep Van</option>
               </select>
             </div>

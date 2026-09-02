@@ -24,7 +24,7 @@ export const ServicesView: React.FC<ServicesViewProps> = () => {
     },
     {
       q: 'Can I stay with my pet during grooming?',
-      a: 'Yes! Our Kankanady studio features open-view styling glass partitions and a comfortable lounge where pet parents can watch their babies get pampered while enjoying complimentary coffee.',
+      a: 'Yes! Our studio at Coastal Tails - Pet Aura (Shop No:B2, Dwaraka Enclave, Derebail) features open-view styling glass partitions and a comfortable lounge where pet parents can watch their babies get pampered while enjoying complimentary coffee.',
     },
     {
       q: 'How does Mobile Doorstep Van Grooming work in Mangaluru?',

@@ -16,16 +16,16 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
   const { openGroomingEnquiry } = useCart();
 
   return (
-    <section id="coastal-tails-go" className="py-14 sm:py-20 bg-gradient-to-b from-[#08383B] to-[#0D4B4E] text-white relative overflow-hidden">
+    <section id="coastal-tails-go" className="py-14 sm:py-20 bg-gradient-to-b from-[#1D237A] via-[#151a61] to-[#1D237A] text-white relative overflow-hidden">
       {/* Background Subtle Accent Grids & Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#2DD4BF]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FF7A29]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#169DB1]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#F2B45E]/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Tag & Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-[#2DD4BF] text-xs font-extrabold uppercase tracking-wider backdrop-blur-xs">
-            <Truck className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#F2B45E]/40 text-[#F2B45E] text-xs font-extrabold uppercase tracking-wider backdrop-blur-xs">
+            <Truck className="w-3.5 h-3.5 text-[#169DB1]" />
             <span>COASTAL TAILS GO • MOBILE GROOMING DIVISION</span>
           </div>
 
@@ -33,15 +33,15 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
             Mobile Pet Grooming at Your Doorstep
           </h2>
 
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
             No traffic delays, no salon waiting cages, and zero car-sickness. Coastal Tails GO brings a state-of-the-art, air-conditioned mobile grooming salon right to your apartment, villa, or bungalow across Mangaluru.
           </p>
         </div>
 
         {/* 3 Step Doorstep Process */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xs hover:border-[#2DD4BF]/50 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-[#2DD4BF]/20 text-[#2DD4BF] flex items-center justify-center font-black text-xl mb-4">
+          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xs hover:border-[#169DB1]/50 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#169DB1]/25 text-[#169DB1] border border-[#169DB1]/40 flex items-center justify-center font-black text-xl mb-4 font-['Outfit']">
               01
             </div>
             <h3 className="text-lg font-bold text-white mb-2">Book on WhatsApp</h3>
@@ -50,8 +50,8 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xs hover:border-[#2DD4BF]/50 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-[#FF7A29]/20 text-[#FF7A29] flex items-center justify-center font-black text-xl mb-4">
+          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xs hover:border-[#F2B45E]/50 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#F2B45E]/25 text-[#F2B45E] border border-[#F2B45E]/40 flex items-center justify-center font-black text-xl mb-4 font-['Outfit']">
               02
             </div>
             <h3 className="text-lg font-bold text-white mb-2">The Van Arrives</h3>
@@ -60,8 +60,8 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xs hover:border-[#2DD4BF]/50 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-[#2DD4BF]/20 text-[#2DD4BF] flex items-center justify-center font-black text-xl mb-4">
+          <div className="p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xs hover:border-[#169DB1]/50 transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#169DB1]/25 text-[#169DB1] border border-[#169DB1]/40 flex items-center justify-center font-black text-xl mb-4 font-['Outfit']">
               03
             </div>
             <h3 className="text-lg font-bold text-white mb-2">1-on-1 Gentle Care</h3>
@@ -83,7 +83,7 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
 
             <div className="space-y-3 pt-2">
               <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-[#2DD4BF]/20 text-[#2DD4BF] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-[#169DB1]/25 text-[#169DB1] flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="w-3 h-3 stroke-[3]" />
                 </div>
                 <div>
@@ -93,7 +93,7 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-[#2DD4BF]/20 text-[#2DD4BF] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-[#169DB1]/25 text-[#169DB1] flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="w-3 h-3 stroke-[3]" />
                 </div>
                 <div>
@@ -103,7 +103,7 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-[#2DD4BF]/20 text-[#2DD4BF] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-[#169DB1]/25 text-[#169DB1] flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="w-3 h-3 stroke-[3]" />
                 </div>
                 <div>
@@ -116,9 +116,9 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
             <div className="pt-4 flex flex-wrap items-center gap-3">
               <button
                 onClick={() => openGroomingEnquiry(undefined, 'doorstep')}
-                className="px-6 py-3.5 rounded-2xl bg-[#FF7A29] hover:bg-[#E56515] text-white font-extrabold text-xs sm:text-sm transition-all flex items-center gap-2 shadow-lg shadow-[#FF7A29]/30 cursor-pointer"
+                className="px-6 py-3.5 rounded-2xl bg-[#F2B45E] hover:bg-[#e09f42] text-[#1D237A] font-black text-xs sm:text-sm transition-all flex items-center gap-2 shadow-lg shadow-[#F2B45E]/20 cursor-pointer"
               >
-                <WhatsAppIcon variant="badge" className="w-4 h-4" />
+                <WhatsAppIcon variant="badge" className="w-4 h-4 text-[#1D237A]" />
                 <span>Book Coastal Tails GO Van (Ask for Price)</span>
               </button>
 
@@ -128,7 +128,7 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
                   className="px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm border border-white/20 transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <span>Explore Mobile Van & Coverage</span>
-                  <ArrowRight className="w-4 h-4 text-[#2DD4BF]" />
+                  <ArrowRight className="w-4 h-4 text-[#F2B45E]" />
                 </button>
               )}
             </div>
@@ -136,7 +136,7 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
 
           {/* Comparison Card: Mobile vs Studio */}
           <div className="lg:col-span-6 bg-white/10 rounded-2xl p-5 border border-white/15">
-            <h4 className="text-sm font-bold text-[#2DD4BF] uppercase tracking-wider mb-3">
+            <h4 className="text-sm font-extrabold text-[#F2B45E] uppercase tracking-wider mb-3 font-['Outfit']">
               Mobile Grooming vs Studio Grooming
             </h4>
             <div className="space-y-2 text-xs">
@@ -147,23 +147,23 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
               </div>
               <div className="grid grid-cols-3 p-2 border-b border-white/5 text-slate-200">
                 <span className="font-semibold text-white">Location</span>
-                <span className="text-[#2DD4BF]">At Your Doorstep</span>
+                <span className="text-[#169DB1] font-bold">At Your Doorstep</span>
                 <span>Central Derebail Studio</span>
               </div>
               <div className="grid grid-cols-3 p-2 border-b border-white/5 text-slate-200">
                 <span className="font-semibold text-white">Pet Travel</span>
-                <span className="text-[#2DD4BF]">0 km (Zero Stress)</span>
+                <span className="text-[#169DB1] font-bold">0 km (Zero Stress)</span>
                 <span>Short drive to studio</span>
               </div>
               <div className="grid grid-cols-3 p-2 border-b border-white/5 text-slate-200">
                 <span className="font-semibold text-white">Waiting / Cages</span>
-                <span className="text-[#2DD4BF]">Never Caged (1-on-1)</span>
+                <span className="text-[#169DB1] font-bold">Never Caged (1-on-1)</span>
                 <span>Private holding suites</span>
               </div>
               <div className="grid grid-cols-3 p-2 text-slate-200">
                 <span className="font-semibold text-white">Pet Store Access</span>
                 <span>Curated essentials in van</span>
-                <span className="text-[#2DD4BF]">Full boutique & food store</span>
+                <span className="text-[#F2B45E] font-bold">Full boutique & food store</span>
               </div>
             </div>
           </div>

@@ -29,10 +29,12 @@ import {
   AlertTriangle,
   FileText,
   HelpCircle,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { AdminActiveTab } from '../types';
 import { useAdminAuth } from '../context/AdminAuthContext';
 import { useStore } from '../context/StoreContext';
+import { LogoManagerModal } from '../components/LogoManagerModal';
 
 interface AdminLayoutProps {
   activeTab: AdminActiveTab;
@@ -56,6 +58,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const [isLogoModalOpen, setIsLogoModalOpen] = useState(false);
   const [globalSearchQuery, setGlobalSearchQuery] = useState('');
 
   const unreadNotifsCount = notifications.filter((n) => !n.read).length;
@@ -393,6 +396,16 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                       <FolderTree className="w-4 h-4 text-teal-600" />
                       Add Category
                     </button>
+                    <button
+                      onClick={() => {
+                        setIsLogoModalOpen(true);
+                        setIsQuickAddOpen(false);
+                      }}
+                      className="w-full px-3.5 py-2 text-left text-xs font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-900 flex items-center gap-2.5"
+                    >
+                      <ImageIcon className="w-4 h-4 text-amber-600" />
+                      Replace Brand Logo
+                    </button>
                     <div className="border-t border-slate-100 my-1"></div>
                     <button
                       onClick={() => {
@@ -528,6 +541,16 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                     </button>
                     <button
                       onClick={() => {
+                        setIsLogoModalOpen(true);
+                        setIsProfileMenuOpen(false);
+                      }}
+                      className="w-full px-3.5 py-2 text-left text-xs font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-900 flex items-center gap-2"
+                    >
+                      <ImageIcon className="w-4 h-4 text-amber-600" />
+                      Replace Brand Logo
+                    </button>
+                    <button
+                      onClick={() => {
                         onExitAdmin();
                         setIsProfileMenuOpen(false);
                       }}
@@ -559,6 +582,12 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           {children}
         </main>
       </div>
+
+      {/* Global Logo Manager Modal */}
+      <LogoManagerModal
+        isOpen={isLogoModalOpen}
+        onClose={() => setIsLogoModalOpen(false)}
+      />
     </div>
   );
 };

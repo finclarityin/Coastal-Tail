@@ -586,6 +586,8 @@ export interface StudioSettings {
   businessName: string;
   tagline: string;
   logo: string;
+  customLogoUrl?: string; // Optional custom uploaded Base64 or image URL
+  logoDisplayMode?: 'vector' | 'image' | 'pill'; // Custom display preference
   phone: string;
   whatsapp: string;
   email: string;

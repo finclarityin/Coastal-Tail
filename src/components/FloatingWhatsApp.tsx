@@ -71,10 +71,10 @@ const QUICK_PROMPTS: QuickPrompt[] = [
     id: 'studio-location',
     category: 'general',
     title: 'Studio Location & Hours',
-    subtitle: 'Kankanady location & walk-in timing',
+    subtitle: 'Derebail (Dwaraka Enclave) location & walk-in timing',
     icon: '📍',
     message:
-      'Hello! 📍 I would like to know your exact studio location in Kankanady and whether walk-ins are open today.',
+      'Hello! 📍 I would like to visit Coastal Tails - Pet Aura (Shop No:B2, Dwaraka Enclave, Derebail). Could you share exact directions and whether walk-ins are open today?',
   },
   {
     id: 'nutrition-advice',

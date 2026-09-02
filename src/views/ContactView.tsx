@@ -17,7 +17,10 @@ import { WhatsAppIcon } from '../components/icons/WhatsAppIcon';
 import {
   COASTAL_TAILS_PHONE,
   COASTAL_TAILS_EMAIL,
+  COASTAL_TAILS_STORE_NAME,
+  COASTAL_TAILS_SHOP_NO,
   COASTAL_TAILS_ADDRESS,
+  COASTAL_TAILS_GOOGLE_MAPS_LINK,
   COASTAL_TAILS_HOURS,
   buildWhatsAppLink,
 } from '../utils/whatsapp';
@@ -28,10 +31,8 @@ export const ContactView: React.FC = () => {
   const [subject, setSubject] = useState('Studio Grooming Appointment');
   const [message, setMessage] = useState('');
 
-  const googleMapsDirectionsUrl =
-    'https://www.google.com/maps/dir/?api=1&destination=12.9081,74.8488';
-  const googleMapsViewUrl =
-    'https://maps.google.com/?q=Dwaraka+Enclave,+Derebail,+Mangaluru,+Karnataka+575006';
+  const googleMapsDirectionsUrl = COASTAL_TAILS_GOOGLE_MAPS_LINK;
+  const googleMapsViewUrl = COASTAL_TAILS_GOOGLE_MAPS_LINK;
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
@@ -213,7 +214,7 @@ export const ContactView: React.FC = () => {
                 <div>
                   <h3 className="font-extrabold text-base text-[#08383B] font-['Outfit'] flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-[#0D6E6E]" />
-                    <span>Coastal Tails Studio Hub</span>
+                    <span>{COASTAL_TAILS_STORE_NAME}</span>
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">{COASTAL_TAILS_ADDRESS}</p>
                 </div>

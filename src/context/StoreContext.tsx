@@ -148,7 +148,7 @@ interface StoreContextType {
 
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
-const STORE_STORAGE_KEY = 'coastal_tails_store_v1';
+const STORE_STORAGE_KEY = 'coastal_tails_store_v2';
 
 // Initial enriched product catalog
 const INITIAL_PRODUCTS: Product[] = [

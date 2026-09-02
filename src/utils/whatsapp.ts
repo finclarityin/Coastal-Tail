@@ -6,7 +6,10 @@ export const COASTAL_TAILS_INTERNATIONAL_PHONE = '917996989956';
 export const COASTAL_TAILS_WHATSAPP_LINK = 'https://wa.me/917996989956';
 export const COASTAL_TAILS_EMAIL = 'care@coastaltails.in';
 export const COASTAL_TAILS_WEBSITE = 'coastaltails.in';
-export const COASTAL_TAILS_ADDRESS = 'Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006';
+export const COASTAL_TAILS_STORE_NAME = 'Coastal Tails - Pet Aura';
+export const COASTAL_TAILS_SHOP_NO = 'Shop No:B2 , Dwaraka Enclave';
+export const COASTAL_TAILS_ADDRESS = 'Shop No:B2 , Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006';
+export const COASTAL_TAILS_GOOGLE_MAPS_LINK = 'https://share.google/Eh5iR7YSfNaqCIG1x';
 export const COASTAL_TAILS_HOURS = 'Mon - Sun : 9:30 AM - 9:30 PM';
 
 /**
@@ -48,7 +51,7 @@ Hello Coastal Tails Team! I would like to get price confirmation & book a groomi
 ⚖️ *Size / Coat:* ${enquiry.sizeOrCoat || 'Standard'}
 🩺 *Coat Condition:* ${enquiry.coatCondition}
 ✂️ *Service Package:* ${enquiry.requestedPackage}
-🚐 *Service Location:* ${enquiry.serviceMode === 'doorstep' ? 'Mobile Doorstep Van 🚐' : 'Studio Studio (Kankanady) 🏢'}${addOnsText}
+🚐 *Service Location:* ${enquiry.serviceMode === 'doorstep' ? 'Mobile Doorstep Van 🚐' : 'Coastal Tails - Pet Aura Studio (Derebail) 🏢'}${addOnsText}
 
 📅 *Preferred Date:* ${enquiry.preferredDate || 'Earliest available'}
 ⏰ *Preferred Slot:* ${enquiry.preferredTimeSlot || 'Flexible'}

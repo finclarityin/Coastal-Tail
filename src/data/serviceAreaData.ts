@@ -32,9 +32,10 @@ export interface LocationDetail {
 }
 
 export const REFERENCE_HUB = {
-  name: 'Coastal Tails Central Hub',
-  address: 'Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006',
+  name: 'Coastal Tails - Pet Aura',
+  address: 'Shop No:B2 , Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006',
   coordinates: { lat: 12.9081, lng: 74.8488 },
+  mapsLink: 'https://share.google/Eh5iR7YSfNaqCIG1x',
   maxServiceRadiusKm: 25,
   operatingHours: '09:30 AM – 09:30 PM (Tuesday – Sunday, Mondays on request)',
   phone: '+91 79969 89956',

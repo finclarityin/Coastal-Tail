@@ -35,7 +35,7 @@ export const AboutView: React.FC = () => {
               We understand that pets are cherished family members with unique personalities, sensitivities, and emotional needs. That is why Coastal Tails practices <strong>fear-free, low-stress gentle handling</strong>.
             </p>
             <p className="text-sm text-slate-600 leading-relaxed">
-              We never rush a groom. From quiet warm-air drying technology to hypoallergenic organic shampoos and non-slip hydraulic tables, every touchpoint in our Kankanady studio is designed to keep your pet relaxed and secure.
+              We never rush a groom. From quiet warm-air drying technology to hypoallergenic organic shampoos and non-slip hydraulic tables, every touchpoint in our Derebail studio (Coastal Tails - Pet Aura) is designed to keep your pet relaxed and secure.
             </p>
 
             <div className="space-y-3 pt-2">
@@ -95,7 +95,7 @@ export const AboutView: React.FC = () => {
                     Our Sanctuary
                   </div>
                   <div className="text-lg font-bold font-['Outfit']">
-                    Kankanady Studio, Mangaluru
+                    Coastal Tails - Pet Aura (Derebail Studio)
                   </div>
                   <p className="text-xs text-slate-200">
                     Open-view styling bays so pet parents can watch their babies get pampered.
@@ -166,7 +166,7 @@ export const AboutView: React.FC = () => {
             Experience the Coastal Tails Difference Today
           </h2>
           <p className="text-sm text-slate-200 max-w-xl mx-auto">
-            Visit our studio in Kankanady or enquire on WhatsApp for immediate price quotations and appointment slots.
+            Visit our studio at Coastal Tails - Pet Aura (Shop No:B2, Dwaraka Enclave, Derebail) or enquire on WhatsApp for immediate price quotations and appointment slots.
           </p>
           <div className="pt-2">
             <button

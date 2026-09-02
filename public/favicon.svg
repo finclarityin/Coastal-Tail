@@ -1,46 +1,119 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <defs>
-    <linearGradient id="coastalOcean" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0D6E6E" />
-      <stop offset="100%" stop-color="#08383B" />
-    </linearGradient>
-    <linearGradient id="warmAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF7A29" />
-      <stop offset="100%" stop-color="#FF6B6B" />
-    </linearGradient>
-    <linearGradient id="mintGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2DD4BF" />
-      <stop offset="100%" stop-color="#14B8A6" />
-    </linearGradient>
-    <filter id="pawShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.25" />
-    </filter>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Rounded Brand Canvas -->
+  <rect width="512" height="512" rx="128" fill="#F6EBD7"/>
+  
+  <!-- Outer Gold Border Glow -->
+  <rect x="12" y="12" width="488" height="488" rx="116" stroke="#F2B45E" stroke-width="8" fill="none" opacity="0.9"/>
+  
+  <g transform="translate(256, 230) scale(0.95) translate(-256, -230)">
+    <!-- Sand/Gold Outer Shadow/Outline for Bubble Text -->
+    <path d="M 60 170 Q 60 90 140 90 L 372 90 Q 452 90 452 170 L 452 290 Q 452 370 372 370 L 140 370 Q 60 370 60 290 Z" fill="#F2B45E" opacity="0.3"/>
+    
+    <!-- Top Text: COASTAL in #169DB1 with pet elements -->
+    <!-- Stylized "C" with paw print inside -->
+    <g transform="translate(75, 120)">
+      <path d="M 46 15 C 30 15 15 28 15 48 C 15 68 30 81 46 81 C 55 81 61 77 65 72 L 54 62 C 51 65 47 68 44 68 C 36 68 28 60 28 48 C 28 36 36 28 44 28 C 48 28 52 30 55 33 L 65 24 C 60 18 54 15 46 15 Z" fill="#169DB1"/>
+      <!-- Tiny Paw in C -->
+      <circle cx="44" cy="46" r="4.5" fill="#F2B45E"/>
+      <circle cx="38" cy="38" r="2" fill="#F2B45E"/>
+      <circle cx="44" cy="35" r="2" fill="#F2B45E"/>
+      <circle cx="50" cy="38" r="2" fill="#F2B45E"/>
+    </g>
 
-  <!-- Circular Outer Container -->
-  <circle cx="32" cy="32" r="30" fill="url(#coastalOcean)" />
+    <!-- "O" -->
+    <g transform="translate(142, 120)">
+      <path d="M 38 15 C 20 15 8 29 8 48 C 8 67 20 81 38 81 C 56 81 68 67 68 48 C 68 29 56 15 38 15 Z M 38 29 C 47 29 54 37 54 48 C 54 59 47 67 38 67 C 29 67 22 59 22 48 C 22 37 29 29 38 29 Z" fill="#169DB1"/>
+    </g>
 
-  <!-- Subtle Outer Accent Ring -->
-  <circle cx="32" cy="32" r="28.5" fill="none" stroke="url(#mintGlow)" stroke-width="1.5" opacity="0.6" />
+    <!-- "A" -->
+    <g transform="translate(210, 120)">
+      <path d="M 35 15 C 22 15 12 25 10 38 L 10 81 L 24 81 L 24 64 L 46 64 L 46 81 L 60 81 L 60 38 C 58 25 48 15 35 15 Z M 35 28 C 41 28 46 33 46 40 L 46 51 L 24 51 L 24 40 C 24 33 29 28 35 28 Z" fill="#169DB1"/>
+    </g>
 
-  <!-- Warm Sun / Play Accent Dot -->
-  <circle cx="48" cy="16" r="5" fill="url(#warmAccent)" />
+    <!-- "S" with Dog Ear Head -->
+    <g transform="translate(270, 102)">
+      <!-- Dog Ear Flopping -->
+      <path d="M 36 10 C 24 2 12 12 18 26 C 24 22 32 18 36 10 Z" fill="#169DB1"/>
+      <path d="M 42 33 C 32 33 24 38 24 46 C 24 54 32 58 40 60 C 49 63 56 66 56 75 C 56 84 46 90 35 90 C 24 90 16 84 12 76 L 24 68 C 26 73 30 77 36 77 C 41 77 44 74 44 70 C 44 65 37 62 29 59 C 19 56 12 51 12 42 C 12 30 24 23 38 23 C 48 23 55 28 59 34 L 47 43 C 45 37 40 33 34 33 Z" fill="#169DB1"/>
+    </g>
 
-  <!-- Pure White Paw Print with Crisp Geometry -->
-  <g fill="#FFFFFF" filter="url(#pawShadow)">
-    <!-- Toe 1 -->
-    <ellipse cx="19" cy="24" rx="4.5" ry="6.5" transform="rotate(-20 19 24)" />
-    <!-- Toe 2 -->
-    <ellipse cx="27.5" cy="17" rx="5" ry="7.5" transform="rotate(-6 27.5 17)" />
-    <!-- Toe 3 -->
-    <ellipse cx="36.5" cy="17" rx="5" ry="7.5" transform="rotate(6 36.5 17)" />
-    <!-- Toe 4 -->
-    <ellipse cx="45" cy="24" rx="4.5" ry="6.5" transform="rotate(20 45 24)" />
+    <!-- "T" -->
+    <g transform="translate(328, 120)">
+      <path d="M 8 16 L 56 16 L 56 29 L 39 29 L 39 81 L 25 81 L 25 29 L 8 29 Z" fill="#169DB1"/>
+    </g>
 
-    <!-- Main Central Pad -->
-    <path d="M 22 36 C 18 41 20.5 49 28 52 C 30.5 53 33.5 53 36 52 C 43.5 49 46 41 42 36 C 38.5 31.5 34 34.5 32 34.5 C 30 34.5 25.5 31.5 22 36 Z" />
+    <!-- "A" -->
+    <g transform="translate(380, 120)">
+      <path d="M 32 15 C 20 15 10 25 8 38 L 8 81 L 21 81 L 21 64 L 43 64 L 43 81 L 56 81 L 56 38 C 54 25 44 15 32 15 Z M 32 28 C 38 28 43 33 43 40 L 43 51 L 21 51 L 21 40 C 21 33 26 28 32 28 Z" fill="#169DB1"/>
+    </g>
+
+    <!-- "L" with wagging dog tail -->
+    <g transform="translate(432, 115)">
+      <path d="M 6 21 L 20 21 L 20 67 L 46 67 C 54 67 62 58 64 50 C 68 56 68 64 62 72 C 55 79 46 81 36 81 L 6 81 Z" fill="#169DB1"/>
+      <circle cx="58" cy="46" r="3" fill="#F2B45E"/>
+    </g>
+
+    <!-- Bottom Text: TAILS in #1D237A with Cat Face in A -->
+    <!-- "T" -->
+    <g transform="translate(85, 215)">
+      <path d="M 8 16 L 62 16 L 62 33 L 42 33 L 42 96 L 26 96 L 26 33 L 8 33 Z" fill="#1D237A"/>
+    </g>
+
+    <!-- "A" with Cute Peeking Cat Face & Ears -->
+    <g transform="translate(150, 205)">
+      <!-- Cat silhouette inside A -->
+      <path d="M 40 26 C 24 26 12 38 8 56 L 8 106 L 24 106 L 24 88 L 56 88 L 56 106 L 72 106 L 72 56 C 68 38 56 26 40 26 Z M 40 40 C 47 40 54 46 55 54 L 55 73 L 25 73 L 25 54 C 26 46 33 40 40 40 Z" fill="#1D237A"/>
+      <!-- Peeking Cat Face in Sand Gold -->
+      <g transform="translate(25, 54)">
+        <!-- Cat Ears -->
+        <polygon points="4,20 8,10 14,18" fill="#F2B45E"/>
+        <polygon points="26,18 32,10 36,20" fill="#F2B45E"/>
+        <!-- Head -->
+        <rect x="6" y="16" width="28" height="18" rx="8" fill="#F2B45E"/>
+        <!-- Eyes & Nose -->
+        <circle cx="14" cy="22" r="2" fill="#1D237A"/>
+        <circle cx="26" cy="22" r="2" fill="#1D237A"/>
+        <polygon points="20,24 18,27 22,27" fill="#1D237A"/>
+        <!-- Whiskers -->
+        <line x1="8" y1="23" x2="2" y2="22" stroke="#1D237A" stroke-width="1.2"/>
+        <line x1="8" y1="25" x2="2" y2="26" stroke="#1D237A" stroke-width="1.2"/>
+        <line x1="32" y1="23" x2="38" y2="22" stroke="#1D237A" stroke-width="1.2"/>
+        <line x1="32" y1="25" x2="38" y2="26" stroke="#1D237A" stroke-width="1.2"/>
+      </g>
+    </g>
+
+    <!-- "I" -->
+    <g transform="translate(235, 215)">
+      <path d="M 12 16 L 28 16 L 28 96 L 12 96 Z" fill="#1D237A"/>
+    </g>
+
+    <!-- "L" -->
+    <g transform="translate(275, 215)">
+      <path d="M 10 16 L 26 16 L 26 80 L 58 80 L 58 96 L 10 96 Z" fill="#1D237A"/>
+    </g>
+
+    <!-- "S" with Fluffy Tail Extension -->
+    <g transform="translate(345, 212)">
+      <path d="M 46 16 C 32 16 20 22 20 34 C 20 45 32 50 44 53 C 58 57 66 62 66 73 C 66 86 52 94 38 94 C 22 94 12 85 8 74 L 23 66 C 25 72 30 78 38 78 C 45 78 50 74 50 69 C 50 62 40 58 30 55 C 17 50 8 43 8 31 C 8 17 22 8 38 8 C 50 8 60 14 65 22 L 51 31 C 48 24 43 16 36 16 Z" fill="#1D237A"/>
+      <!-- Playful Cat/Dog tail swirl -->
+      <path d="M 64 22 C 78 12 98 18 102 34 C 94 32 84 36 78 44 C 70 34 66 26 64 22 Z" fill="#1D237A"/>
+    </g>
   </g>
 
-  <!-- Sparkle Star in Bright Seafoam -->
-  <path d="M 14 14 Q 14 18 10 18 Q 14 18 14 22 Q 14 18 18 18 Q 14 18 14 14 Z" fill="url(#mintGlow)" />
+  <!-- PET AURA Sub-Brand -->
+  <text x="256" y="395" text-anchor="middle" font-family="'Outfit', 'Comfortaa', 'Nunito', sans-serif" font-weight="900" font-size="34" fill="#1D237A" letter-spacing="4">PET AURA</text>
+
+  <!-- Tagline: YOUR WORRY END HERE -->
+  <text x="256" y="435" text-anchor="middle" font-family="'Outfit', 'Comfortaa', 'Nunito', sans-serif" font-weight="800" font-size="18" fill="#169DB1" letter-spacing="3">YOUR WORRY END HERE</text>
+
+  <!-- Tiny Footprints -->
+  <circle cx="160" cy="460" r="3" fill="#F2B45E"/>
+  <circle cx="154" cy="455" r="1.5" fill="#F2B45E"/>
+  <circle cx="158" cy="452" r="1.5" fill="#F2B45E"/>
+  <circle cx="164" cy="454" r="1.5" fill="#F2B45E"/>
+
+  <circle cx="352" cy="460" r="3" fill="#F2B45E"/>
+  <circle cx="346" cy="455" r="1.5" fill="#F2B45E"/>
+  <circle cx="350" cy="452" r="1.5" fill="#F2B45E"/>
+  <circle cx="356" cy="454" r="1.5" fill="#F2B45E"/>
 </svg>

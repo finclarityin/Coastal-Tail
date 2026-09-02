@@ -4,7 +4,6 @@ import { StoreProvider } from './context/StoreContext';
 import { AdminAuthProvider } from './context/AdminAuthContext';
 import { ActivePage } from './types';
 import { updateDocumentSEO } from './utils/seo';
-import { PawWatermarkBackground } from './components/PawWatermarkBackground';
 import { Header } from './components/Header';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { Hero } from './components/Hero';
@@ -39,6 +38,7 @@ import { EducationHubView } from './components/EducationHubView';
 import { LocationDetailView } from './components/LocationDetailView';
 import { ServiceAreasOverview } from './components/ServiceAreasOverview';
 import { ServiceLandingPageView } from './components/ServiceLandingPageView';
+import { PastelPawFloatingBackground } from './components/PastelPawFloatingBackground';
 import { PRIORITY_LOCATIONS } from './data/serviceAreaData';
 
 const parseRouteFromUrl = (pathname: string): { page: ActivePage; locationSlug?: string } => {
@@ -183,8 +183,8 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FDFA] text-slate-900 selection:bg-[#2DD4BF]/30 font-['Plus_Jakarta_Sans',sans-serif] relative w-full max-w-full overflow-x-hidden">
-      {/* Floating Paw Watermark Background across whole website */}
-      <PawWatermarkBackground />
+      {/* Floating Animated Pastel Paws Background Across Entire Website */}
+      <PastelPawFloatingBackground />
 
       {/* Navigation Header */}
       <Header

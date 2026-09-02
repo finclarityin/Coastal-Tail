@@ -5,6 +5,7 @@ import { ImageWithFallback } from './ImageWithFallback';
 import { useCart } from '../context/CartContext';
 import { PetCategory, DogSize, CatCoatType, GroomingPackage } from '../types';
 import { DOG_SIZES, CAT_COATS, DOG_GROOMING_PACKAGES, CAT_GROOMING_PACKAGES, SPA_ADDONS, MOBILE_GROOMING_INFO } from '../data/groomingData';
+import { petSounds } from '../utils/petSounds';
 
 export const GroomingSection: React.FC = () => {
   const { openGroomingEnquiry } = useCart();
@@ -36,7 +37,10 @@ export const GroomingSection: React.FC = () => {
         {/* Category Switcher Tabs (Dogs, Cats, Grooming Add-ons, Mobile Grooming) */}
         <div id="package-selector-tabs" className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
           <button
-            onClick={() => setActiveTab('dogs')}
+            onClick={() => {
+              setActiveTab('dogs');
+              petSounds.playWoof();
+            }}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
               activeTab === 'dogs'
                 ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
@@ -47,7 +51,10 @@ export const GroomingSection: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setActiveTab('cats')}
+            onClick={() => {
+              setActiveTab('cats');
+              petSounds.playMeow();
+            }}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
               activeTab === 'cats'
                 ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
@@ -58,7 +65,10 @@ export const GroomingSection: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setActiveTab('spa')}
+            onClick={() => {
+              setActiveTab('spa');
+              petSounds.playBubblePop();
+            }}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
               activeTab === 'spa'
                 ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
@@ -70,7 +80,10 @@ export const GroomingSection: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setActiveTab('mobile')}
+            onClick={() => {
+              setActiveTab('mobile');
+              petSounds.playChime();
+            }}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
               activeTab === 'mobile'
                 ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'

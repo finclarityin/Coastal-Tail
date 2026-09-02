@@ -42,7 +42,7 @@ export const ServiceAreaSection: React.FC<ServiceAreaSectionProps> = ({ onSelect
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Centralized from <strong className="text-slate-800">Dwaraka Enclave, Derebail</strong>, Coastal Tails brings both studio appointments and Coastal Tails GO doorstep mobile grooming within an approximate <strong className="text-slate-800">0–25 km radius</strong> across Mangaluru.
+            Centralized from <strong className="text-slate-800">Coastal Tails - Pet Aura (Shop No:B2, Dwaraka Enclave, Derebail)</strong>, Coastal Tails brings both studio appointments and Coastal Tails GO doorstep mobile grooming within an approximate <strong className="text-slate-800">0–25 km radius</strong> across Mangaluru.
           </p>
         </div>
 
