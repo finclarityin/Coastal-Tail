@@ -21,7 +21,7 @@ export const CoastalTailsGoSection: React.FC<CoastalTailsGoSectionProps> = ({
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#169DB1]/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#F2B45E]/15 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 relative z-10">
         {/* Section Tag & Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-[#F2B45E]/40 text-[#F2B45E] text-xs font-extrabold uppercase tracking-wider backdrop-blur-xs">

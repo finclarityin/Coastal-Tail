@@ -37,7 +37,7 @@ export const EducationHubSection: React.FC<EducationHubSectionProps> = ({
 
   return (
     <section className="py-14 sm:py-20 bg-slate-50 relative border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div className="space-y-2 max-w-2xl">

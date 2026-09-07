@@ -26,7 +26,7 @@ export const MembershipSection: React.FC = () => {
 
   return (
     <section id="pet-parent-club" className="py-14 sm:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         <div className="relative rounded-[32px] overflow-hidden bg-gradient-to-br from-[#062528] via-[#08383B] to-[#0D6E6E] text-white p-6 sm:p-10 lg:p-14 shadow-2xl border border-[#2DD4BF]/20">
           {/* Subtle coastal wave graphic in background */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.15),transparent_50%)] pointer-events-none" />

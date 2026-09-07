@@ -45,7 +45,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectLocation 
 
   return (
     <footer className="bg-[#1D237A] text-white pt-16 pb-12 relative overflow-hidden border-t-4 border-[#F2B45E]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         {/* Main 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Contact Info (4 cols) */}

@@ -256,7 +256,7 @@ export const CoastalTailsLogo: React.FC<CoastalTailsLogoProps> = memo(({
             </span>
           )}
           {showTagline && (
-            <>
+            <span className="hidden xl:inline-flex items-center gap-1 sm:gap-1.5">
               <span className="text-slate-300 text-[9px]">•</span>
               <span
                 className={`text-[8px] sm:text-[9px] font-bold tracking-[0.06em] uppercase truncate ${
@@ -265,7 +265,7 @@ export const CoastalTailsLogo: React.FC<CoastalTailsLogoProps> = memo(({
               >
                 YOUR WORRIES END HERE
               </span>
-            </>
+            </span>
           )}
         </div>
       </div>

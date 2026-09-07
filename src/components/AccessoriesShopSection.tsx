@@ -163,7 +163,7 @@ export const AccessoriesShopSection: React.FC<AccessoriesShopSectionProps> = ({
 
   return (
     <section id="pet-accessories-section" className="py-14 sm:py-20 bg-[#FDFBF7] border-b border-slate-100 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
           <div>

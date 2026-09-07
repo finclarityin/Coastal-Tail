@@ -185,7 +185,7 @@ export const ShopView: React.FC<ShopViewProps> = ({ initialTab = 'all' }) => {
 
   return (
     <div className="py-8 sm:py-12 bg-[#F8FAFA] animate-fadeIn min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div className="w-full max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 space-y-10">
         {/* Top Header Banner */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E6F7F6] text-[#0D6E6E] text-xs font-bold uppercase tracking-wider">
