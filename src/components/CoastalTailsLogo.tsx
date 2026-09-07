@@ -176,7 +176,7 @@ export const CoastalTailsLogo: React.FC<CoastalTailsLogoProps> = memo(({
             </span>
             <span className="text-slate-300 text-[8px]">•</span>
             <span className="text-[7.5px] sm:text-[8.5px] font-bold tracking-[0.06em] text-[#0F98A7] uppercase truncate">
-              YOUR WORRY END HERE
+              YOUR WORRIES END HERE
             </span>
           </div>
         </div>
@@ -263,7 +263,7 @@ export const CoastalTailsLogo: React.FC<CoastalTailsLogoProps> = memo(({
                   theme === 'dark' ? 'text-teal-200' : 'text-[#0F98A7]'
                 }`}
               >
-                YOUR WORRY END HERE
+                YOUR WORRIES END HERE
               </span>
             </>
           )}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import { CoastalTailsLogo } from './CoastalTailsLogo';
 import {
@@ -16,6 +16,7 @@ import {
   Lock,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   ArrowRight,
   Tag,
   Truck,
@@ -45,8 +46,21 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
   const { totalItems, openCart, openGroomingEnquiry } = useCart();
   const { topBarOffers, settings } = useStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [currentOfferIndex, setCurrentOfferIndex] = useState(0);
   const [isTopBarDismissed, setIsTopBarDismissed] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // Active offers list
   const activeOffers = topBarOffers.filter((t) => t.active);
@@ -74,8 +88,16 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
   const handleNavClick = (page: ActivePage) => {
     setActivePage(page);
     setMobileMenuOpen(false);
+    setServicesDropdownOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const getNavLinkClass = (isActive: boolean) =>
+    `px-2.5 py-1.5 xl:px-3.5 xl:py-2 rounded-xl text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-150 cursor-pointer flex items-center gap-1.5 select-none ${
+      isActive
+        ? 'text-[#08383B] bg-[#E6F7F6] border border-[#2DD4BF]/40 shadow-2xs'
+        : 'text-slate-700 hover:text-[#0F98A7] hover:bg-slate-100/70 border border-transparent'
+    }`;
 
   const getOfferBgGradient = (bgStyle?: string) => {
     switch (bgStyle) {
@@ -212,7 +234,7 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
       {/* ---------------------------------------------------- */}
       {/* 2. Main Navigation Bar (Clean & Responsive)          */}
       {/* ---------------------------------------------------- */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-5 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20 gap-2 sm:gap-4">
           {/* Brand Logo & Tagline */}
           <button
@@ -223,95 +245,224 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
             <CoastalTailsLogo variant="horizontal" size="md" showTagline={true} showPetAura={true} />
           </button>
 
-          {/* Desktop Navigation Links - Exact Match to Reference Design with Coastal Tails GO */}
-          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-5 2xl:gap-6">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-3">
+            {/* Home */}
             <button
               onClick={() => handleNavClick('home')}
-              className={`px-3.5 py-1.5 rounded-full text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
-                activePage === 'home'
-                  ? 'text-[#1D237A] bg-[#F6EBD7]'
-                  : 'text-slate-700 hover:text-[#169DB1] hover:bg-[#F6EBD7]/50'
-              }`}
+              className={getNavLinkClass(activePage === 'home')}
             >
               Home
             </button>
 
-            <button
-              onClick={() => handleNavClick('services')}
-              className={`px-3 py-1.5 rounded-full text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
-                activePage === 'services' || activePage === 'dog-grooming' || activePage === 'cat-grooming'
-                  ? 'text-[#1D237A] bg-[#F6EBD7]'
-                  : 'text-slate-700 hover:text-[#169DB1]'
-              }`}
+            {/* Grooming Services with Dropdown */}
+            <div
+              ref={dropdownRef}
+              className="relative"
+              onMouseEnter={() => setServicesDropdownOpen(true)}
+              onMouseLeave={() => setServicesDropdownOpen(false)}
             >
-              Grooming Services
-            </button>
+              <button
+                onClick={() => {
+                  handleNavClick('services');
+                  setServicesDropdownOpen(false);
+                }}
+                className={getNavLinkClass(
+                  ['services', 'dog-grooming', 'cat-grooming', 'service-detail'].includes(activePage)
+                )}
+                aria-expanded={servicesDropdownOpen}
+              >
+                <span>Grooming Services</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${
+                    servicesDropdownOpen ? 'rotate-180 text-[#0F98A7]' : ''
+                  }`}
+                />
+              </button>
 
+              {/* Dropdown Menu */}
+              {servicesDropdownOpen && (
+                <div className="absolute top-full left-0 pt-2 w-72 z-50 animate-fadeIn">
+                  <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-2 space-y-1">
+                    <button
+                      onClick={() => {
+                        handleNavClick('services');
+                        setServicesDropdownOpen(false);
+                      }}
+                      className="w-full flex items-center gap-3 p-2 rounded-xl text-left hover:bg-[#E6F7F6]/60 transition-colors group cursor-pointer"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[#E6F7F6] text-[#0F98A7] flex items-center justify-center shrink-0">
+                        <Scissors className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-800 group-hover:text-[#0F98A7]">
+                          All Salon Packages
+                        </div>
+                        <div className="text-[11px] text-slate-400">Bath, styling, ozone spa in studio</div>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        handleNavClick('dog-grooming');
+                        setServicesDropdownOpen(false);
+                      }}
+                      className="w-full flex items-center gap-3 p-2 rounded-xl text-left hover:bg-[#E6F7F6]/60 transition-colors group cursor-pointer"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
+                        <span className="text-sm">🐶</span>
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-800 group-hover:text-[#0F98A7]">
+                          Dog Grooming & Spa
+                        </div>
+                        <div className="text-[11px] text-slate-400">Haircut, de-shedding & blow-dry</div>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        handleNavClick('cat-grooming');
+                        setServicesDropdownOpen(false);
+                      }}
+                      className="w-full flex items-center gap-3 p-2 rounded-xl text-left hover:bg-[#E6F7F6]/60 transition-colors group cursor-pointer"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center shrink-0">
+                        <span className="text-sm">🐱</span>
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-800 group-hover:text-[#0F98A7]">
+                          Cat Grooming & Hygiene
+                        </div>
+                        <div className="text-[11px] text-slate-400">Stress-free bath & mat removal</div>
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        handleNavClick('mobile-pet-grooming-mangalore');
+                        setServicesDropdownOpen(false);
+                      }}
+                      className="w-full flex items-center gap-3 p-2 rounded-xl text-left hover:bg-amber-50/70 transition-colors group cursor-pointer"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+                        <Truck className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-800 group-hover:text-amber-800 flex items-center gap-1.5">
+                          <span>Coastal Tails GO</span>
+                          <span className="text-[9px] bg-amber-200 text-amber-900 font-extrabold px-1 rounded-sm">DOORSTEP</span>
+                        </div>
+                        <div className="text-[11px] text-slate-400">Luxury air-conditioned mobile van</div>
+                      </div>
+                    </button>
+
+                    <div className="pt-1.5 border-t border-slate-100 flex items-center justify-between px-2 py-1">
+                      <button
+                        onClick={() => {
+                          handleNavClick('locations');
+                          setServicesDropdownOpen(false);
+                        }}
+                        className="text-[11px] font-bold text-[#0F98A7] hover:underline flex items-center gap-1 cursor-pointer"
+                      >
+                        <MapPin className="w-3 h-3" />
+                        <span>22 Service Hubs</span>
+                      </button>
+                      <button
+                        onClick={() => {
+                          handleNavClick('education');
+                          setServicesDropdownOpen(false);
+                        }}
+                        className="text-[11px] font-bold text-slate-500 hover:text-slate-800 cursor-pointer"
+                      >
+                        Care Guides →
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Coastal Tails GO Doorstep Van */}
             <button
               onClick={() => handleNavClick('mobile-pet-grooming-mangalore')}
-              className={`px-3 py-1.5 rounded-full text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={getNavLinkClass(
                 activePage === 'mobile-pet-grooming-mangalore' || activePage === 'mobile-grooming'
-                  ? 'bg-[#F2B45E] text-[#1D237A] shadow-xs'
-                  : 'text-[#1D237A] hover:text-[#169DB1] bg-[#F6EBD7]/80 hover:bg-[#F6EBD7] border border-[#F2B45E]/40'
-              }`}
+              )}
             >
-              <Truck className="w-3.5 h-3.5 text-[#169DB1]" />
+              <Truck className="w-3.5 h-3.5 text-[#0F98A7]" />
               <span>Coastal Tails GO</span>
+              <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-sm bg-amber-100 text-amber-800 border border-amber-300/60 uppercase tracking-wider">
+                VAN
+              </span>
             </button>
 
+            {/* Pet Store */}
             <button
               onClick={() => handleNavClick('shop')}
-              className={`px-3 py-1.5 rounded-full text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer ${
-                ['shop', 'food', 'accessories'].includes(activePage)
-                  ? 'text-[#1D237A] bg-[#F6EBD7]'
-                  : 'text-slate-700 hover:text-[#169DB1]'
-              }`}
+              className={getNavLinkClass(['shop', 'food', 'accessories'].includes(activePage))}
             >
-              <ShoppingBag className="w-4 h-4 text-[#169DB1]" />
+              <ShoppingBag className="w-3.5 h-3.5 text-[#0F98A7]" />
               <span>Pet Store</span>
             </button>
 
+            {/* VIP Club */}
             <button
               onClick={() => handleNavClick('membership')}
-              className={`px-3 py-1.5 rounded-full text-sm font-bold whitespace-nowrap transition-all flex items-center gap-1.5 cursor-pointer ${
-                activePage === 'membership'
-                  ? 'text-[#1D237A] bg-[#F6EBD7]'
-                  : 'text-slate-700 hover:text-[#169DB1]'
-              }`}
+              className={getNavLinkClass(activePage === 'membership')}
             >
-              <Crown className="w-4 h-4 text-[#F2B45E]" />
+              <Crown className="w-3.5 h-3.5 text-[#F6A846]" />
               <span>VIP Club</span>
             </button>
 
+            {/* About Us */}
             <button
               onClick={() => handleNavClick('about')}
-              className={`px-3 py-1.5 rounded-full text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
-                activePage === 'about'
-                  ? 'text-[#1D237A] bg-[#F6EBD7]'
-                  : 'text-slate-700 hover:text-[#169DB1]'
-              }`}
+              className={getNavLinkClass(activePage === 'about')}
             >
               About Us
             </button>
 
+            {/* Contact */}
             <button
               onClick={() => handleNavClick('contact')}
-              className={`px-3 py-1.5 rounded-full text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
-                activePage === 'contact'
-                  ? 'text-[#1D237A] bg-[#F6EBD7]'
-                  : 'text-slate-700 hover:text-[#169DB1]'
-              }`}
+              className={getNavLinkClass(activePage === 'contact')}
             >
               Contact
             </button>
           </nav>
 
           {/* Right Action Area */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Quick WhatsApp Chat CTA Button */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            {/* Search Button (Always Visible) */}
+            <button
+              onClick={onOpenSearch}
+              className="p-2 sm:p-2.5 rounded-full text-slate-700 hover:text-[#0F98A7] hover:bg-slate-100/80 transition-colors cursor-pointer"
+              title="Search products, services and guides"
+              aria-label="Search"
+            >
+              <Search className="w-5 h-5 stroke-[2]" />
+            </button>
+
+            {/* Shopping Cart Button with Dynamic Badge (Always Visible) */}
+            <button
+              onClick={openCart}
+              className="relative p-2 sm:p-2.5 rounded-full text-slate-700 hover:text-[#0F98A7] hover:bg-slate-100/80 transition-colors cursor-pointer"
+              title="View Cart"
+              aria-label="Cart"
+            >
+              <ShoppingBag className="w-5 h-5 stroke-[2]" />
+              {totalItems > 0 && (
+                <span className="absolute top-0.5 right-0.5 bg-[#FF7A29] text-white text-[10px] font-black w-4.5 h-4.5 rounded-full flex items-center justify-center shadow-xs border-2 border-white">
+                  {totalItems > 99 ? '99+' : totalItems}
+                </span>
+              )}
+            </button>
+
+            {/* Quick WhatsApp Chat CTA Button (Primary Action Anchor) */}
             <button
               onClick={() => openGroomingEnquiry()}
-              className="flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-full bg-[#169DB1] hover:bg-[#1D237A] text-white text-sm font-bold shadow-sm shadow-[#169DB1]/20 transition-all hover:scale-102 active:scale-98 cursor-pointer whitespace-nowrap"
+              className="flex items-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-4.5 sm:py-2.5 rounded-full bg-[#0F98A7] hover:bg-[#0D6E6E] text-white text-xs sm:text-sm font-bold shadow-sm shadow-[#0F98A7]/25 transition-all hover:scale-102 active:scale-98 cursor-pointer whitespace-nowrap"
               title="Book on WhatsApp (+91 79969 89956)"
             >
               <WhatsAppIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#25D366] shrink-0" />
@@ -319,37 +470,12 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
               <span className="sm:hidden">Book</span>
             </button>
 
-            {/* Search Button (Clean Minimalist Icon) */}
-            <button
-              onClick={onOpenSearch}
-              className="p-2 sm:p-2.5 rounded-xl text-slate-700 hover:text-[#169DB1] hover:bg-[#F6EBD7]/40 transition-colors cursor-pointer"
-              title="Search products and services"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5 stroke-[2]" />
-            </button>
-
-            {/* Shopping Cart Button with Dynamic Badge */}
-            <button
-              onClick={openCart}
-              className="relative p-2 sm:p-2.5 rounded-xl text-slate-700 hover:text-[#169DB1] hover:bg-[#F6EBD7]/40 transition-colors cursor-pointer"
-              title="View Cart"
-              aria-label="Cart"
-            >
-              <ShoppingBag className="w-5 h-5 stroke-[2]" />
-              {totalItems > 0 && (
-                <span className="absolute 0 top-0.5 right-0.5 bg-[#F2B45E] text-[#1D237A] text-[10px] font-black w-4.5 h-4.5 rounded-full flex items-center justify-center shadow-xs border-2 border-white">
-                  {totalItems > 99 ? '99+' : totalItems}
-                </span>
-              )}
-            </button>
-
-            {/* Mobile Menu Toggle Button (Touch-Friendly) */}
+            {/* Mobile Menu Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`p-2 rounded-xl transition-colors lg:hidden cursor-pointer ${
                 mobileMenuOpen
-                  ? 'bg-[#F6EBD7] text-[#1D237A]'
+                  ? 'bg-slate-100 text-[#08383B]'
                   : 'text-slate-700 hover:bg-slate-100'
               }`}
               aria-label="Toggle navigation menu"
@@ -414,8 +540,8 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 onClick={() => handleNavClick('home')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
                   activePage === 'home'
-                    ? 'bg-[#169DB1] text-white shadow-sm'
-                    : 'text-slate-700 hover:bg-[#F6EBD7]/40'
+                    ? 'bg-[#0F98A7] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <span>🏠 Home</span>
@@ -426,15 +552,15 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 onClick={() => handleNavClick('services')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
                   activePage === 'services' || activePage === 'dog-grooming' || activePage === 'cat-grooming'
-                    ? 'bg-[#169DB1] text-white shadow-sm'
-                    : 'text-slate-700 hover:bg-[#F6EBD7]/40'
+                    ? 'bg-[#0F98A7] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <Scissors className="w-4 h-4 text-[#169DB1]" />
+                  <Scissors className="w-4 h-4 text-[#0F98A7]" />
                   <span>Grooming Services & Spa</span>
                 </div>
-                <span className="text-[10px] bg-[#169DB1]/15 text-[#1D237A] px-2 py-0.5 rounded-full font-bold">
+                <span className="text-[10px] bg-[#0F98A7]/15 text-[#08383B] px-2 py-0.5 rounded-full font-bold">
                   Packages
                 </span>
               </button>
@@ -443,15 +569,15 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 onClick={() => handleNavClick('mobile-pet-grooming-mangalore')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
                   activePage === 'mobile-pet-grooming-mangalore' || activePage === 'mobile-grooming'
-                    ? 'bg-[#F2B45E] text-[#1D237A] shadow-sm'
-                    : 'text-[#1D237A] bg-[#F6EBD7] hover:bg-[#F6EBD7]/80 border border-[#F2B45E]/40'
+                    ? 'bg-[#FF7A29] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <Truck className="w-4 h-4 text-[#169DB1]" />
+                  <Truck className="w-4 h-4 text-[#0F98A7]" />
                   <span>Coastal Tails GO (Doorstep Van)</span>
                 </div>
-                <span className="text-[10px] bg-[#F2B45E] text-[#1D237A] px-2 py-0.5 rounded-full font-black">
+                <span className="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full font-black">
                   Doorstep
                 </span>
               </button>
@@ -460,16 +586,16 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 onClick={() => handleNavClick('locations')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
                   activePage === 'locations' || activePage === 'location-detail'
-                    ? 'bg-[#169DB1] text-white shadow-sm'
-                    : 'text-slate-700 hover:bg-[#F6EBD7]/40'
+                    ? 'bg-[#0F98A7] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <MapPin className="w-4 h-4 text-[#169DB1]" />
+                  <MapPin className="w-4 h-4 text-[#0F98A7]" />
                   <span>Service Areas & Pincodes</span>
                 </div>
                 <span className="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-bold">
-                  21+ Hubs
+                  22 Hubs
                 </span>
               </button>
 
@@ -477,15 +603,15 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 onClick={() => handleNavClick('shop')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
                   ['shop', 'food', 'accessories'].includes(activePage)
-                    ? 'bg-[#169DB1] text-white shadow-sm'
-                    : 'text-slate-700 hover:bg-[#F6EBD7]/40'
+                    ? 'bg-[#0F98A7] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <ShoppingBag className="w-4 h-4 text-[#169DB1]" />
+                  <ShoppingBag className="w-4 h-4 text-[#0F98A7]" />
                   <span>Pet Store (Food & Accessories)</span>
                 </div>
-                <span className="text-[10px] bg-[#169DB1]/15 text-[#1D237A] px-2 py-0.5 rounded-full font-bold">
+                <span className="text-[10px] bg-[#0F98A7]/15 text-[#08383B] px-2 py-0.5 rounded-full font-bold">
                   Store
                 </span>
               </button>
@@ -494,8 +620,8 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 onClick={() => handleNavClick('education')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
                   activePage === 'education'
-                    ? 'bg-[#169DB1] text-white shadow-sm'
-                    : 'text-slate-700 hover:bg-[#F6EBD7]/40'
+                    ? 'bg-[#0F98A7] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
@@ -511,15 +637,15 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 onClick={() => handleNavClick('membership')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
                   activePage === 'membership'
-                    ? 'bg-[#169DB1] text-white shadow-sm'
-                    : 'text-slate-700 hover:bg-[#F6EBD7]/40'
+                    ? 'bg-[#0F98A7] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <Crown className="w-4 h-4 text-[#F2B45E]" />
+                  <Crown className="w-4 h-4 text-[#F6A846]" />
                   <span>VIP Pet Parent Club</span>
                 </div>
-                <span className="text-[10px] bg-[#F6EBD7] text-[#1D237A] border border-[#F2B45E]/40 px-2 py-0.5 rounded-full font-bold">
+                <span className="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full font-bold">
                   15% OFF
                 </span>
               </button>
@@ -528,12 +654,12 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 onClick={() => handleNavClick('about')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
                   activePage === 'about'
-                    ? 'bg-[#169DB1] text-white shadow-sm'
-                    : 'text-slate-700 hover:bg-[#F6EBD7]/40'
+                    ? 'bg-[#0F98A7] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <ShieldCheck className="w-4 h-4 text-[#169DB1]" />
+                  <ShieldCheck className="w-4 h-4 text-[#0F98A7]" />
                   <span>About Us & Safety Standards</span>
                 </div>
               </button>
@@ -542,12 +668,12 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 onClick={() => handleNavClick('contact')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
                   activePage === 'contact'
-                    ? 'bg-[#169DB1] text-white shadow-sm'
-                    : 'text-slate-700 hover:bg-[#F6EBD7]/40'
+                    ? 'bg-[#0F98A7] text-white shadow-sm'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <MapPin className="w-4 h-4 text-[#169DB1]" />
+                  <MapPin className="w-4 h-4 text-[#0F98A7]" />
                   <span>Contact & Derebail Studio</span>
                 </div>
                 <span className="text-[10px] text-slate-500 font-medium">Derebail</span>
@@ -555,13 +681,13 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
             </div>
 
             {/* Studio Hours & Contact Card */}
-            <div className="bg-[#F6EBD7]/50 p-3.5 rounded-2xl border border-[#F2B45E]/30 space-y-2 text-xs text-slate-600">
-              <div className="flex items-center justify-between font-semibold text-[#1D237A]">
+            <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/70 space-y-2 text-xs text-slate-600">
+              <div className="flex items-center justify-between font-semibold text-[#08383B]">
                 <div className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#169DB1]" />
+                  <Clock className="w-3.5 h-3.5 text-[#0F98A7]" />
                   <span>{COASTAL_TAILS_STORE_NAME}</span>
                 </div>
-                <span className="text-[#1D237A] bg-[#F2B45E]/30 px-2 py-0.5 rounded-full font-bold text-[10px]">
+                <span className="text-[#08383B] bg-emerald-100 px-2 py-0.5 rounded-full font-bold text-[10px]">
                   Open Today
                 </span>
               </div>
@@ -571,7 +697,7 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
                 href={COASTAL_TAILS_GOOGLE_MAPS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[11px] text-[#169DB1] font-bold hover:underline pt-0.5"
+                className="inline-flex items-center gap-1 text-[11px] text-[#0F98A7] font-bold hover:underline pt-0.5"
               >
                 <MapPin className="w-3 h-3" />
                 <span>Open in Google Maps</span>
