@@ -630,6 +630,8 @@ export interface GroomingEnquiry {
   petType: 'dog' | 'cat';
   petName: string;
   breed: string;
+  petAge?: string;
+  location?: string;
   sizeOrCoat: string;
   coatCondition: 'Healthy' | 'Moderate Tangling' | 'Severe Matting' | 'Sensitive Skin / Allergies' | 'Shedding Heavily';
   requestedPackage: string;
@@ -643,10 +645,101 @@ export interface GroomingEnquiry {
   status?: 'new' | 'contacted' | 'booked' | 'completed' | 'cancelled';
 }
 
+export interface DetailedService {
+  id: string;
+  slug: string;
+  title: string;
+  shortTitle: string;
+  category: 'dog' | 'cat' | 'spa' | 'mobile' | 'hygiene';
+  h1: string;
+  seoTitle: string;
+  metaDescription: string;
+  whatItIs: string;
+  longDescription?: string;
+  shortDescription?: string;
+  whoItIsFor: string[];
+  suitableForBreeds?: string[];
+  benefits?: string[];
+  processSteps: { step: number; title: string; description: string }[];
+  stepByStepProcess?: { step: number; title: string; description: string }[];
+  whatsIncluded: string[];
+  whatIsIncluded?: string[];
+  preparationInstructions: string[];
+  aftercareInstructions: string[];
+  faqs: { q: string; a: string }[];
+  relatedServiceSlugs: string[];
+  relatedLocationSlugs: string[];
+  image: string;
+  duration: string;
+  estimatedDuration?: string;
+  pricingStartingFrom?: number | string;
+  mode: 'studio' | 'doorstep' | 'both';
+}
+
+export interface BlogArticle {
+  id?: string;
+  slug: string;
+  title: string;
+  excerpt?: string;
+  seoTitle?: string;
+  metaDescription?: string;
+  category: string;
+  readTime?: string;
+  readingTimeMinutes?: number;
+  publishDate?: string;
+  publishedDate?: string;
+  author: string;
+  featuredImage: string;
+  shortAnswerSummary?: string;
+  keyTakeaways?: string[];
+  sections?: { heading: string; body?: string[]; content?: string }[];
+  faqs?: { q: string; a: string }[];
+  relatedServices?: { title: string; slug: string }[];
+  relatedLocations?: { title: string; slug: string }[];
+  veterinaryDisclaimer?: boolean;
+  tags?: string[];
+}
+
+export interface BreedGuide {
+  id: string;
+  slug: string;
+  breedName: string;
+  title: string;
+  seoTitle: string;
+  metaDescription: string;
+  coatType: string;
+  coatCharacteristics: string[];
+  groomingFrequency: string;
+  brushingAdvice: string;
+  bathingSchedule: string;
+  hairTrimmingGuidelines: string;
+  nailAndPawCare: string;
+  earCleaningTips: string;
+  sheddingManagement: string;
+  professionalGroomingConsiderations: string[];
+  faqs: { q: string; a: string }[];
+  featuredImage: string;
+}
+
+export interface RankingTrackRecord {
+  id: string;
+  location: string;
+  keyword: string;
+  dateChecked: string;
+  googleMapsPosition: number | string;
+  googleSearchPosition: number | string;
+  competitor1?: string;
+  competitor2?: string;
+  competitor3?: string;
+  notes?: string;
+  actionsTaken?: string;
+  month?: string;
+}
+
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'grooming' | 'happy-pets' | 'studio' | 'before-after' | 'products' | 'cats' | 'spa';
+  category: 'grooming' | 'happy-pets' | 'studio' | 'before-after' | 'products' | 'cats' | 'spa' | 'haircuts' | 'deshedding' | 'puppy' | 'breed';
   image: string;
   beforeImage?: string;
   afterImage?: string;
@@ -671,6 +764,7 @@ export type ActivePage =
   | 'home'
   | 'about'
   | 'services'
+  | 'service-detail'
   | 'dog-grooming'
   | 'cat-grooming'
   | 'spa-addons'
@@ -685,11 +779,20 @@ export type ActivePage =
   | 'location-detail'
   | 'locations'
   | 'education'
+  | 'blog'
+  | 'blog-detail'
+  | 'dog-breeds'
+  | 'dog-breed-detail'
+  | 'gallery'
+  | 'faq'
+  | 'google-business-profile'
+  | 'mangalore-pet-resources'
+  | 'mangalore-pet-guide'
+  | 'mangalore-guide'
   | 'shop'
   | 'food'
   | 'accessories'
   | 'membership'
-  | 'gallery'
   | 'contact'
   | 'cart'
   | 'policies'
@@ -720,4 +823,8 @@ export type AdminActiveTab =
   | 'media'
   | 'reviews'
   | 'reports'
-  | 'settings';
+  | 'settings'
+  | 'seo-tracker'
+  | 'seo-tracking'
+  | 'seo-checker';
+

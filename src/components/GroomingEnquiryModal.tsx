@@ -18,13 +18,15 @@ export const GroomingEnquiryModal: React.FC = () => {
   const [petType, setPetType] = useState<'dog' | 'cat'>(groomingDefaultPetType || 'dog');
   const [petName, setPetName] = useState('');
   const [breed, setBreed] = useState('');
+  const [petAge, setPetAge] = useState('');
+  const [location, setLocation] = useState('Derebail');
   const [sizeOrCoat, setSizeOrCoat] = useState('');
   const [coatCondition, setCoatCondition] = useState<GroomingEnquiry['coatCondition']>('Healthy');
   const [requestedPackage, setRequestedPackage] = useState('');
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
   const [serviceMode, setServiceMode] = useState<'studio' | 'doorstep'>(groomingDefaultMode || 'studio');
   const [preferredDate, setPreferredDate] = useState('');
-  const [preferredTimeSlot, setPreferredTimeSlot] = useState('Morning (10 AM - 1 PM)');
+  const [preferredTimeSlot, setPreferredTimeSlot] = useState('Morning (9:30 AM - 12:30 PM)');
   const [customerName, setCustomerName] = useState('');
   const [customerMobile, setCustomerMobile] = useState('');
   const [notes, setNotes] = useState('');
@@ -72,6 +74,8 @@ export const GroomingEnquiryModal: React.FC = () => {
       petType,
       petName: petName.trim() || 'My Pet',
       breed: breed.trim() || 'Not specified',
+      petAge: petAge.trim() || 'Not specified',
+      location: location || 'Derebail / Mangalore',
       sizeOrCoat: sizeOrCoat || 'Standard',
       coatCondition,
       requestedPackage: requestedPackage || 'Signature Full Groom',
@@ -166,7 +170,7 @@ export const GroomingEnquiryModal: React.FC = () => {
           </div>
 
           {/* Pet Details */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
                 Pet Name
@@ -188,7 +192,20 @@ export const GroomingEnquiryModal: React.FC = () => {
                 type="text"
                 value={breed}
                 onChange={(e) => setBreed(e.target.value)}
-                placeholder={petType === 'dog' ? 'e.g. Shih Tzu, Golden, Indie' : 'e.g. Persian, Domestic Short, Bengal'}
+                placeholder={petType === 'dog' ? 'e.g. Shih Tzu, Golden' : 'e.g. Persian, Domestic Short'}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#0D6E6E] text-sm bg-slate-50/50"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
+                Pet Age
+              </label>
+              <input
+                type="text"
+                value={petAge}
+                onChange={(e) => setPetAge(e.target.value)}
+                placeholder="e.g. 2 yrs, 6 months"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#0D6E6E] text-sm bg-slate-50/50"
               />
             </div>
@@ -393,9 +410,9 @@ export const GroomingEnquiryModal: React.FC = () => {
           {/* Customer Contact Details */}
           <div className="pt-2 border-t border-slate-100">
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
-              4. Your Contact Details (For WhatsApp Handoff) *
+              4. Your Contact & Location Details (For WhatsApp Confirmation) *
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <input
                   type="text"
@@ -413,10 +430,39 @@ export const GroomingEnquiryModal: React.FC = () => {
                   required
                   value={customerMobile}
                   onChange={(e) => setCustomerMobile(e.target.value)}
-                  placeholder="Mobile / WhatsApp Number (10 digits) *"
+                  placeholder="Phone / WhatsApp Number *"
                   maxLength={10}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#0D6E6E] text-sm bg-slate-50/50"
                 />
+              </div>
+
+              <div>
+                <select
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#0D6E6E] text-sm bg-slate-50/50"
+                >
+                  <option value="Derebail">Derebail (Near Studio)</option>
+                  <option value="Konchady">Konchady</option>
+                  <option value="Kuntikana">Kuntikana</option>
+                  <option value="Kavoor">Kavoor</option>
+                  <option value="Bondel">Bondel</option>
+                  <option value="Padavinangady">Padavinangady</option>
+                  <option value="Yeyyadi">Yeyyadi</option>
+                  <option value="Kodikal">Kodikal</option>
+                  <option value="Mary Hill">Mary Hill</option>
+                  <option value="Kottara">Kottara / Kottara Chowki</option>
+                  <option value="Bejai">Bejai</option>
+                  <option value="Kadri">Kadri / Mallikatte</option>
+                  <option value="Urwa">Urwa / Chilimbi</option>
+                  <option value="Surathkal">Surathkal</option>
+                  <option value="Kulai">Kulai</option>
+                  <option value="Hosabettu">Hosabettu</option>
+                  <option value="Mukka">Mukka</option>
+                  <option value="Bajpe">Bajpe</option>
+                  <option value="Kankanady">Kankanady / Falnir</option>
+                  <option value="Other Mangalore Area">Other Mangalore Area</option>
+                </select>
               </div>
             </div>
 
@@ -425,7 +471,7 @@ export const GroomingEnquiryModal: React.FC = () => {
                 type="text"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                placeholder="Any special behavioral traits, anxiety or requests? (Optional)"
+                placeholder="Additional notes (e.g., apartment name, gate code, pet sensitivity, coat condition)"
                 className="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#0D6E6E] text-xs bg-slate-50/50"
               />
             </div>

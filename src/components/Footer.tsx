@@ -181,7 +181,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectLocation 
                   onClick={() => handleNav('locations')}
                   className="hover:text-[#F2B45E] transition-colors text-left font-bold text-[#F2B45E] cursor-pointer"
                 >
-                  📍 All Service Areas (21+)
+                  📍 All Service Areas (22 Localities)
                 </button>
               </li>
               <li>
@@ -190,7 +190,23 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectLocation 
                   className="hover:text-[#F2B45E] transition-colors text-left flex items-center gap-1 font-semibold text-cyan-200 cursor-pointer"
                 >
                   <BookOpen className="w-3.5 h-3.5 text-[#F2B45E]" />
-                  <span>Pet Care & Tips Hub</span>
+                  <span>Pet Care Hub (19 Blogs & 9 Breeds)</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('mangalore-guide')}
+                  className="hover:text-[#F2B45E] transition-colors text-left flex items-center gap-1 text-blue-100 cursor-pointer"
+                >
+                  <span>🏥 Mangalore Vets & Pet Guide</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('faq')}
+                  className="hover:text-[#F2B45E] transition-colors text-left flex items-center gap-1 text-blue-100 cursor-pointer"
+                >
+                  <span>❓ Grooming FAQs (14 Answers)</span>
                 </button>
               </li>
               <li>

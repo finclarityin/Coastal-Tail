@@ -30,6 +30,7 @@ import {
   FileText,
   HelpCircle,
   Image as ImageIcon,
+  TrendingUp,
 } from 'lucide-react';
 import { AdminActiveTab } from '../types';
 import { useAdminAuth } from '../context/AdminAuthContext';
@@ -94,6 +95,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         { id: 'banners' as AdminActiveTab, label: 'Website Banners', icon: Image },
         { id: 'membership' as AdminActiveTab, label: 'VIP Membership', icon: Crown },
         { id: 'media' as AdminActiveTab, label: 'Media Library', icon: Film },
+        { id: 'seo-tracker' as AdminActiveTab, label: 'Local SEO Tracker', icon: TrendingUp },
       ],
     },
     {

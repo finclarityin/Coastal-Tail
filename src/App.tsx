@@ -38,10 +38,26 @@ import { EducationHubView } from './components/EducationHubView';
 import { LocationDetailView } from './components/LocationDetailView';
 import { ServiceAreasOverview } from './components/ServiceAreasOverview';
 import { ServiceLandingPageView } from './components/ServiceLandingPageView';
+import { ServiceDetailPage } from './components/ServiceDetailPage';
+import { BlogArticlePage } from './components/BlogArticlePage';
+import { BreedGuidePage } from './components/BreedGuidePage';
+import { MangalorePetGuidePage } from './components/MangalorePetGuidePage';
+import { FaqPage } from './components/FaqPage';
 import { PastelPawFloatingBackground } from './components/PastelPawFloatingBackground';
 import { PRIORITY_LOCATIONS } from './data/serviceAreaData';
+import { DETAILED_SERVICES } from './data/servicesData';
+import { BLOG_ARTICLES } from './data/blogArticlesData';
+import { BREED_GUIDES } from './data/breedGuidesData';
 
-const parseRouteFromUrl = (pathname: string): { page: ActivePage; locationSlug?: string } => {
+const parseRouteFromUrl = (
+  pathname: string
+): {
+  page: ActivePage;
+  locationSlug?: string;
+  serviceSlug?: string;
+  blogSlug?: string;
+  breedSlug?: string;
+} => {
   const cleanPath = pathname.replace(/\/+$/, '').toLowerCase();
   if (!cleanPath || cleanPath === '' || cleanPath === '/') return { page: 'home' };
   if (cleanPath === '/about') return { page: 'about' };
@@ -56,6 +72,13 @@ const parseRouteFromUrl = (pathname: string): { page: ActivePage; locationSlug?:
   if (cleanPath === '/membership') return { page: 'membership' };
   if (cleanPath === '/contact') return { page: 'contact' };
   if (cleanPath === '/education') return { page: 'education' };
+  if (cleanPath === '/faq' || cleanPath === '/faqs') return { page: 'faq' };
+  if (
+    cleanPath === '/mangalore-pet-guide' ||
+    cleanPath === '/mangalore-guide' ||
+    cleanPath === '/mangalore-pet-resources'
+  )
+    return { page: 'mangalore-guide' };
   if (cleanPath === '/locations') return { page: 'locations' };
   if (cleanPath.startsWith('/locations/')) {
     const slug = cleanPath.replace('/locations/', '');
@@ -65,6 +88,38 @@ const parseRouteFromUrl = (pathname: string): { page: ActivePage; locationSlug?:
     }
     return { page: '404' };
   }
+  if (cleanPath.startsWith('/services/')) {
+    const slug = cleanPath.replace('/services/', '');
+    const exists = DETAILED_SERVICES.some((s) => s.slug === slug);
+    if (exists) {
+      return { page: 'service-detail', serviceSlug: slug };
+    }
+  }
+  if (cleanPath.startsWith('/blog/')) {
+    const slug = cleanPath.replace('/blog/', '');
+    const exists = BLOG_ARTICLES.some((b) => b.slug === slug);
+    if (exists) {
+      return { page: 'blog-detail', blogSlug: slug };
+    }
+  }
+  if (cleanPath.startsWith('/dog-breeds/')) {
+    const slug = cleanPath.replace('/dog-breeds/', '');
+    const exists = BREED_GUIDES.some((bg) => bg.slug === slug);
+    if (exists) {
+      return { page: 'dog-breed-detail', breedSlug: slug };
+    }
+  }
+
+  // Check direct slugs
+  const matchedService = DETAILED_SERVICES.find((s) => `/${s.slug}` === cleanPath);
+  if (matchedService) return { page: 'service-detail', serviceSlug: matchedService.slug };
+
+  const matchedBlog = BLOG_ARTICLES.find((b) => `/${b.slug}` === cleanPath);
+  if (matchedBlog) return { page: 'blog-detail', blogSlug: matchedBlog.slug };
+
+  const matchedBreed = BREED_GUIDES.find((bg) => `/${bg.slug}` === cleanPath);
+  if (matchedBreed) return { page: 'dog-breed-detail', breedSlug: matchedBreed.slug };
+
   if (cleanPath === '/pet-grooming-mangalore') return { page: 'pet-grooming-mangalore' };
   if (cleanPath === '/dog-grooming-mangalore') return { page: 'dog-grooming-mangalore' };
   if (cleanPath === '/cat-grooming-mangalore') return { page: 'cat-grooming-mangalore' };
@@ -86,9 +141,20 @@ const parseRouteFromUrl = (pathname: string): { page: ActivePage; locationSlug?:
   return { page: '404' };
 };
 
-const getPathForPage = (page: ActivePage, locationSlug?: string): string => {
+const getPathForPage = (
+  page: ActivePage,
+  locationSlug?: string,
+  serviceSlug?: string,
+  blogSlug?: string,
+  breedSlug?: string
+): string => {
   if (page === 'home') return '/';
   if (page === 'location-detail' && locationSlug) return `/locations/${locationSlug}`;
+  if (page === 'service-detail' && serviceSlug) return `/services/${serviceSlug}`;
+  if (page === 'blog-detail' && blogSlug) return `/blog/${blogSlug}`;
+  if (page === 'dog-breed-detail' && breedSlug) return `/dog-breeds/${breedSlug}`;
+  if (page === 'mangalore-guide') return '/mangalore-pet-guide';
+  if (page === 'faq') return '/faq';
   if (page === 'food') return '/shop/food';
   if (page === 'accessories') return '/shop/accessories';
   return `/${page}`;
@@ -109,6 +175,27 @@ function AppContent() {
     return 'derebail';
   });
 
+  const [selectedServiceSlug, setSelectedServiceSlug] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return parseRouteFromUrl(window.location.pathname).serviceSlug || 'dog-full-grooming-mangalore';
+    }
+    return 'dog-full-grooming-mangalore';
+  });
+
+  const [selectedBlogSlug, setSelectedBlogSlug] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return parseRouteFromUrl(window.location.pathname).blogSlug || 'how-often-should-you-groom-your-dog-in-mangalores-humid-climate';
+    }
+    return 'how-often-should-you-groom-your-dog-in-mangalores-humid-climate';
+  });
+
+  const [selectedBreedSlug, setSelectedBreedSlug] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return parseRouteFromUrl(window.location.pathname).breedSlug || 'golden-retriever-grooming-mangalore';
+    }
+    return 'golden-retriever-grooming-mangalore';
+  });
+
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   // Sync browser popstate (Back/Forward buttons)
@@ -118,6 +205,15 @@ function AppContent() {
       setActivePage(route.page);
       if (route.locationSlug) {
         setSelectedLocationSlug(route.locationSlug);
+      }
+      if (route.serviceSlug) {
+        setSelectedServiceSlug(route.serviceSlug);
+      }
+      if (route.blogSlug) {
+        setSelectedBlogSlug(route.blogSlug);
+      }
+      if (route.breedSlug) {
+        setSelectedBreedSlug(route.breedSlug);
       }
     };
     window.addEventListener('popstate', handlePopState);
@@ -131,7 +227,7 @@ function AppContent() {
 
   const handlePageChange = (page: ActivePage) => {
     setActivePage(page);
-    const targetPath = getPathForPage(page);
+    const targetPath = getPathForPage(page, selectedLocationSlug, selectedServiceSlug, selectedBlogSlug, selectedBreedSlug);
     if (typeof window !== 'undefined' && window.location.pathname !== targetPath) {
       window.history.pushState({ page }, '', targetPath);
     }
@@ -144,6 +240,36 @@ function AppContent() {
     const targetPath = `/locations/${slug}`;
     if (typeof window !== 'undefined' && window.location.pathname !== targetPath) {
       window.history.pushState({ page: 'location-detail', slug }, '', targetPath);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectService = (slug: string) => {
+    setSelectedServiceSlug(slug);
+    setActivePage('service-detail');
+    const targetPath = `/services/${slug}`;
+    if (typeof window !== 'undefined' && window.location.pathname !== targetPath) {
+      window.history.pushState({ page: 'service-detail', slug }, '', targetPath);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectBlog = (slug: string) => {
+    setSelectedBlogSlug(slug);
+    setActivePage('blog-detail');
+    const targetPath = `/blog/${slug}`;
+    if (typeof window !== 'undefined' && window.location.pathname !== targetPath) {
+      window.history.pushState({ page: 'blog-detail', slug }, '', targetPath);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectBreed = (slug: string) => {
+    setSelectedBreedSlug(slug);
+    setActivePage('dog-breed-detail');
+    const targetPath = `/dog-breeds/${slug}`;
+    if (typeof window !== 'undefined' && window.location.pathname !== targetPath) {
+      window.history.pushState({ page: 'dog-breed-detail', slug }, '', targetPath);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -261,6 +387,47 @@ function AppContent() {
         {/* Pet Education & Grooming Guides */}
         {activePage === 'education' && (
           <EducationHubView onNavigate={handlePageChange} />
+        )}
+
+        {/* Detailed Service Page */}
+        {activePage === 'service-detail' && (
+          <ServiceDetailPage
+            serviceSlug={selectedServiceSlug}
+            onNavigate={handlePageChange}
+            onSelectLocation={handleSelectLocation}
+          />
+        )}
+
+        {/* Single Blog Article Page */}
+        {activePage === 'blog-detail' && (
+          <BlogArticlePage
+            articleSlug={selectedBlogSlug}
+            onNavigate={handlePageChange}
+            onSelectArticle={handleSelectBlog}
+            onSelectService={handleSelectService}
+          />
+        )}
+
+        {/* Single Breed Guide Page */}
+        {activePage === 'dog-breed-detail' && (
+          <BreedGuidePage
+            breedSlug={selectedBreedSlug}
+            onNavigate={handlePageChange}
+            onSelectBreed={handleSelectBreed}
+          />
+        )}
+
+        {/* Mangalore Local Pet Resources & Hospital Directory */}
+        {activePage === 'mangalore-guide' && (
+          <MangalorePetGuidePage
+            onNavigate={handlePageChange}
+            onSelectLocation={handleSelectLocation}
+          />
+        )}
+
+        {/* Grooming FAQ Page */}
+        {activePage === 'faq' && (
+          <FaqPage onNavigate={handlePageChange} />
         )}
 
         {activePage === 'about' && <AboutView />}

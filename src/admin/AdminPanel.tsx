@@ -21,6 +21,7 @@ import { AdminMediaLibraryView } from './views/AdminMediaLibraryView';
 import { AdminReviewsView } from './views/AdminReviewsView';
 import { AdminReportsView } from './views/AdminReportsView';
 import { AdminSettingsView } from './views/AdminSettingsView';
+import { AdminSeoTrackerView } from './views/AdminSeoTrackerView';
 
 interface AdminPanelProps {
   onExitToStore: () => void;
@@ -95,6 +96,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onExitToStore }) => {
         return <AdminReportsView />;
       case 'settings':
         return <AdminSettingsView />;
+      case 'seo-tracker':
+        return <AdminSeoTrackerView />;
       default:
         return (
           <AdminDashboardHome

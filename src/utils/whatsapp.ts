@@ -39,27 +39,29 @@ export function createGroomingEnquiryUrl(enquiry: GroomingEnquiry): string {
     ? `\n✨ *Requested Add-ons:* ${enquiry.selectedAddOns.join(', ')}`
     : '';
 
-  const notesText = enquiry.notes ? `\n📝 *Special Notes:* ${enquiry.notes}` : '';
+  const notesText = enquiry.notes ? `\n📝 *Additional Notes:* ${enquiry.notes}` : '';
 
-  const message = `🌊 *COASTAL TAILS – GROOMING ENQUIRY* 🐾
+  const message = `🌊 *COASTAL TAILS – GROOMING APPOINTMENT ENQUIRY* 🐾
 -----------------------------------------
-Hello Coastal Tails Team! I would like to get price confirmation & book a grooming appointment for my pet.
+Hello Coastal Tails Team! I would like to book a grooming appointment for my pet.
 
+👤 *Pet Owner Name:* ${enquiry.customerName}
+📞 *Phone:* ${enquiry.customerMobile}
+📍 *Location / Area:* ${enquiry.location || 'Derebail / Mangalore'}
+🚐 *Service Mode:* ${enquiry.serviceMode === 'doorstep' ? 'Coastal Tails GO Mobile Van (Doorstep)' : 'Coastal Tails Grooming Studio (Derebail Hub)'}
+
+🐾 *Pet Name:* ${enquiry.petName || 'My Pet'}
 🐶🐱 *Pet Type:* ${enquiry.petType === 'dog' ? 'Dog 🐕' : 'Cat 🐈'}
-🐾 *Pet Name:* ${enquiry.petName || 'Not specified'}
 🏷️ *Breed:* ${enquiry.breed || 'Not specified'}
-⚖️ *Size / Coat:* ${enquiry.sizeOrCoat || 'Standard'}
+🎂 *Pet Age:* ${enquiry.petAge || 'Not specified'}
+⚖️ *Size / Coat Type:* ${enquiry.sizeOrCoat || 'Standard'}
 🩺 *Coat Condition:* ${enquiry.coatCondition}
-✂️ *Service Package:* ${enquiry.requestedPackage}
-🚐 *Service Location:* ${enquiry.serviceMode === 'doorstep' ? 'Mobile Doorstep Van 🚐' : 'Coastal Tails - Pet Aura Studio (Derebail) 🏢'}${addOnsText}
+✂️ *Service Required:* ${enquiry.requestedPackage}${addOnsText}
 
-📅 *Preferred Date:* ${enquiry.preferredDate || 'Earliest available'}
-⏰ *Preferred Slot:* ${enquiry.preferredTimeSlot || 'Flexible'}
-
-👤 *Customer Name:* ${enquiry.customerName}
-📞 *Contact Number:* ${enquiry.customerMobile}${notesText}
+📅 *Preferred Date:* ${enquiry.preferredDate || 'Earliest Available'}
+⏰ *Preferred Time:* ${enquiry.preferredTimeSlot || 'Flexible'}${notesText}
 -----------------------------------------
-Please share the price quote, available appointment slots, and confirmation. Thank you!`;
+Please confirm appointment availability and pricing for Mangalore. Thank you!`;
 
   return buildWhatsAppLink(message);
 }

@@ -131,12 +131,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
 
             {/* Main Primary H1 Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-[#1D237A] font-['Outfit'] tracking-tight leading-[1.12]">
-              Premium Pet Grooming. <span className="text-[#169DB1] block sm:inline">At Our Studio or At Your Doorstep.</span>
+              Pet Grooming & Pet Spa in Mangalore
             </h1>
 
-            {/* Subtitle */}
+            {/* Subheading */}
             <p className="text-sm sm:text-base md:text-lg text-slate-700 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Coastal Tails Grooming Studio & Pet Spa brings certified gentle grooming, soothing spa rituals, and coat-care to pets across Mangaluru — with both our studio hub and Coastal Tails GO mobile van.
+              Professional dog and cat grooming in Derebail, Mangalore, with a comfortable grooming experience for pets and their families. Certified gentle care at our studio or right at your doorstep via Coastal Tails GO mobile van.
             </p>
 
             {/* Quick Actions & Mangaluru Trust Badges */}
@@ -144,22 +144,25 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
               <button
                 onClick={() => openGroomingEnquiry(undefined, 'studio')}
                 className="px-5 sm:px-6 py-3.5 rounded-2xl bg-[#1D237A] hover:bg-[#169DB1] text-white font-black text-xs sm:text-sm shadow-md shadow-[#1D237A]/20 transition-all flex items-center gap-2 cursor-pointer hover:scale-102 active:scale-98 border-2 border-transparent hover:border-[#F2B45E]"
+                id="hero-book-appointment-btn"
               >
-                <Scissors className="w-4 h-4 text-[#F2B45E]" />
-                <span>Book Studio Grooming</span>
+                <Calendar className="w-4 h-4 text-[#F2B45E]" />
+                <span>Book a Grooming Appointment</span>
               </button>
 
-              <button
-                onClick={() => openGroomingEnquiry(undefined, 'doorstep')}
+              <a
+                href={`tel:${COASTAL_TAILS_PHONE.replace(/\s+/g, '')}`}
                 className="px-5 sm:px-6 py-3.5 rounded-2xl bg-[#F2B45E] hover:bg-[#e09f42] text-[#1D237A] font-black text-xs sm:text-sm shadow-md shadow-[#F2B45E]/30 transition-all flex items-center gap-2 cursor-pointer hover:scale-102 active:scale-98"
+                id="hero-call-coastal-tails-btn"
               >
-                <Truck className="w-4 h-4 text-[#1D237A]" />
-                <span>Book Mobile Van</span>
-              </button>
+                <Phone className="w-4 h-4 text-[#1D237A]" />
+                <span>Call Coastal Tails</span>
+              </a>
 
               <button
                 onClick={() => openGroomingEnquiry()}
                 className="px-4 sm:px-5 py-3.5 rounded-2xl bg-white hover:bg-[#F6EBD7]/40 text-[#1D237A] font-black text-xs sm:text-sm border-2 border-[#169DB1]/40 shadow-xs transition-all flex items-center gap-2 cursor-pointer hover:border-[#25D366] group"
+                id="hero-whatsapp-btn"
               >
                 <WhatsAppIcon variant="badge" className="w-4 h-4 shadow-xs" />
                 <span>WhatsApp Us</span>
