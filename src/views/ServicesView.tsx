@@ -27,8 +27,8 @@ export const ServicesView: React.FC<ServicesViewProps> = () => {
       a: 'Yes! Our studio at Coastal Tails - Pet Aura (Shop No:B2, Dwaraka Enclave, Derebail) features open-view styling glass partitions and a comfortable lounge where pet parents can watch their babies get pampered while enjoying complimentary coffee.',
     },
     {
-      q: 'How does Mobile Doorstep Van Grooming work in Mangaluru?',
-      a: 'Our temperature-controlled mobile salon arrives at your doorstep in Kadri, Bejai, Urwa, etc. We bring our own water heating and power generation—all we need is a safe parking spot!',
+      q: 'Where is your grooming studio located and is parking available?',
+      a: 'We are located at Shop B2, Dwaraka Enclave, Derebail, Mangaluru (along the Bejai-Kavoor Road). We have dedicated, reserved storefront parking right outside the entrance for effortless, stress-free pet drop-off and pickup.',
     },
   ];
 

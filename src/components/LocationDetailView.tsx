@@ -72,14 +72,14 @@ export const LocationDetailView: React.FC<LocationDetailViewProps> = ({
                 <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100">
                   <div className="text-[10px] uppercase font-bold text-slate-400">Service Coverage</div>
                   <div className="text-sm font-extrabold text-[#0D6E6E] capitalize mt-0.5">
-                    {location.zone} Zone (Studio & Mobile)
+                    {location.zone} Zone (Studio Hub)
                   </div>
                 </div>
 
                 <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100 col-span-2 sm:col-span-1">
-                  <div className="text-[10px] uppercase font-bold text-slate-400">Mobile Turnaround</div>
+                  <div className="text-[10px] uppercase font-bold text-slate-400">Drive to Studio</div>
                   <div className="text-sm font-extrabold text-slate-700 mt-0.5">
-                    {location.zone === 'core' ? '15–25 mins' : location.zone === 'extended' ? '25–40 mins' : 'Scheduled route'}
+                    {location.distanceFromHubKm <= 4 ? '5–8 mins' : location.distanceFromHubKm <= 8 ? '10–15 mins' : '15–25 mins'}
                   </div>
                 </div>
               </div>
@@ -102,19 +102,11 @@ export const LocationDetailView: React.FC<LocationDetailViewProps> = ({
               {/* Action Buttons */}
               <div className="pt-4 flex flex-wrap gap-3">
                 <button
-                  onClick={() => openGroomingEnquiry(undefined, 'doorstep')}
+                  onClick={() => openGroomingEnquiry(undefined, 'studio')}
                   className="px-5 sm:px-6 py-3.5 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <Truck className="w-4 h-4" />
-                  <span>Book Mobile Van in {location.name}</span>
-                </button>
-
-                <button
-                  onClick={() => openGroomingEnquiry(undefined, 'studio')}
-                  className="px-5 sm:px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-50 text-[#08383B] font-bold text-xs sm:text-sm border border-slate-200 shadow-xs transition-all flex items-center gap-2 cursor-pointer"
-                >
-                  <Scissors className="w-4 h-4 text-[#0D6E6E]" />
-                  <span>Studio Appointment (Derebail)</span>
+                  <Scissors className="w-4 h-4" />
+                  <span>Book Studio Appointment</span>
                 </button>
 
                 <a
@@ -123,7 +115,8 @@ export const LocationDetailView: React.FC<LocationDetailViewProps> = ({
                   rel="noopener noreferrer"
                   className="px-4 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition-all flex items-center gap-2"
                 >
-                  <span>📍 Directions to Studio</span>
+                  <Navigation className="w-4 h-4 text-[#0D6E6E]" />
+                  <span>Directions from {location.name}</span>
                 </a>
               </div>
             </div>
@@ -133,7 +126,7 @@ export const LocationDetailView: React.FC<LocationDetailViewProps> = ({
               <div className="rounded-2xl overflow-hidden shadow-xs border border-[#2DD4BF]/30 h-36 relative">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee"
-                  alt={`Coastal Tails GO Mobile Van in ${location.name}`}
+                  alt={`Coastal Tails Derebail Grooming Studio near ${location.name}`}
                   className="w-full h-full object-cover"
                   optimizeWidth={500}
                   loading="lazy"
@@ -143,13 +136,13 @@ export const LocationDetailView: React.FC<LocationDetailViewProps> = ({
                 />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[#08383B]">Coastal Tails GO</h3>
+                <h3 className="text-lg font-bold text-[#08383B]">Derebail Pet Studio & Spa</h3>
                 <p className="text-xs text-slate-600 mt-1">
-                  Full self-powered grooming salon van with warm water & air-conditioning dispatched across {location.name}.
+                  Just {location.distanceFromHubKm} km from {location.name}. 1-on-1 private styling bays, warm hydro-baths, and reserved customer parking.
                 </p>
               </div>
               <div className="p-3 rounded-xl bg-white/80 text-[11px] text-[#08383B] font-semibold">
-                ✨ No travel stress for pets in {location.name}
+                ✨ Easy drive & zero-cage calm care for {location.name} pets
               </div>
             </div>
           </div>
@@ -159,10 +152,10 @@ export const LocationDetailView: React.FC<LocationDetailViewProps> = ({
         <div className="space-y-6 mb-12">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#08383B] font-['Outfit']">
-              Grooming Services Available in {location.name}
+              Grooming Services for Pets in {location.name}
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Both doorstep van visits and studio salon appointments are fully equipped for complete canine and feline care.
+              Our Derebail studio is fully equipped for complete canine and feline care with dedicated 1-on-1 attention.
             </p>
           </div>
 
@@ -206,18 +199,18 @@ export const LocationDetailView: React.FC<LocationDetailViewProps> = ({
             <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-xl bg-[#E6F7F6] text-[#0D6E6E] flex items-center justify-center">
-                  <Truck className="w-5 h-5 text-[#FF7A29]" />
+                  <Sparkles className="w-5 h-5 text-[#0D6E6E]" />
                 </div>
-                <h3 className="text-lg font-bold text-[#08383B]">Coastal Tails GO (Doorstep Van)</h3>
+                <h3 className="text-lg font-bold text-[#08383B]">Luxury Pet Spa & Hydrotherapy</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  The complete grooming van comes directly to your residence in {location.name}. Zero transport stress.
+                  Dead Sea mud therapy, warm hydrobath massage, aromatherapy de-shedding, and ozone rinse treatments.
                 </p>
               </div>
               <button
-                onClick={() => openGroomingEnquiry(undefined, 'doorstep')}
-                className="mt-4 pt-4 border-t border-slate-100 text-xs font-bold text-[#FF7A29] flex items-center gap-1 hover:underline cursor-pointer"
+                onClick={() => openGroomingEnquiry(undefined, 'dog')}
+                className="mt-4 pt-4 border-t border-slate-100 text-xs font-bold text-[#0D6E6E] flex items-center gap-1 hover:underline cursor-pointer"
               >
-                <span>Check Van Availability</span>
+                <span>Ask for Spa Treatment Price</span>
               </button>
             </div>
           </div>
@@ -227,34 +220,34 @@ export const LocationDetailView: React.FC<LocationDetailViewProps> = ({
         <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-xs mb-12">
           <h3 className="text-xl font-bold text-[#08383B] font-['Outfit'] mb-4 flex items-center gap-2">
             <HelpCircle className="w-5 h-5 text-[#0D6E6E]" />
-            <span>Pet Grooming in {location.name} — Frequently Asked Questions</span>
+            <span>Pet Grooming for {location.name} — Frequently Asked Questions</span>
           </h3>
 
           <div className="space-y-4 text-xs sm:text-sm">
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
               <h4 className="font-bold text-[#08383B] mb-1">
-                How do I book mobile pet grooming in {location.name}?
+                How do pet parents from {location.name} visit Coastal Tails?
               </h4>
               <p className="text-slate-600">
-                Simply click "Ask for Price" or WhatsApp us at +91 79969 89956 to get a personalized quote with your address in {location.name}, pet breed, and requested service. We confirm your appointment time and van slot.
+                Our central studio is located at Shop B2, Dwaraka Enclave, Derebail (~{location.distanceFromHubKm} km from {location.name}). We offer dedicated, stress-free storefront parking right outside the entrance for effortless pet drop-off and pickup.
               </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
               <h4 className="font-bold text-[#08383B] mb-1">
-                Do I need to provide water or electricity for the Coastal Tails GO van in {location.name}?
+                Can I stay with my pet during grooming?
               </h4>
               <p className="text-slate-600">
-                No! Our mobile grooming van is fully self-sufficient with its own fresh water tank, water heater, power generator, and climate control. We only need a safe spot to park.
+                Yes! Pet parents from {location.name} love our glass viewing lounge where you can relax with complimentary coffee while watching your fur baby get pampered with 100% force-free care.
               </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
               <h4 className="font-bold text-[#08383B] mb-1">
-                Can I also visit your studio from {location.name}?
+                How do I book an appointment for my pet?
               </h4>
               <p className="text-slate-600">
-                Yes! Our central studio is located at Dwaraka Enclave, Derebail (~{location.distanceFromHubKm} km away). You are welcome to drop by for studio grooming, spa treatments, or to browse our curated pet store.
+                Simply click "Book Studio Appointment" or WhatsApp us at +91 79969 89956 with your pet breed and preferred date/time slot to confirm your private 1-on-1 appointment.
               </p>
             </div>
           </div>

@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   MessageCircle,
   Truck,
+  Store,
   BookOpen,
 } from 'lucide-react';
 import { ActivePage } from '../types';
@@ -60,11 +61,11 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectLocation 
 
             <div className="p-3.5 rounded-2xl bg-white/10 border border-[#F2B45E]/40 space-y-1 text-xs">
               <div className="font-bold text-[#F2B45E] flex items-center gap-1.5 font-['Outfit'] tracking-wide">
-                <Truck className="w-3.5 h-3.5 text-[#169DB1]" />
-                <span>COASTAL TAILS GO — DOORSTEP VAN</span>
+                <Store className="w-3.5 h-3.5 text-[#169DB1]" />
+                <span>COASTAL TAILS DEREBAIL STUDIO & SPA</span>
               </div>
               <p className="text-[11px] text-blue-100">
-                Mobile Pet Grooming with AC & warm freshwater at your doorstep across Mangaluru (0–25 km).
+                Shop B2, Dwaraka Enclave, Derebail, Mangaluru. Open 7 days a week (09:30 AM – 09:30 PM).
               </p>
             </div>
 
@@ -145,26 +146,26 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectLocation 
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('mobile-pet-grooming-mangalore')}
-                  className="hover:text-white transition-colors text-left text-[#F2B45E] font-bold cursor-pointer"
+                  onClick={() => handleNav('services')}
+                  className="hover:text-[#F2B45E] transition-colors text-left font-medium cursor-pointer"
                 >
-                  🚐 Mobile Pet Grooming (Doorstep Van)
+                  De-shedding & Undercoat Care
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('home-pet-grooming-mangalore')}
+                  onClick={() => handleNav('services')}
                   className="hover:text-[#F2B45E] transition-colors text-left font-medium cursor-pointer"
                 >
-                  Home Pet Grooming Mangalore
+                  Puppy & Senior Pet Grooming
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('dog-grooming-at-home-mangalore')}
+                  onClick={() => handleNav('services')}
                   className="hover:text-[#F2B45E] transition-colors text-left font-medium cursor-pointer"
                 >
-                  Dog Grooming at Home
+                  Medicated & Anti-Tick Baths
                 </button>
               </li>
             </ul>
@@ -299,7 +300,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, onSelectLocation 
         {/* Neighborhood Quick Links */}
         <div className="py-6 border-b border-white/10 space-y-2">
           <div className="text-[11px] font-black uppercase tracking-wider text-[#F2B45E] font-['Outfit']">
-            Grooming & Mobile Van Available Across Mangaluru:
+            Welcoming Pet Parents to Our Studio Across Mangaluru:
           </div>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-blue-200/70">
             {PRIORITY_LOCATIONS.map((loc) => (

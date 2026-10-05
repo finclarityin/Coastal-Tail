@@ -6,6 +6,7 @@ import {
   Clock,
   RotateCcw,
   Truck,
+  Store,
   Crown,
   Heart,
   Mail,
@@ -80,7 +81,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
     {
       id: 'cancellation',
       title: 'Cancellation & Rescheduling',
-      description: 'Studio appointments & ₹300 mobile van booking advance',
+      description: 'Studio appointments & arrival guidelines',
       icon: Clock,
       badge: 'Booking Rules',
     },
@@ -288,7 +289,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#0D6E6E] shrink-0" />
-                      <span>Provide mobile grooming services</span>
+                      <span>Provide studio pet grooming & spa services</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#0D6E6E] shrink-0" />
@@ -358,7 +359,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0D6E6E] shrink-0 mt-1" />
-                    <span>Coastal Tails provides pet grooming, mobile grooming, memberships and pet products subject to availability.</span>
+                    <span>Coastal Tails provides boutique studio pet grooming, pet spa treatments, memberships and pet products subject to availability.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-[#0D6E6E] shrink-0 mt-1" />
@@ -468,7 +469,7 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
                   <h2 className="text-xl sm:text-2xl font-black font-['Outfit'] text-[#08383B]">
                     Cancellation & Rescheduling Policy
                   </h2>
-                  <p className="text-xs text-slate-500">Studio visits & Mobile Van booking advance</p>
+                  <p className="text-xs text-slate-500">Derebail Studio appointment guidelines</p>
                 </div>
               </div>
 
@@ -482,31 +483,28 @@ export const PoliciesView: React.FC<PoliciesViewProps> = ({
                   <div className="p-5 rounded-2xl bg-[#FDFBF7] border border-slate-200">
                     <div className="flex items-center gap-2 text-[#08383B] font-bold text-base mb-2">
                       <Clock className="w-4 h-4 text-[#0D6E6E]" />
-                      <span>Studio Appointments</span>
+                      <span>Studio Appointments & Rescheduling</span>
                     </div>
-                    <p className="text-sm text-slate-600">
-                      Customers should contact Coastal Tails as early as possible if they need to cancel or reschedule a studio appointment.
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      We offer dedicated 1-on-1 private appointments for each pet. Pet parents are requested to give at least <strong>2 hours notice</strong> if you need to cancel or reschedule, allowing another pet on our waiting list to take the slot.
                     </p>
                   </div>
 
-                  {/* Mobile Grooming */}
+                  {/* Arriving at Studio */}
                   <div className="p-5 rounded-2xl bg-[#E6F7F6]/60 border border-[#0D6E6E]/30">
                     <div className="flex items-center gap-2 text-[#08383B] font-bold text-base mb-2">
-                      <Truck className="w-4 h-4 text-[#0D6E6E]" />
-                      <span>Mobile Grooming (Van)</span>
+                      <Store className="w-4 h-4 text-[#0D6E6E]" />
+                      <span>Studio Arrival & Parking</span>
                     </div>
                     <ul className="text-xs sm:text-sm text-slate-700 space-y-2">
                       <li>
-                        • A <strong>₹300 booking advance</strong> is required for mobile/van grooming appointments.
+                        • Dedicated storefront parking is available at Dwaraka Enclave, Derebail for easy drop-off and pickup.
                       </li>
                       <li>
-                        • Mobile appointments may be cancelled or rescheduled up to <strong>90 minutes before</strong> the scheduled appointment.
+                        • Dogs should be on a leash, and cats must be safely inside a pet carrier upon arrival.
                       </li>
                       <li>
-                        • If cancelled with less than 90 minutes notice or unattended: <strong>The ₹300 booking advance will be treated as a non-refundable mobile visit/booking charge.</strong>
-                      </li>
-                      <li>
-                        • A new ₹300 advance will be required for the next mobile appointment.
+                        • Please arrive 5–10 minutes before your slot to allow your pet to sniff and acclimate comfortably.
                       </li>
                     </ul>
                   </div>

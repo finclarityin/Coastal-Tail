@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Heart, Sparkles, Scissors, Clock, Truck, Award, Star, CheckCircle } from 'lucide-react';
+import { ShieldCheck, Heart, Sparkles, Scissors, Clock, Store, Award, Star, CheckCircle } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import { useCart } from '../context/CartContext';
 
@@ -26,10 +26,10 @@ export const TrustDifferenceSection: React.FC = () => {
         'Formulated specifically to protect canine and feline skin from Mangaluru’s heavy humidity, fungal irritation, and saltwater exposure.',
     },
     {
-      icon: <Truck className="w-6 h-6 text-[#0D6E6E]" />,
-      title: 'Both Studio & Mobile Options',
+      icon: <Store className="w-6 h-6 text-[#0D6E6E]" />,
+      title: 'Dedicated 1-on-1 Studio Sessions',
       description:
-        'Enjoy our peaceful grooming studio in Derebail or have our fully equipped Coastal Tails GO van arrive right at your driveway.',
+        'Enjoy our calm, private grooming salon at Dwaraka Enclave, Derebail. No crowded cages, zero waiting stress, and an open glass viewing lounge.',
     },
   ];
 

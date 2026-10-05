@@ -1,6 +1,6 @@
 export interface ComprehensiveFAQ {
   id: string;
-  category: 'Location & Booking' | 'Services & Pricing' | 'Pet Care & Safety' | 'Mobile Grooming';
+  category: 'Location & Booking' | 'Services & Pricing' | 'Pet Care & Safety' | 'Studio Facilities';
   question: string;
   shortAnswer: string;
   detailedAnswer: string[];
@@ -14,8 +14,8 @@ export const COMPREHENSIVE_MANGALORE_FAQS: ComprehensiveFAQ[] = [
     shortAnswer: 'Our studio is at Shop No: B2, Dwaraka Enclave, Derebail, Mangalore, Karnataka 575006.',
     detailedAnswer: [
       'Coastal Tails (Pet Aura Studio) is centrally situated in Derebail at Shop No: B2, Dwaraka Enclave, Mangalore 575006.',
-      'We are located along the Airport Road corridor, easily accessible within 5 to 10 minutes from Konchady, Kuntikana, Kavoor, Bondel, Bejai, Kadri, and Kottara.',
-      'We also operate "Coastal Tails GO", our fully equipped mobile grooming van that visits pet homes across all major Mangalore localities.',
+      'We are located along the Bejai-Kavoor road corridor, easily accessible within 5 to 10 minutes from Konchady, Kuntikana, Kavoor, Bondel, Bejai, Kadri, and Kottara.',
+      'We offer dedicated, reserved customer storefront parking right in front of the salon for hassle-free pet drop-off and pickup.',
     ],
   },
   {
@@ -45,13 +45,17 @@ export const COMPREHENSIVE_MANGALORE_FAQS: ComprehensiveFAQ[] = [
     ],
   },
   {
-    id: 'faq-mobile-grooming',
-    category: 'Mobile Grooming',
-    question: 'Do you offer mobile or doorstep pet grooming in Mangalore?',
-    shortAnswer: 'Yes! Coastal Tails GO brings our luxury, air-conditioned grooming van right to your doorstep anywhere in Mangalore.',
+    id: 'faq-studio-facilities',
+    category: 'Studio Facilities',
+    question: 'What facilities are available at your Derebail grooming studio?',
+    shortAnswer: 'Our studio features sound-insulated private suites, warm RO hydrotherapy baths, zero-cage handling, and a viewing lounge.',
     detailedAnswer: [
-      'Our mobile van is a complete salon on wheels equipped with fresh filtered water, water heaters, hydraulic tables, high-velocity blow dryers, and air-conditioning.',
-      'Your pet simply walks from your front door into our private van parked in your driveway or apartment complex, eliminating car sickness and waiting-room stress.',
+      'Coastal Tails is designed for low-stress pet care with modern amenities:',
+      '• Private 1-on-1 Grooming Bays: No barking from other pets, minimizing anxiety.',
+      '• Warm RO Hydro-Baths: Pure filtered warm water massage for thorough coat cleansing.',
+      '• Zero-Cage Policy: 100% force-free hands-on care; pets are never placed in cages or holding crates.',
+      '• Viewing Lounge: Glass observation partition where pet parents can watch with complimentary coffee.',
+      '• Dedicated Parking: Storefront reserved parking at Dwaraka Enclave for easy drop-off and pickup.',
     ],
   },
   {
@@ -63,7 +67,7 @@ export const COMPREHENSIVE_MANGALORE_FAQS: ComprehensiveFAQ[] = [
       'Pricing depends primarily on:',
       '1. Pet size (Small e.g. Shih Tzu, Medium e.g. Beagle, Large e.g. Labrador/Golden, Giant e.g. Saint Bernard).',
       '2. Coat condition (degree of matting, thickness of dead undercoat, presence of ticks).',
-      '3. Service location (Derebail studio vs. Coastal Tails GO mobile van doorstep service).',
+      '3. Chosen service package (Essential freshening, breed styling, or luxury spa rituals).',
       'We provide instant, transparent, and exact price quotes via WhatsApp (+91 79969 89956) before you confirm your appointment.',
     ],
   },
@@ -84,21 +88,21 @@ export const COMPREHENSIVE_MANGALORE_FAQS: ComprehensiveFAQ[] = [
     shortAnswer: 'You can book directly through our online website form, call us at +91 79969 89956, or message us on WhatsApp.',
     detailedAnswer: [
       '1. Online: Click any "Book Appointment" button on our website to fill in your pet details.',
-      '2. WhatsApp: Send a message to +91 79969 89956 with your pet breed, preferred date, and whether you prefer our Derebail studio or mobile van.',
+      '2. WhatsApp: Send a message to +91 79969 89956 with your pet breed and preferred date/time slot.',
       '3. Phone: Call our team directly at +91 79969 89956 between 9:00 AM and 8:00 PM.',
     ],
   },
   {
     id: 'faq-coverage-areas',
-    category: 'Mobile Grooming',
-    question: 'What areas in Mangalore do you cover for mobile pet grooming?',
-    shortAnswer: 'We cover all major localities: Derebail, Bejai, Kadri, Surathkal, Kulai, Bondel, Kottara, Urwa, Kankanady, Kavoor, and beyond.',
+    category: 'Studio Facilities',
+    question: 'Which Mangalore localities easily access your Derebail studio?',
+    shortAnswer: 'We are centrally located in Derebail, easily reachable within 5–15 minutes from across Mangalore.',
     detailedAnswer: [
-      'Our mobile van routes daily across:',
-      '• Core Hub: Derebail, Konchady, Kuntikana, Kottara, Bejai, Kadri, Urwa, Chilimbi, Lalbagh.',
-      '• Northern & Beach Corridor: Surathkal, Kulai, Hosabettu, Mukka, Panambur, Baikampady.',
-      '• Airport & Eastern Hills: Kavoor, Bondel, Padavinangady, Mary Hill, Yeyyadi, Bajpe.',
-      '• Southern Belt: Kankanady, Falnir, Valencia, Mangaladevi, Deralakatte, Ullal, Thokkottu.',
+      'Our studio at Dwaraka Enclave has direct access from major corridors:',
+      '• 3–5 Mins: Derebail, Konchady, Kuntikana, Kottara Chowki, Bejai.',
+      '• 5–10 Mins: Kadri, Urwa, Chilimbi, Kavoor, Bondel, Mary Hill, Lalbagh.',
+      '• 10–15 Mins: Kankanady, Falnir, Valencia, Surathkal, Kulai, Shakthinagar.',
+      'Storefront reserved parking makes pet drop-off completely seamless!',
     ],
   },
   {
@@ -115,7 +119,7 @@ export const COMPREHENSIVE_MANGALORE_FAQS: ComprehensiveFAQ[] = [
     id: 'faq-stay-with-pet',
     category: 'Pet Care & Safety',
     question: 'Can I stay with my pet during the grooming session?',
-    shortAnswer: 'Yes! You are welcome to observe through our studio viewing bay or peek inside our mobile van.',
+    shortAnswer: 'Yes! You are welcome to observe through our studio viewing lounge window.',
     detailedAnswer: [
       'Our Derebail studio features clean, transparent glass viewing areas so parents can watch their pets being pampered.',
       'Note: For some overly attached pets who try to jump off the table when they see their owners, we may recommend waiting in our reception lounge to keep your pet calm and focused on the groomer.',

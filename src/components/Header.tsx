@@ -340,20 +340,20 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
 
                     <button
                       onClick={() => {
-                        handleNavClick('mobile-pet-grooming-mangalore');
+                        handleNavClick('spa-addons');
                         setServicesDropdownOpen(false);
                       }}
                       className="w-full flex items-center gap-3 p-2 rounded-xl text-left hover:bg-amber-50/70 transition-colors group cursor-pointer"
                     >
                       <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
-                        <Truck className="w-4 h-4" />
+                        <Sparkles className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="text-xs font-bold text-slate-800 group-hover:text-amber-800 flex items-center gap-1.5">
-                          <span>Coastal Tails GO</span>
-                          <span className="text-[9px] bg-amber-200 text-amber-900 font-extrabold px-1 rounded-sm">DOORSTEP</span>
+                          <span>Luxury Spa & Hydrotherapy</span>
+                          <span className="text-[9px] bg-amber-200 text-amber-900 font-extrabold px-1 rounded-sm">SPA</span>
                         </div>
-                        <div className="text-[11px] text-slate-400">Luxury air-conditioned mobile van</div>
+                        <div className="text-[11px] text-slate-400">Dead Sea mud & warm bath rituals</div>
                       </div>
                     </button>
 
@@ -383,17 +383,15 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
               )}
             </div>
 
-            {/* Coastal Tails GO Doorstep Van */}
+            {/* Derebail Grooming Studio Hub */}
             <button
-              onClick={() => handleNavClick('mobile-pet-grooming-mangalore')}
-              className={getNavLinkClass(
-                activePage === 'mobile-pet-grooming-mangalore' || activePage === 'mobile-grooming'
-              )}
+              onClick={() => handleNavClick('about')}
+              className={getNavLinkClass(activePage === 'about')}
             >
-              <Truck className="w-3.5 h-3.5 text-[#0F98A7]" />
-              <span>Coastal Tails GO</span>
-              <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-sm bg-amber-100 text-amber-800 border border-amber-300/60 uppercase tracking-wider">
-                VAN
+              <Store className="w-3.5 h-3.5 text-[#0F98A7]" />
+              <span>Derebail Studio</span>
+              <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-sm bg-teal-100 text-teal-800 border border-teal-300/60 uppercase tracking-wider">
+                STUDIO
               </span>
             </button>
 
@@ -523,13 +521,13 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
 
                 <button
                   onClick={() => {
-                    handleNavClick('mobile-pet-grooming-mangalore');
+                    handleNavClick('spa-addons');
                     setMobileMenuOpen(false);
                   }}
-                  className="flex flex-col items-center justify-center p-2.5 bg-[#FFF4EC] hover:bg-[#FFE8D6] border border-[#FF7A29]/30 text-[#D95D16] rounded-2xl text-xs font-bold transition-all text-center cursor-pointer"
+                  className="flex flex-col items-center justify-center p-2.5 bg-[#FFF4EC] hover:bg-[#FFE8D6] border border-[#F6A846]/30 text-amber-900 rounded-2xl text-xs font-bold transition-all text-center cursor-pointer"
                 >
-                  <span className="text-xl mb-1">🚐</span>
-                  <span>Mobile Van</span>
+                  <span className="text-xl mb-1">✨</span>
+                  <span>Pet Spa</span>
                 </button>
               </div>
             </div>
@@ -566,19 +564,19 @@ export const Header: React.FC<HeaderProps> = ({ activePage, setActivePage, onOpe
               </button>
 
               <button
-                onClick={() => handleNavClick('mobile-pet-grooming-mangalore')}
+                onClick={() => handleNavClick('about')}
                 className={`w-full flex items-center justify-between px-3.5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
-                  activePage === 'mobile-pet-grooming-mangalore' || activePage === 'mobile-grooming'
-                    ? 'bg-[#FF7A29] text-white shadow-sm'
+                  activePage === 'about'
+                    ? 'bg-[#0F98A7] text-white shadow-sm'
                     : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <Truck className="w-4 h-4 text-[#0F98A7]" />
-                  <span>Coastal Tails GO (Doorstep Van)</span>
+                  <Store className="w-4 h-4 text-[#0F98A7]" />
+                  <span>Our Derebail Studio & Spa</span>
                 </div>
-                <span className="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full font-black">
-                  Doorstep
+                <span className="text-[10px] bg-teal-100 text-teal-900 px-2 py-0.5 rounded-full font-black">
+                  Studio
                 </span>
               </button>
 

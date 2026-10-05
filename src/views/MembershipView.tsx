@@ -58,7 +58,7 @@ export const MembershipView: React.FC = () => {
     {
       icon: Crown,
       title: 'VIP WhatsApp Concierge',
-      description: 'Direct priority WhatsApp line to reserve mobile vans and reorder regular kibble in 1 message.',
+      description: 'Direct priority WhatsApp line to reserve preferred studio slots and reorder regular kibble in 1 message.',
     },
   ];
 

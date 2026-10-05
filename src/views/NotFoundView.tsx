@@ -5,6 +5,7 @@ import {
   ArrowLeft,
   Scissors,
   Truck,
+  Store,
   ShoppingBag,
   MapPin,
   Sparkles,
@@ -47,12 +48,12 @@ export const NotFoundView: React.FC<NotFoundViewProps> = ({
       action: () => onNavigate('services'),
     },
     {
-      id: 'mobile',
-      title: 'Coastal Tails GO Mobile Van',
-      description: 'Doorstep mobile pet salon parked right outside your gate in Mangaluru.',
-      icon: Truck,
+      id: 'studio',
+      title: 'Our Derebail Grooming Studio',
+      description: 'Boutique pet salon at Dwaraka Enclave with 1-on-1 private styling bays.',
+      icon: Store,
       color: 'bg-cyan-50 text-cyan-700 border-cyan-200/80',
-      action: () => onNavigate('mobile-pet-grooming-mangalore'),
+      action: () => onNavigate('about'),
     },
     {
       id: 'shop',
@@ -75,7 +76,7 @@ export const NotFoundView: React.FC<NotFoundViewProps> = ({
   const popularSearches = [
     { label: 'Dog Haircut & Bath', page: 'dog-grooming-mangalore' as ActivePage },
     { label: 'Cat Grooming & Dematting', page: 'cat-grooming-mangalore' as ActivePage },
-    { label: 'Doorstep Mobile Van', page: 'mobile-pet-grooming-mangalore' as ActivePage },
+    { label: 'Pet Spa & Hydrotherapy', page: 'pet-spa-mangalore' as ActivePage },
     { label: 'Derebail Studio', slug: 'derebail' },
     { label: 'Kadri Coverage', slug: 'kadri' },
     { label: 'Pet Care Guides', page: 'education' as ActivePage },
@@ -188,7 +189,7 @@ export const NotFoundView: React.FC<NotFoundViewProps> = ({
                 <span>Popular Destinations at Coastal Tails</span>
               </h2>
               <p className="text-xs sm:text-sm text-slate-500">
-                Explore our main services, store, or check mobile grooming availability in Mangaluru.
+                Explore our main services, store, or view studio appointments in Mangaluru.
               </p>
             </div>
           </div>

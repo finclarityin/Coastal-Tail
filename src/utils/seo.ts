@@ -11,14 +11,14 @@ export interface PageSeoConfig {
 export const SEO_MAP: Record<string, PageSeoConfig> = {
   home: {
     title: 'Pet Grooming & Pet Spa in Mangalore | Coastal Tails',
-    description: 'Coastal Tails offers professional dog and cat grooming, pet spa and mobile pet grooming at your doorstep across Mangaluru. Book your grooming session today.',
-    keywords: 'pet grooming mangalore, dog grooming mangaluru, cat grooming mangalore, mobile pet grooming mangalore, pet spa mangalore, doorstep dog grooming mangaluru',
+    description: 'Coastal Tails is Mangaluru’s premier boutique pet grooming studio and pet spa in Derebail. Calm 1-on-1 private styling, warm hydro-baths, and force-free care.',
+    keywords: 'pet grooming mangalore, dog grooming mangaluru, cat grooming mangalore, pet grooming derebail, pet spa mangalore, dog bath mangalore',
     canonicalPath: '/',
   },
   'pet-grooming-mangalore': {
-    title: 'Pet Grooming in Mangalore | Studio & Doorstep Mobile Care | Coastal Tails',
-    description: 'Professional dog and cat grooming in Mangalore. Studio spa sessions in Derebail and Coastal Tails GO mobile doorstep grooming van across Mangaluru.',
-    keywords: 'pet grooming mangalore, pet groomer mangaluru, dog and cat grooming mangalore, doorstep pet grooming mangalore',
+    title: 'Pet Grooming in Mangalore | 1-on-1 Studio & Spa | Coastal Tails',
+    description: 'Professional dog and cat grooming in Mangalore. Private 1-on-1 salon spa sessions at Dwaraka Enclave, Derebail.',
+    keywords: 'pet grooming mangalore, pet groomer mangaluru, dog and cat grooming mangalore, pet grooming derebail',
     canonicalPath: '/pet-grooming-mangalore',
   },
   'dog-grooming-mangalore': {
@@ -40,33 +40,33 @@ export const SEO_MAP: Record<string, PageSeoConfig> = {
     canonicalPath: '/pet-spa-mangalore',
   },
   'mobile-pet-grooming-mangalore': {
-    title: 'Coastal Tails GO | Mobile Pet Grooming at Your Doorstep in Mangalore',
-    description: 'Mangaluru’s premier mobile pet grooming van brought directly to your home. No salon waiting room, no travel stress. Clean warm water hydro-baths and styling.',
-    keywords: 'mobile pet grooming mangalore, coastal tails go, doorstep dog grooming mangalore, mobile pet groomer mangaluru, pet grooming van',
-    canonicalPath: '/mobile-pet-grooming-mangalore',
+    title: 'Boutique Pet Grooming Studio in Mangalore | Coastal Tails',
+    description: 'Looking for luxury pet grooming in Mangaluru? Visit our calm boutique salon at Dwaraka Enclave, Derebail for 1-on-1 stress-free care.',
+    keywords: 'pet grooming mangalore, dog groomer derebail, cat grooming mangaluru, coastal tails',
+    canonicalPath: '/pet-grooming-mangalore',
   },
   'home-pet-grooming-mangalore': {
-    title: 'Home Pet Grooming in Mangalore | Doorstep Dog & Cat Care | Coastal Tails GO',
-    description: 'Professional home pet grooming across Mangaluru. Air-conditioned mobile studio parked in your driveway with 1-on-1 certified stylist attention.',
-    keywords: 'home pet grooming mangalore, pet grooming at home mangaluru, doorstep cat grooming mangalore',
-    canonicalPath: '/home-pet-grooming-mangalore',
+    title: 'Professional Pet Grooming in Mangalore | Coastal Tails Studio',
+    description: 'Skip the mess of washing pets in your home bathroom! Experience our state-of-the-art salon suites with warm RO hydro-baths in Derebail.',
+    keywords: 'pet grooming mangalore, dog salon mangalore, puppy bath mangaluru',
+    canonicalPath: '/pet-grooming-mangalore',
   },
   'dog-grooming-at-home-mangalore': {
-    title: 'Dog Grooming at Home in Mangalore | Coastal Tails GO Doorstep Van',
-    description: 'Convenient dog grooming at home across Mangaluru. Warm hydro-baths, de-shedding, nail clipping, and breed haircuts right outside your gate.',
-    keywords: 'dog grooming at home mangalore, home dog bath mangaluru, mobile dog grooming mangalore',
-    canonicalPath: '/dog-grooming-at-home-mangalore',
+    title: 'Complete Dog Grooming in Mangalore | Coastal Tails Studio',
+    description: 'Gentle canine haircuts, warm hydrobaths, and de-shedding at Coastal Tails Derebail studio with reserved customer parking.',
+    keywords: 'dog grooming mangalore, dog bath mangaluru, pet grooming derebail',
+    canonicalPath: '/dog-grooming-mangalore',
   },
   services: {
     title: 'Dog & Cat Grooming Packages & Spa Services | Coastal Tails Mangaluru',
-    description: 'Explore full grooming packages, routine baths, de-shedding, feline styling, and Coastal Tails GO mobile doorstep grooming services in Mangaluru.',
-    keywords: 'dog grooming packages, cat bath mangalore, pet spa services mangaluru, mobile pet grooming mangalore',
+    description: 'Explore full grooming packages, routine baths, de-shedding, feline styling, and luxury spa treatments at our Derebail studio in Mangaluru.',
+    keywords: 'dog grooming packages, cat bath mangalore, pet spa services mangaluru, pet grooming derebail',
     canonicalPath: '/services',
   },
   locations: {
-    title: 'Service Areas & Coverage Zones in Mangaluru | Coastal Tails GO',
-    description: 'Explore Coastal Tails grooming coverage across Mangaluru. From Derebail, Kadri, and Bejai to Surathkal and Deralakatte with our doorstep mobile van.',
-    keywords: 'pet grooming service areas mangalore, coastal tails coverage mangaluru, dog grooming derebail, mobile pet grooming surathkal',
+    title: 'Service Areas & Coverage Across Mangaluru | Coastal Tails Studio',
+    description: 'Explore Coastal Tails grooming coverage across Mangaluru. Pet parents from Derebail, Kadri, Bejai, Surathkal, and beyond visit our calm studio.',
+    keywords: 'pet grooming service areas mangalore, coastal tails coverage mangaluru, dog grooming derebail',
     canonicalPath: '/locations',
   },
   education: {
@@ -112,8 +112,8 @@ export const SEO_MAP: Record<string, PageSeoConfig> = {
     canonicalPath: '/contact',
   },
   policies: {
-    title: 'Studio & Mobile Grooming Policies | Coastal Tails Mangaluru',
-    description: 'Transparent customer policies: grooming safety standards, mobile advance cancellation terms, hygiene return rules, and privacy practices.',
+    title: 'Studio Grooming & Customer Policies | Coastal Tails Mangaluru',
+    description: 'Transparent customer policies: grooming safety standards, studio appointment booking terms, hygiene return rules, and privacy practices.',
     keywords: 'coastal tails policies, grooming terms mangalore, pet safety policy',
     canonicalPath: '/policies',
   },
@@ -134,7 +134,7 @@ export const updateDocumentSEO = (page: ActivePage, locationSlug?: string) => {
       config = {
         title: loc.metaTitle,
         description: loc.metaDescription,
-        keywords: `pet grooming ${loc.name.toLowerCase()} mangalore, dog grooming ${loc.name.toLowerCase()}, mobile pet grooming ${loc.name.toLowerCase()} mangaluru, coastal tails ${loc.name.toLowerCase()}`,
+        keywords: `pet grooming ${loc.name.toLowerCase()} mangalore, dog grooming ${loc.name.toLowerCase()}, pet spa ${loc.name.toLowerCase()} mangaluru, coastal tails ${loc.name.toLowerCase()}`,
         canonicalPath: `/locations/${loc.slug}`,
       };
     } else {
@@ -193,19 +193,19 @@ export const MANGALORE_GROOMING_FAQS = [
       'Coastal Tails - Pet Aura is conveniently located at Shop No:B2 , Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006. We have dedicated parking and double-gated airlock pet safety entrances.',
   },
   {
-    question: 'Does Coastal Tails provide doorstep mobile pet grooming in Mangaluru?',
+    question: 'Can I stay with my pet during grooming at Coastal Tails?',
     answer:
-      'Yes! Coastal Tails GO is Mangaluru’s premier mobile pet grooming van service. Our air-conditioned, self-powered mobile studio brings 1-on-1 certified grooming directly to your home doorstep across Kadri, Bejai, Urwa, Kankanady, Surathkal, Deralakatte, and nearby neighborhoods within 25 km.',
+      'Yes! Our Derebail studio features open-view styling glass partitions and a comfortable lounge where pet parents can watch their babies get pampered while enjoying complimentary coffee.',
   },
   {
     question: 'How do I book a dog or cat grooming appointment in Mangalore?',
     answer:
-      'You can book instantly via WhatsApp or phone call at +91 79969 89956. Simply share your pet’s breed, location, and preferred date for immediate slot confirmation and upfront pricing.',
+      'You can book instantly via WhatsApp or phone call at +91 79969 89956. Simply share your pet’s breed, size, and preferred date for immediate slot confirmation and upfront pricing.',
   },
   {
     question: 'What are the operating hours of Coastal Tails?',
     answer:
-      'Coastal Tails studio and Coastal Tails GO mobile van operate 7 days a week from 09:30 AM to 09:30 PM.',
+      'Coastal Tails studio operates 7 days a week from 09:30 AM to 09:30 PM with dedicated customer parking at Dwaraka Enclave, Derebail.',
   },
   {
     question: 'What services are included in a standard dog grooming session?',
@@ -232,7 +232,7 @@ export const injectStructuredData = (page: ActivePage, locationSlug?: string) =>
     '@context': 'https://schema.org',
     '@type': 'PetGroomingService',
     name: 'Coastal Tails - Pet Aura',
-    alternateName: ['Coastal Tails', 'Coastal Tails - Pet Aura Grooming Studio', 'Coastal Tails GO Mobile Pet Grooming Mangaluru'],
+    alternateName: ['Coastal Tails', 'Coastal Tails - Pet Aura Grooming Studio', 'Coastal Tails Pet Spa Derebail Mangaluru'],
     image: 'https://coastaltails.in/og-image.jpg',
     '@id': 'https://coastaltails.in/#business',
     url: 'https://coastaltails.in',
@@ -310,8 +310,8 @@ export const injectStructuredData = (page: ActivePage, locationSlug?: string) =>
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Coastal Tails GO Mobile Pet Grooming',
-            description: 'Doorstep mobile pet grooming van service across Mangaluru with 1-on-1 dedicated stylist attention.',
+            name: 'Luxury Pet Spa & Mud Therapy',
+            description: 'Dead Sea mineral mud wraps, warm RO hydrotherapy baths, and blueberry facial scrub in Derebail.',
           },
         },
         {

@@ -47,8 +47,8 @@ Hello Coastal Tails Team! I would like to book a grooming appointment for my pet
 
 👤 *Pet Owner Name:* ${enquiry.customerName}
 📞 *Phone:* ${enquiry.customerMobile}
-📍 *Location / Area:* ${enquiry.location || 'Derebail / Mangalore'}
-🚐 *Service Mode:* ${enquiry.serviceMode === 'doorstep' ? 'Coastal Tails GO Mobile Van (Doorstep)' : 'Coastal Tails Grooming Studio (Derebail Hub)'}
+📍 *Customer Area:* ${enquiry.location || 'Mangalore'}
+🏢 *Studio Location:* Coastal Tails Grooming Studio (Shop B2, Dwaraka Enclave, Derebail)
 
 🐾 *Pet Name:* ${enquiry.petName || 'My Pet'}
 🐶🐱 *Pet Type:* ${enquiry.petType === 'dog' ? 'Dog 🐕' : 'Cat 🐈'}

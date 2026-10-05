@@ -303,29 +303,26 @@ export const SPA_ADDONS: GroomingAddOn[] = [
   },
 ];
 
-export const MOBILE_GROOMING_INFO = {
-  title: 'Coastal Tails Mobile Grooming Van',
-  tagline: 'Mangaluru’s Luxury Doorstep Pet Spa Experience',
+export const STUDIO_GROOMING_INFO = {
+  title: 'Coastal Tails Pet Grooming Studio & Spa',
+  tagline: 'Mangaluru’s Premier Boutique Shop-Based Pet Salon Experience',
   description:
-    'No traffic stress, no cage waiting. Our custom air-conditioned grooming van comes directly to your home or apartment anywhere in Mangaluru! Equipped with hot-water hydrobath, electric styling table, high-efficiency HEPA filtration, and sterilizing equipment.',
-  coverageAreas: [
-    'Kankanady',
-    'Kadri & Mallikatte',
-    'Bejai & Kapikad',
-    'Urwa & Chilimbi',
-    'Falnir & Attavar',
-    'Valencia & Mangaladevi',
-    'Surathkal & Kulai',
-    'Derlakatte & Ullal',
-    'Kottara Chowki & Bondel',
-  ],
+    'Dedicated private salon suites in Derebail. Equipped with warm hydrotherapy massage baths, sound-dampened electric styling tables, zero stressful cages, and an open glass viewing lounge with complimentary coffee.',
+  location: 'Shop No: B2, Dwaraka Enclave, Bejai-Kavoor Road, Derebail, Mangaluru, Karnataka 575006',
+  landmark: 'Near Derebail Church / Bejai-Kavoor Main Road',
+  timings: '09:30 AM – 09:30 PM (Open 7 Days a Week)',
+  parking: 'Free Reserved Customer Storefront Parking',
   features: [
-    '100% 1-on-1 Dedicated Stylist Attention',
-    'Zero Cage Drying – Low Stress for Anxious Pets',
-    'Self-Powered with Generator & Pure RO Warm Water',
-    'Hospital-Grade UV Sterilization Between Every Pet',
+    '100% 1-on-1 Dedicated Certified Stylist Attention',
+    'Zero Cage Drying – Low Stress for Anxious & Senior Pets',
+    'Warm RO Hydro-Massage Baths with Botanical Shampoos',
+    'Open Observation Glass Lounge for Pet Parents',
+    'UV-C & Hospital-Grade Disinfection Between Appointments',
   ],
 };
+
+// Archived alias for mobile grooming info (preserved in mobileGroomingArchive.ts)
+export const MOBILE_GROOMING_INFO = STUDIO_GROOMING_INFO;
 
 export const GROOMING_ADD_ONS = SPA_ADDONS;
 

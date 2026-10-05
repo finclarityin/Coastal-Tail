@@ -24,7 +24,7 @@ export const GroomingEnquiryModal: React.FC = () => {
   const [coatCondition, setCoatCondition] = useState<GroomingEnquiry['coatCondition']>('Healthy');
   const [requestedPackage, setRequestedPackage] = useState('');
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([]);
-  const [serviceMode, setServiceMode] = useState<'studio' | 'doorstep'>(groomingDefaultMode || 'studio');
+  const [serviceMode] = useState<'studio'>('studio');
   const [preferredDate, setPreferredDate] = useState('');
   const [preferredTimeSlot, setPreferredTimeSlot] = useState('Morning (9:30 AM - 12:30 PM)');
   const [customerName, setCustomerName] = useState('');
@@ -42,7 +42,6 @@ export const GroomingEnquiryModal: React.FC = () => {
         setPetType(groomingDefaultPetType);
         setRequestedPackage('Signature Full Groom');
       }
-      setServiceMode(groomingDefaultMode || 'studio');
       setSizeOrCoat(groomingDefaultPetType === 'dog' ? 'Medium (10 - 18 kg)' : 'Short Hair / Kittens');
       setErrorMessage('');
     }
@@ -359,16 +358,11 @@ export const GroomingEnquiryModal: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
-                Service Mode
+                Studio Location
               </label>
-              <select
-                value={serviceMode}
-                onChange={(e) => setServiceMode(e.target.value as 'studio' | 'doorstep')}
-                className="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#0D6E6E] text-xs bg-slate-50"
-              >
-                <option value="studio">🏢 Studio at Derebail (Coastal Tails - Pet Aura)</option>
-                <option value="doorstep">🚐 Mobile Doorstep Van</option>
-              </select>
+              <div className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs bg-slate-100/80 font-bold text-slate-800 flex items-center gap-1.5 truncate">
+                <span>🏢 Derebail Studio (Shop B2)</span>
+              </div>
             </div>
 
             <div>
@@ -399,13 +393,6 @@ export const GroomingEnquiryModal: React.FC = () => {
               </select>
             </div>
           </div>
-
-          {serviceMode === 'doorstep' && (
-            <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start gap-2">
-              <span className="font-bold shrink-0">🚐 Mobile Van Policy:</span>
-              <span>A ₹300 booking advance is required for mobile van visits. You can cancel or reschedule up to 90 minutes before the scheduled slot.</span>
-            </div>
-          )}
 
           {/* Customer Contact Details */}
           <div className="pt-2 border-t border-slate-100">

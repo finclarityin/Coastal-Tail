@@ -1,4 +1,4 @@
-export type PetCategory = 'dogs' | 'cats' | 'spa' | 'mobile';
+export type PetCategory = 'dogs' | 'cats' | 'spa' | 'studio' | 'mobile';
 
 export type DogSize = 'small' | 'medium' | 'large' | 'xlarge';
 

@@ -1,6 +1,32 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth overflow-x-hidden max-w-full">
   <head>
+    <script>
+      (function() {
+        try {
+          var activeFetch = window.fetch ? window.fetch.bind(window) : undefined;
+          var descriptor = {
+            configurable: true,
+            enumerable: true,
+            get: function() { return activeFetch; },
+            set: function(fn) { activeFetch = fn; }
+          };
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try { Object.defineProperty(Window.prototype, 'fetch', descriptor); } catch (e1) {}
+          }
+          try {
+            var proto = Object.getPrototypeOf(window);
+            if (proto && proto !== Object.prototype) {
+              Object.defineProperty(proto, 'fetch', descriptor);
+            }
+          } catch (e2) {}
+          try { Object.defineProperty(window, 'fetch', descriptor); } catch (e3) {}
+          if (typeof globalThis !== 'undefined' && globalThis !== window) {
+            try { Object.defineProperty(globalThis, 'fetch', descriptor); } catch (e4) {}
+          }
+        } catch (err) {}
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     
@@ -8,7 +34,7 @@
     <title>COASTAL TAILS – Pet Aura | Grooming Studio & Pet Spa | Mangaluru</title>
     <meta name="title" content="COASTAL TAILS – Pet Aura | Grooming Studio & Pet Spa | Mangaluru" />
     <meta name="description" content="Mangaluru's premier pet grooming studio, luxury spa, and curated pet store. Gentle, compassionate care for dogs & cats. Your Worry End Here." />
-    <meta name="keywords" content="pet grooming mangalore, dog grooming mangaluru, cat grooming mangalore, pet spa mangalore, dog bath kankanady, pet haircut mangaluru, mobile pet grooming mangalore, pet store mangaluru, dog food mangalore, coastal tails, pet aura" />
+    <meta name="keywords" content="pet grooming mangalore, dog grooming mangaluru, cat grooming mangalore, pet spa mangalore, dog bath derebail, pet haircut mangaluru, pet studio derebail, pet store mangaluru, dog food mangalore, coastal tails, pet aura" />
     <meta name="author" content="Coastal Tails - Pet Aura" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="theme-color" content="#169DB1" />
@@ -60,7 +86,7 @@
           "@type": ["LocalBusiness", "PetGroomingService", "Store"],
           "@id": "https://coastaltails.in/#business",
           "name": "Coastal Tails Grooming Studio & Pet Spa",
-          "alternateName": "Coastal Tails GO Mobile Pet Grooming",
+          "alternateName": "Coastal Tails Pet Aura Derebail Studio",
           "image": "https://coastaltails.in/og-image.jpg",
           "url": "https://coastaltails.in",
           "telephone": "+917996989956",
@@ -68,7 +94,7 @@
           "email": "hello@coastaltails.in",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Dwaraka Enclave, Derebail",
+            "streetAddress": "Shop B2, Dwaraka Enclave, Bejai-Kavoor Road, Derebail",
             "addressLocality": "Mangaluru",
             "addressRegion": "Karnataka",
             "postalCode": "575006",
@@ -102,46 +128,21 @@
               "name": "Where is Coastal Tails Grooming Studio located in Mangaluru?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Coastal Tails Grooming Studio & Pet Spa is located at Dwaraka Enclave, Derebail, Mangaluru, Karnataka 575006 with pet-friendly parking."
+                "text": "Coastal Tails Grooming Studio & Pet Spa is located at Shop B2, Dwaraka Enclave, Bejai-Kavoor Road, Derebail, Mangaluru, Karnataka 575006 with reserved customer storefront parking."
               }
             },
             {
               "@type": "Question",
-              "name": "Does Coastal Tails offer mobile doorstep pet grooming in Mangalore?",
+              "name": "Can pet parents stay during grooming sessions at Coastal Tails Derebail?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Coastal Tails GO is Mangaluru’s premier mobile pet grooming van service, bringing climate-controlled 1-on-1 grooming directly to your doorstep across Mangaluru within a 0–25 km radius."
+                "text": "Yes! Our Derebail studio features an observation glass lounge where you can comfortably watch your pet receive 1-on-1 grooming with complimentary coffee and free Wi-Fi."
               }
             }
           ]
         }
       ]
     }
-    </script>
-
-    <script>
-      // Shim to ensure window.fetch is writable and has setter for sandbox/iframe environments
-      (function() {
-        try {
-          var originalFetch = window.fetch ? window.fetch.bind(window) : undefined;
-          Object.defineProperty(window, 'fetch', {
-            configurable: true,
-            enumerable: true,
-            writable: true,
-            value: originalFetch
-          });
-        } catch (e) {
-          try {
-            var currentFetch = window.fetch;
-            Object.defineProperty(window, 'fetch', {
-              configurable: true,
-              enumerable: true,
-              get: function() { return currentFetch; },
-              set: function(fn) { currentFetch = fn; }
-            });
-          } catch (e2) {}
-        }
-      })();
     </script>
   </head>
   <body class="bg-[#FDFBF7] text-[#333333] antialiased selection:bg-[#169DB1] selection:text-white font-['Plus_Jakarta_Sans',sans-serif] overflow-x-hidden w-full max-w-full">

@@ -136,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
 
             {/* Subheading */}
             <p className="text-sm sm:text-base md:text-lg text-slate-700 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Professional dog and cat grooming in Derebail, Mangalore, with a comfortable grooming experience for pets and their families. Certified gentle care at our studio or right at your doorstep via Coastal Tails GO mobile van.
+              Professional dog and cat grooming in Derebail, Mangalore, with a comfortable grooming experience for pets and their families. Certified gentle care at our calm, cage-free boutique studio at Dwaraka Enclave.
             </p>
 
             {/* Quick Actions & Mangaluru Trust Badges */}
@@ -169,11 +169,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
               </button>
             </div>
 
-            {/* Studio & Mobile Hours Pill */}
+            {/* Studio & Hours Pill */}
             <div className="pt-1 text-xs text-slate-600 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#169DB1] animate-ping" />
-                <span className="font-bold text-[#1D237A]">Coastal Tails - Pet Aura (Studio & Mobile Van Active)</span>
+                <span className="font-bold text-[#1D237A]">Coastal Tails - Pet Aura (Derebail Studio Hub)</span>
               </div>
               <span className="text-slate-300 hidden sm:inline">•</span>
               <span className="font-medium text-slate-700">Shop No:B2, Dwaraka Enclave, Derebail • 9:30 AM – 9:30 PM</span>
@@ -253,8 +253,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreGrooming, onShopEssentials 
                 <Heart className="w-5 h-5 text-[#169DB1]" />
               </div>
               <div>
-                <h4 className="text-xs sm:text-sm font-black text-[#1D237A]">Doorstep Van</h4>
-                <p className="text-[10px] sm:text-[11px] text-slate-600">Coastal Tails GO arrives right at your gate.</p>
+                <h4 className="text-xs sm:text-sm font-black text-[#1D237A]">Zero-Cage Care</h4>
+                <p className="text-[10px] sm:text-[11px] text-slate-600">100% force-free private styling suites & lounge.</p>
               </div>
             </div>
           </div>

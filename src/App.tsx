@@ -8,7 +8,7 @@ import { Header } from './components/Header';
 import { MobileBottomNav } from './components/MobileBottomNav';
 import { Hero } from './components/Hero';
 import { GroomingSection } from './components/GroomingSection';
-import { CoastalTailsGoSection } from './components/CoastalTailsGoSection';
+import { StudioShowcaseSection } from './components/StudioShowcaseSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { TrustDifferenceSection } from './components/TrustDifferenceSection';
 import { FoodShopSection } from './components/FoodShopSection';
@@ -65,7 +65,7 @@ const parseRouteFromUrl = (
   if (cleanPath === '/dog-grooming') return { page: 'dog-grooming' };
   if (cleanPath === '/cat-grooming') return { page: 'cat-grooming' };
   if (cleanPath === '/spa-addons') return { page: 'spa-addons' };
-  if (cleanPath === '/mobile-grooming') return { page: 'mobile-grooming' };
+  if (cleanPath === '/mobile-grooming') return { page: 'services' };
   if (cleanPath === '/shop') return { page: 'shop' };
   if (cleanPath === '/food' || cleanPath === '/shop/food') return { page: 'food' };
   if (cleanPath === '/accessories' || cleanPath === '/shop/accessories') return { page: 'accessories' };
@@ -124,9 +124,11 @@ const parseRouteFromUrl = (
   if (cleanPath === '/dog-grooming-mangalore') return { page: 'dog-grooming-mangalore' };
   if (cleanPath === '/cat-grooming-mangalore') return { page: 'cat-grooming-mangalore' };
   if (cleanPath === '/pet-spa-mangalore') return { page: 'pet-spa-mangalore' };
-  if (cleanPath === '/mobile-pet-grooming-mangalore') return { page: 'mobile-pet-grooming-mangalore' };
-  if (cleanPath === '/home-pet-grooming-mangalore') return { page: 'home-pet-grooming-mangalore' };
-  if (cleanPath === '/dog-grooming-at-home-mangalore') return { page: 'dog-grooming-at-home-mangalore' };
+  if (cleanPath === '/mobile-pet-grooming-mangalore' ||
+      cleanPath === '/home-pet-grooming-mangalore' ||
+      cleanPath === '/dog-grooming-at-home-mangalore') {
+    return { page: 'pet-grooming-mangalore' };
+  }
   if (cleanPath === '/policies') return { page: 'policies' };
   if (cleanPath === '/privacy') return { page: 'privacy' };
   if (cleanPath === '/terms') return { page: 'terms' };
@@ -328,7 +330,7 @@ function AppContent() {
               onShopEssentials={handleShopEssentials}
             />
             <GroomingSection />
-            <CoastalTailsGoSection
+            <StudioShowcaseSection
               onSelectLocation={handleSelectLocation}
               onNavigate={handlePageChange}
             />
@@ -443,8 +445,6 @@ function AppContent() {
                 ? 'cats'
                 : activePage === 'spa-addons'
                 ? 'spa'
-                : activePage === 'mobile-grooming'
-                ? 'mobile'
                 : 'dogs'
             }
           />

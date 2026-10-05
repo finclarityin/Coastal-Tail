@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Sparkles,
   Truck,
+  Store,
   BookOpen,
 } from 'lucide-react';
 import { ActivePage } from '../types';
@@ -224,7 +225,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                     <Sparkles className="w-3.5 h-3.5 text-[#169DB1]" />
                     <span>Instant Grooming Booking</span>
                   </span>
-                  <span className="text-[10px] text-blue-200">Doorstep or Studio</span>
+                  <span className="text-[10px] text-blue-200">Derebail Studio</span>
                 </div>
                 <div className="grid grid-cols-3 gap-2">
                   <button
@@ -250,12 +251,12 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                   <button
                     onClick={() => {
                       setDrawerOpen(false);
-                      handleTabClick('mobile-pet-grooming-mangalore');
+                      handleTabClick('spa-addons');
                     }}
                     className="p-2.5 bg-[#F2B45E] hover:bg-[#e09f42] border border-[#F2B45E] rounded-xl text-xs font-black text-[#1D237A] flex flex-col items-center justify-center gap-1 cursor-pointer"
                   >
-                    <span>🚐</span>
-                    <span>Doorstep Van</span>
+                    <span>✨</span>
+                    <span>Pet Spa</span>
                   </button>
                 </div>
               </div>
@@ -293,16 +294,16 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                 </button>
 
                 <button
-                  onClick={() => handleTabClick('mobile-pet-grooming-mangalore')}
+                  onClick={() => handleTabClick('about')}
                   className={`w-full flex items-center justify-between p-3 rounded-2xl text-sm font-semibold transition-all cursor-pointer ${
-                    activePage === 'mobile-pet-grooming-mangalore' || activePage === 'mobile-grooming' ? 'bg-[#F2B45E] text-[#1D237A] font-black' : 'hover:bg-amber-50 text-slate-800 bg-[#F6EBD7]/40'
+                    activePage === 'about' ? 'bg-[#F6EBD7]/80 text-[#1D237A] font-bold border border-[#F2B45E]/40' : 'hover:bg-slate-50 text-slate-700'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Truck className="w-4 h-4 text-[#1D237A]" />
-                    <span>Coastal Tails GO (Mobile Pet Grooming)</span>
+                    <Store className="w-4 h-4 text-[#1D237A]" />
+                    <span>Our Derebail Grooming Studio</span>
                   </div>
-                  <span className="text-[10px] bg-[#1D237A] text-white px-2 py-0.5 rounded-full font-bold">Doorstep</span>
+                  <span className="text-[10px] bg-teal-100 text-teal-900 px-2 py-0.5 rounded-full font-bold">Studio</span>
                 </button>
 
                 <button

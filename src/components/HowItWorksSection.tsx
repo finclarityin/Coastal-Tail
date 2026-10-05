@@ -17,7 +17,7 @@ export const HowItWorksSection: React.FC = () => {
     {
       number: '02',
       title: 'Choose Your Service',
-      description: 'Select between Essential Freshening, Signature Breed Styling, Luxury Dead Sea Spa, or Doorstep Van.',
+      description: 'Select between Essential Freshening, Signature Breed Styling, Medicated Bath, or Luxury Dead Sea Spa.',
       icon: Scissors,
       accent: 'bg-emerald-50 text-emerald-700',
     },

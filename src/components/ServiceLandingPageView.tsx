@@ -1,8 +1,8 @@
 import React from 'react';
-import { Sparkles, Scissors, Truck, ShieldCheck, CheckCircle2, Clock, MapPin, HelpCircle, ArrowRight, Heart } from 'lucide-react';
+import { Sparkles, Scissors, Store, ShieldCheck, CheckCircle2, Clock, MapPin, HelpCircle, ArrowRight, Heart } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 import { ImageWithFallback } from './ImageWithFallback';
-import { DOG_GROOMING_PACKAGES, CAT_GROOMING_PACKAGES, SPA_ADDONS, MOBILE_GROOMING_INFO } from '../data/groomingData';
+import { DOG_GROOMING_PACKAGES, CAT_GROOMING_PACKAGES, SPA_ADDONS } from '../data/groomingData';
 import { PRIORITY_LOCATIONS } from '../data/serviceAreaData';
 import { ServiceAreaSection } from './ServiceAreaSection';
 import { useCart } from '../context/CartContext';
@@ -28,26 +28,26 @@ interface ServicePageContent {
   leadParagraph: string;
   highlights: { title: string; desc: string }[];
   faqs: { q: string; a: string }[];
-  defaultCategory: 'dog' | 'cat' | 'mobile' | 'spa';
+  defaultCategory: 'dog' | 'cat' | 'spa';
 }
 
 const PAGE_DATA: Record<string, ServicePageContent> = {
   'pet-grooming-mangalore': {
-    eyebrow: 'MANGALURU’S PREMIER PET GROOMING STUDIO & MOBILE VAN',
+    eyebrow: 'MANGALURU’S BOUTIQUE PET GROOMING STUDIO & PET SPA',
     h1: 'Professional Pet Grooming in Mangalore',
-    subtitle: 'Gentle, certified dog and cat grooming tailored for coastal climates, coat types, and pet temperaments in Mangaluru.',
+    subtitle: 'Gentle, certified dog and cat grooming in our calm, cage-free boutique salon in Derebail, Mangaluru.',
     leadParagraph:
-      'At Coastal Tails Grooming Studio & Pet Spa, we provide professional grooming for both dogs and cats. Whether you prefer bringing your pet to our calm studio in Derebail or booking our fully equipped Coastal Tails GO doorstep mobile grooming van, your pet receives gentle, patient, and hygienic one-on-one attention.',
+      'At Coastal Tails Grooming Studio & Pet Spa in Derebail, we provide professional grooming for both dogs and cats in a peaceful, private salon environment. Located at Dwaraka Enclave, our facility features warm hydrotherapy tubs, sound-insulated private suites, zero stressful cages, and an open glass viewing lounge for pet parents.',
     highlights: [
-      { title: 'Studio & Mobile Options', desc: 'Visit our Derebail salon or have our mobile grooming van arrive at your door.' },
+      { title: '1-on-1 Studio Sessions', desc: 'Private, calm suites with 100% force-free attention for your pet.' },
       { title: 'Gentle Handling Protocol', desc: 'No rushing, no stressful restraints. We groom at your pet’s natural comfort pace.' },
       { title: 'Customized Pricing', desc: 'Clear quotes based on size, coat condition, breed, and specific styling preferences.' },
       { title: 'All Breeds & Felines', desc: 'From tiny Shih Tzus and Indie puppies to Golden Retrievers and Persian cats.' },
     ],
     faqs: [
-      { q: 'How do I book a pet grooming session in Mangalore?', a: 'Click "Ask for Price" to open WhatsApp with our grooming team. Share your pet’s breed, size, and location, and we will share a custom quote and schedule your preferred slot.' },
+      { q: 'How do I book a pet grooming session in Mangalore?', a: 'Click "Ask for Price" to open WhatsApp with our grooming team. Share your pet’s breed, size, and preferred date to schedule your private studio slot.' },
       { q: 'Do you groom both dogs and cats?', a: 'Yes! We have certified specialists with feline-specific low-stress techniques and separate quiet bays.' },
-      { q: 'Where is your studio located?', a: 'Our studio is located at Dwaraka Enclave, Derebail, Mangaluru. We also operate mobile grooming across 21+ Mangalore neighborhoods.' },
+      { q: 'Where is your studio located?', a: 'Our studio is located at Shop B2, Dwaraka Enclave, Derebail, Mangaluru (on the Bejai-Kavoor Road with free reserved storefront parking).' },
     ],
     defaultCategory: 'dog',
   },
@@ -83,7 +83,7 @@ const PAGE_DATA: Record<string, ServicePageContent> = {
     ],
     faqs: [
       { q: 'Are cats given sedatives during grooming?', a: 'Never. We practice 100% force-free, patient grooming with zero sedation. We take pauses if your cat needs a moment to relax.' },
-      { q: 'Can you groom my cat at home in the mobile van?', a: 'Yes! Coastal Tails GO is especially popular for cats because it avoids car travel stress completely.' },
+      { q: 'Can you groom nervous or anxious cats?', a: 'Yes! We work in quiet, sound-dampened bays with calming pheromones and gentle swaddling towels.' },
     ],
     defaultCategory: 'cat',
   },
@@ -105,54 +105,54 @@ const PAGE_DATA: Record<string, ServicePageContent> = {
     defaultCategory: 'spa',
   },
   'mobile-pet-grooming-mangalore': {
-    eyebrow: 'COASTAL TAILS GO • AT YOUR RESIDENCE IN MANGALURU',
-    h1: 'Mobile Pet Grooming in Mangalore',
-    subtitle: 'The full grooming salon experience delivered right to your apartment, villa, or doorstep across Mangaluru.',
+    eyebrow: 'COASTAL TAILS • DEREBAIL GROOMING STUDIO & SPA',
+    h1: 'Pet Grooming Studio in Mangalore',
+    subtitle: 'Looking for luxury pet grooming in Mangaluru? Experience our calm boutique salon at Dwaraka Enclave, Derebail.',
     leadParagraph:
-      'Coastal Tails GO is Mangaluru’s premier doorstep mobile grooming van. Fully equipped with warm water hydro-therapy, electric lift tables, high-velocity blowers, and air-conditioning, we bring certified grooming directly to you.',
+      'Coastal Tails is launched as Mangaluru’s premier boutique shop-based pet grooming salon and spa. While mobile van operations will be introduced in a future phase, all our luxury 1-on-1 sessions are now hosted inside our private, sanitized suites in Derebail with reserved customer parking.',
     highlights: [
-      { title: 'Zero Travel Stress', desc: 'No car rides, no car-sickness, and no noisy salon waiting rooms.' },
-      { title: '1-on-1 Dedicated Stylist', desc: 'Your pet receives undivided attention without interruptions.' },
-      { title: 'Self-Contained Power & Water', desc: 'We only require a parking space outside your gate or building.' },
-      { title: 'Serving 21+ Mangaluru Hubs', desc: 'From Surathkal and Derebail to Kadri, Bejai, and Deralakatte.' },
+      { title: 'Calm Sound-Insulated Bays', desc: 'Private 1-on-1 attention with zero cage drying or noisy distractions.' },
+      { title: 'Warm RO Hydro-Baths', desc: 'Pure warm water hydrotherapy massage with coastal-formulated shampoos.' },
+      { title: 'Pet Parent Lounge', desc: 'Relax with free Wi-Fi and coffee while viewing through observation glass.' },
+      { title: 'Reserved Storefront Parking', desc: 'Convenient ground-level parking right at the studio entrance.' },
     ],
     faqs: [
-      { q: 'How does mobile pet grooming work?', a: 'We park outside your home, bring your pet into our sanitized, air-conditioned van, perform full grooming, and return your pet safely to your door.' },
-      { q: 'How do I check if my area is covered?', a: 'We service up to 25 km around Derebail. WhatsApp us your location to check the next available van slot!' },
+      { q: 'Where is your studio located?', a: 'We are at Shop B2, Dwaraka Enclave, Bejai-Kavoor Road, Derebail, Mangaluru. Easy 5–10 min drive from Bejai, Kadri, Kottara, and Kuntikana.' },
+      { q: 'How do I book an appointment?', a: 'WhatsApp us at +91 79969 89956 with your pet’s breed to get an instant customized quote and reserve your time slot.' },
     ],
-    defaultCategory: 'mobile',
+    defaultCategory: 'dog',
   },
   'home-pet-grooming-mangalore': {
-    eyebrow: 'CONVENIENT DOORSTEP PET CARE ACROSS MANGALURU',
-    h1: 'Home Pet Grooming in Mangalore',
-    subtitle: 'Professional dog and cat grooming at home with our Coastal Tails GO mobile salon van.',
+    eyebrow: 'COASTAL TAILS • 1-ON-1 BOUTIQUE PET SALON',
+    h1: 'Professional Pet Grooming in Mangalore',
+    subtitle: 'Experience stress-free, cage-free pet care at our Derebail grooming studio.',
     leadParagraph:
-      'Looking for home pet grooming in Mangaluru without the mess of washing a pet in your home bathroom? Coastal Tails GO brings a complete self-contained grooming van to your doorstep.',
+      'Avoid the mess of washing pets in your home bathroom! Coastal Tails offers a dedicated, hygienic salon suite in Derebail where certified stylists handle bathing, de-shedding, and breed haircuts with pure warm water hydro-baths.',
     highlights: [
-      { title: 'No Mess in Your Bathroom', desc: 'All bathing, brushing, and haircutting happen inside our dedicated van.' },
-      { title: 'Safe & Hygienic', desc: 'Sterilized equipment and sanitized surfaces for every single appointment.' },
-      { title: 'Convenient Scheduling', desc: 'Choose morning or afternoon slots that fit around your busy schedule.' },
+      { title: 'No Bathroom Clean-up at Home', desc: 'All bathing, blow-drying, and nail clipping happen in our state-of-the-art studio.' },
+      { title: 'Safe & Hygienic', desc: 'UV-C sterilized equipment and botanical disinfection between appointments.' },
+      { title: 'Convenient Reserved Parking', desc: 'Ground-floor storefront parking for stress-free drop-off and pickup.' },
     ],
     faqs: [
-      { q: 'Why is a mobile grooming van better than grooming inside my house?', a: 'Mobile van grooming keeps all wet fur, blow-drying noise, and clipped nails outside your house, while providing salon-grade hydraulic tables and warm water pressure.' },
+      { q: 'Why visit our Derebail studio?', a: 'Our studio is equipped with professional hydraulic tables, warm hydrotherapy tubs, and high-velocity dryers that cannot be duplicated at home.' },
     ],
-    defaultCategory: 'mobile',
+    defaultCategory: 'dog',
   },
   'dog-grooming-at-home-mangalore': {
-    eyebrow: 'DOORSTEP CANINE CARE IN MANGALURU',
-    h1: 'Dog Grooming at Home in Mangalore',
-    subtitle: 'Complete canine haircuts, warm hydrobaths, and de-shedding right in your driveway with Coastal Tails GO.',
+    eyebrow: 'COASTAL TAILS • DEDICATED CANINE CARE',
+    h1: 'Complete Dog Grooming in Mangalore',
+    subtitle: 'Certified breed haircuts, warm hydrobaths, and de-shedding at our Derebail studio.',
     leadParagraph:
-      'Skip the stress of driving your dog across Mangalore traffic. Coastal Tails GO mobile dog grooming arrives at your home, providing customized baths, de-shedding, and haircut styling right outside your gate.',
+      'Give your dog the salon experience they deserve. Coastal Tails offers custom-tailored haircuts, warm hydro-baths, and anti-tick rituals in our peaceful, air-conditioned Derebail salon suites.',
     highlights: [
-      { title: 'Ideal for Anxious & Senior Dogs', desc: 'Comfortable, familiar surroundings right outside their home.' },
+      { title: 'Ideal for Anxious & Senior Dogs', desc: 'Force-free, gentle handling with regular treat breaks.' },
       { title: 'Full Range of Grooming Services', desc: 'Routine bath, full scissor styling, nail trims, and medicated dips.' },
       { title: 'Direct WhatsApp Booking', desc: 'Quick quotes based on your dog’s breed and weight.' },
     ],
     faqs: [
-      { q: 'What is the cost of dog grooming at home in Mangalore?', a: 'Pricing depends on your dog’s breed, coat condition, and size. Click "Ask for Price" to receive an exact tailored quote on WhatsApp.' },
+      { q: 'What is the cost of dog grooming at Coastal Tails?', a: 'Pricing depends on your dog’s breed, coat condition, and size. Click "Ask for Price" to receive an exact tailored quote on WhatsApp.' },
     ],
-    defaultCategory: 'mobile',
+    defaultCategory: 'dog',
   },
 };
 
@@ -204,20 +204,21 @@ export const ServiceLandingPageView: React.FC<ServiceLandingPageViewProps> = ({
               {/* Action Buttons */}
               <div className="pt-4 flex flex-wrap gap-3">
                 <button
-                  onClick={() => openGroomingEnquiry(undefined, content.defaultCategory === 'mobile' ? 'doorstep' : 'studio')}
+                  onClick={() => openGroomingEnquiry(undefined, 'studio')}
                   className="px-6 py-3.5 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
-                  <span>Ask for Grooming Price on WhatsApp</span>
+                  <span>Book Studio Appointment</span>
                 </button>
 
-                <button
-                  onClick={() => openGroomingEnquiry(undefined, 'doorstep')}
-                  className="px-5 py-3.5 rounded-2xl bg-[#FF7A29] hover:bg-[#E56515] text-white font-bold text-xs sm:text-sm shadow-xs transition-all flex items-center gap-2 cursor-pointer"
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=12.9081,74.8488"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3.5 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 shadow-xs transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <Truck className="w-4 h-4" />
-                  <span>Book Mobile Van (Coastal Tails GO)</span>
-                </button>
+                  <span>📍 Directions to Studio</span>
+                </a>
               </div>
             </div>
 
@@ -258,11 +259,11 @@ export const ServiceLandingPageView: React.FC<ServiceLandingPageViewProps> = ({
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#0D6E6E] shrink-0" />
-                  <span>Studio & Doorstep Mobile options</span>
+                  <span>Dedicated 1-on-1 private studio bays</span>
                 </div>
               </div>
               <div className="pt-2 text-[11px] text-slate-500 border-t border-slate-200">
-                📍 Studio: Dwaraka Enclave, Derebail • Mobile Van across Mangaluru
+                📍 Studio: Dwaraka Enclave, Derebail, Mangaluru • Open 7 Days
               </div>
             </div>
           </div>
@@ -297,33 +298,30 @@ export const ServiceLandingPageView: React.FC<ServiceLandingPageViewProps> = ({
           </div>
         </div>
 
-        {/* Dedicated Service Area & Coverage Interactive Checker for Mobile Grooming */}
-        {(content.defaultCategory === 'mobile' || pageType.includes('mobile') || pageType.includes('home')) ? (
-          <div className="mt-12 rounded-3xl overflow-hidden shadow-sm border border-slate-200">
-            <ServiceAreaSection
-              onSelectLocation={onSelectLocation}
-              onNavigate={onNavigate}
-            />
+        {/* Service Areas Coverage Strip for Studio Visitors Across Mangaluru */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-[#F8FAFA] border border-slate-200 text-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D6E6E]/10 text-[#0D6E6E] text-xs font-bold uppercase tracking-wider">
+            <Store className="w-3.5 h-3.5" />
+            <span>Convenient Access from Across Mangaluru</span>
           </div>
-        ) : (
-          /* Service Areas Coverage Strip for Studio / General pages */
-          <div className="p-6 rounded-3xl bg-[#F8FAFA] border border-slate-200 text-center space-y-3">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-              Serving Neighborhoods Across Mangaluru:
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
-              {PRIORITY_LOCATIONS.slice(0, 14).map((loc) => (
-                <button
-                  key={loc.slug}
-                  onClick={() => onSelectLocation ? onSelectLocation(loc.slug) : openGroomingEnquiry(undefined, 'doorstep')}
-                  className="px-3 py-1 rounded-xl bg-white border border-slate-200 text-xs font-medium text-slate-700 hover:border-[#0D6E6E] hover:text-[#0D6E6E] cursor-pointer transition-colors"
-                >
-                  📍 {loc.name}
-                </button>
-              ))}
-            </div>
+          <h3 className="text-xl font-bold text-[#08383B] font-['Outfit']">
+            Welcoming Pet Parents to Our Derebail Studio
+          </h3>
+          <p className="text-xs text-slate-600 max-w-xl mx-auto">
+            Located on Bejai-Kavoor Road with dedicated storefront customer parking. Pet parents visit our peaceful salon suites from across town:
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto pt-2">
+            {PRIORITY_LOCATIONS.slice(0, 16).map((loc) => (
+              <button
+                key={loc.slug}
+                onClick={() => onSelectLocation ? onSelectLocation(loc.slug) : openGroomingEnquiry(undefined, 'studio')}
+                className="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:border-[#0D6E6E] hover:text-[#0D6E6E] cursor-pointer transition-colors shadow-2xs"
+              >
+                📍 {loc.name}
+              </button>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

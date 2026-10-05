@@ -165,7 +165,7 @@ export const AdminSeoTrackerView: React.FC = () => {
           <div className="text-3xl font-black text-[#08383B] font-['Outfit'] mt-1">
             {mapsNumber1Count}
           </div>
-          <div className="text-xs text-slate-500 mt-0.5">Derebail, Surathkal & Mobile van</div>
+          <div className="text-xs text-slate-500 mt-0.5">Derebail Studio & Mangaluru Localities</div>
         </div>
 
         <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-xs">

@@ -53,7 +53,7 @@ export const ContactView: React.FC = () => {
             Contact & Find Coastal Tails
           </h1>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Visit our calming studio in Derebail or book our Coastal Tails GO mobile doorstep grooming van anywhere in Mangaluru.
+            Visit our calming pet grooming studio in Derebail, Mangaluru, or connect directly on WhatsApp for appointments and store orders.
           </p>
         </div>
 
@@ -175,7 +175,7 @@ export const ContactView: React.FC = () => {
                     className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-medium text-slate-700 focus:ring-2 focus:ring-[#0D6E6E] focus:outline-none bg-slate-50/50"
                   >
                     <option value="Studio Grooming Appointment">Studio Grooming Appointment</option>
-                    <option value="Mobile Van Doorstep Service">Mobile Van Doorstep Service</option>
+                    <option value="Luxury Pet Spa & Mud Bath">Luxury Pet Spa & Mud Bath</option>
                     <option value="Cat Grooming & Care">Cat Grooming & Care</option>
                     <option value="Pet Food & Nutrition Order">Pet Food & Nutrition Order</option>
                     <option value="General Question">General Question</option>

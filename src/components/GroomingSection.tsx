@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
-import { Sparkles, Clock, Check, HelpCircle, Shield, Truck, Scissors, ArrowRight, Heart } from 'lucide-react';
+import { Sparkles, Clock, Check, HelpCircle, Shield, Store, Navigation, MapPin, Scissors, ArrowRight, Heart } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
 import { useCart } from '../context/CartContext';
 import { PetCategory, DogSize, CatCoatType, GroomingPackage } from '../types';
-import { DOG_SIZES, CAT_COATS, DOG_GROOMING_PACKAGES, CAT_GROOMING_PACKAGES, SPA_ADDONS, MOBILE_GROOMING_INFO } from '../data/groomingData';
+import { DOG_SIZES, CAT_COATS, DOG_GROOMING_PACKAGES, CAT_GROOMING_PACKAGES, SPA_ADDONS } from '../data/groomingData';
 import { petSounds } from '../utils/petSounds';
 
 export const GroomingSection: React.FC = () => {
@@ -30,11 +30,11 @@ export const GroomingSection: React.FC = () => {
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Choose the grooming experience that best suits your pet. Services are tailored to breed, coat condition, size and individual grooming needs with both studio and doorstep mobile options.
+            Choose the grooming experience that best suits your pet. Services are tailored to breed, coat condition, size and individual grooming needs with private 1-on-1 studio suites in Derebail.
           </p>
         </div>
 
-        {/* Category Switcher Tabs (Dogs, Cats, Grooming Add-ons, Mobile Grooming) */}
+        {/* Category Switcher Tabs (Dogs, Cats, Grooming Add-ons, Derebail Studio) */}
         <div id="package-selector-tabs" className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
           <button
             onClick={() => {
@@ -81,17 +81,17 @@ export const GroomingSection: React.FC = () => {
 
           <button
             onClick={() => {
-              setActiveTab('mobile');
+              setActiveTab('studio');
               petSounds.playChime();
             }}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all flex items-center gap-2 cursor-pointer shadow-xs ${
-              activeTab === 'mobile'
+              activeTab === 'studio'
                 ? 'bg-[#08383B] text-white shadow-md shadow-[#08383B]/20 scale-105'
                 : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200'
             }`}
           >
-            <Truck className="w-4 h-4 text-[#0D6E6E]" />
-            <span>Coastal Tails GO (Mobile)</span>
+            <Store className="w-4 h-4 text-[#2DD4BF]" />
+            <span>Derebail Studio Hub</span>
           </button>
         </div>
 
@@ -364,54 +364,74 @@ export const GroomingSection: React.FC = () => {
           </div>
         )}
 
-        {/* View 4: Mobile Doorstep Grooming */}
-        {activeTab === 'mobile' && (
+        {/* View 4: Derebail Studio Experience */}
+        {activeTab === 'studio' && (
           <div className="animate-fadeIn bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-lg">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7 space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E6F7F6] text-[#0D6E6E] text-xs font-bold">
-                  <Truck className="w-3.5 h-3.5" />
-                  <span>DOORSTEP CONVENIENCE IN MANGALURU</span>
+                  <Store className="w-3.5 h-3.5" />
+                  <span>DEREBAIL GROOMING STUDIO & PET SPA</span>
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#08383B] font-['Outfit']">
-                  {MOBILE_GROOMING_INFO.title}
+                  Coastal Tails Derebail Grooming Studio
                 </h3>
 
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  {MOBILE_GROOMING_INFO.description}
+                  Step into Mangaluru’s calming, cage-free grooming sanctuary at Dwaraka Enclave, Derebail. Designed specifically for low-stress pet care with private sound-insulated suites, warm RO hydrotherapy tubs, zero stressful cages, and a comfortable pet-parent viewing lounge.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                  {MOBILE_GROOMING_INFO.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                      <Check className="w-4 h-4 text-[#0D6E6E] shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                    <Check className="w-4 h-4 text-[#0D6E6E] shrink-0" />
+                    <span>100% 1-on-1 Dedicated Stylist Attention</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                    <Check className="w-4 h-4 text-[#0D6E6E] shrink-0" />
+                    <span>Strict Zero-Cage Policy & Gentle Care</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                    <Check className="w-4 h-4 text-[#0D6E6E] shrink-0" />
+                    <span>Pure RO Warm Water Hydro-Baths</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                    <Check className="w-4 h-4 text-[#0D6E6E] shrink-0" />
+                    <span>Free Reserved Storefront Parking</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                    <Check className="w-4 h-4 text-[#0D6E6E] shrink-0" />
+                    <span>UV-C Sanitization Between Every Pet</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                    <Check className="w-4 h-4 text-[#0D6E6E] shrink-0" />
+                    <span>Observation Lounge with Free Coffee</span>
+                  </div>
                 </div>
 
-                <div className="pt-3">
-                  <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                    Key Mangaluru Coverage Areas:
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {MOBILE_GROOMING_INFO.coverageAreas.map((area, idx) => (
-                      <span key={idx} className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">
-                        📍 {area}
-                      </span>
-                    ))}
-                  </div>
+                <div className="pt-2 text-xs text-slate-600">
+                  <span className="font-bold text-[#08383B]">📍 Address: </span>
+                  <span>Shop No: B2, Dwaraka Enclave, Bejai-Kavoor Road, Derebail, Mangaluru (Open 7 Days • 9:30 AM – 9:30 PM)</span>
                 </div>
 
                 <div className="pt-4 flex flex-col sm:flex-row gap-3">
                   <button
-                    onClick={() => openGroomingEnquiry(undefined, 'doorstep')}
+                    onClick={() => openGroomingEnquiry(undefined, 'studio')}
                     className="px-6 py-3.5 rounded-2xl bg-[#0D6E6E] hover:bg-[#08383B] text-white font-extrabold text-sm shadow-md flex items-center justify-center gap-2.5 cursor-pointer"
                   >
                     <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-                    <span>Check Mobile Van Availability (Ask for Price)</span>
+                    <span>Book Studio Appointment (Ask for Price)</span>
                   </button>
+
+                  <a
+                    href="https://share.google/Eh5iR7YSfNaqCIG1x"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm flex items-center justify-center gap-2"
+                  >
+                    <Navigation className="w-4 h-4 text-[#0D6E6E]" />
+                    <span>Directions to Studio</span>
+                  </a>
                 </div>
               </div>
 
@@ -419,7 +439,7 @@ export const GroomingSection: React.FC = () => {
                 <div className="relative rounded-2xl overflow-hidden border border-slate-100 shadow-md">
                   <ImageWithFallback
                     src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee"
-                    alt="Coastal Tails Mobile Grooming Van"
+                    alt="Coastal Tails Derebail Grooming Studio"
                     className="w-full h-72 object-cover"
                     optimizeWidth={800}
                     loading="lazy"
@@ -430,10 +450,10 @@ export const GroomingSection: React.FC = () => {
                   <div className="p-4 bg-[#08383B] text-white text-xs space-y-1">
                     <div className="font-bold flex items-center gap-1.5">
                       <Sparkles className="w-4 h-4 text-[#2DD4BF]" />
-                      <span>100% Sanitized & Temperature Controlled</span>
+                      <span>Calm, Cage-Free Boutique Grooming Sanctuary</span>
                     </div>
                     <p className="text-slate-300 text-[11px]">
-                      We bring warm water hydrobath & electric lift table right to your apartment gate or bungalow driveway.
+                      Dwaraka Enclave, Derebail • 1-on-1 private appointments with dedicated reserved customer parking.
                     </p>
                   </div>
                 </div>
